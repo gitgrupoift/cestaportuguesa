@@ -1,0 +1,11 @@
+<wpml-config>
+	<admin-texts>
+		<key name="hd_wc_ie_plus_*_email_subject"/>
+		<key name="hd_wc_ie_plus_*_email_heading"/>
+		<key name="hd_wc_ie_plus_*_email_body"/>
+		<key name="hd_wc_ie_plus_cancellation_reason_invoices"/>
+		<key name="hd_wc_ie_plus_refund_automatic_message"/>
+		<key name="hd_wc_ie_plus_cancellation_reason_transport_guides"/>
+		<key name="hd_wc_ie_plus_cancellation_reason_devolution_guides"/>
+	</admin-texts>
+</wpml-config>

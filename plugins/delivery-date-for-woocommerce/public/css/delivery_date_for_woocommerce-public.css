@@ -1,0 +1,9 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+ 
+.ddfwCalander:before { content: ''; background: url(../css/img/calendar.svg); position: absolute; left: 6px; top: 13px; width: 26px; height: 26px; background-repeat: no-repeat;z-index: 999; }
+span.woocommerce-input-wrapper.ddfwCalander { position: relative; }
+input#datepicker { padding-left: 40px; }
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight { color: #fff !important;}

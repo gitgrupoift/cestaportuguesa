@@ -1,0 +1,2251 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Invoicing with InvoiceXpress for WooCommerce - Pro\n"
+"Report-Msgid-Bugs-To: Webdados\n"
+"POT-Creation-Date: 2020-04-08 11:23+0100\n"
+"PO-Revision-Date: 2020-04-08 11:24+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_PT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.3\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: woocommerce-billing-invoicexpress.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+"X-Poedit-SearchPathExcluded-2: assets\n"
+"X-Poedit-SearchPathExcluded-3: *.json\n"
+"X-Poedit-SearchPathExcluded-4: *.lock\n"
+
+#: src/Activator.php:27
+msgid "cURL is required."
+msgstr "cURL é obrigatório."
+
+#: src/Activator.php:32
+msgid "Requires WooCommerce 3.0.0 or above."
+msgstr "Requer WooCommerce 3.0.0 ou superior."
+
+#: src/Activator.php:41
+#, php-format
+msgid "%s disabled the Free version."
+msgstr "%s desactivou a versão Gratuita."
+
+#: src/BaseController.php:438 src/BaseController.php:558
+#: src/BaseController.php:623
+#, php-format
+msgid "Download %1$s %2$s (%3$s): %4$s."
+msgstr "Descarregar %1$s %2$s (%3$s): %4$s."
+
+#: src/BaseController.php:441 src/BaseController.php:561
+#: src/BaseController.php:626
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:68
+#: src/Modules/Invoice/InvoiceController.php:376
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:59
+#: src/Modules/Payment/PaymentController.php:77
+#: src/Modules/Proforma/ProformaController.php:58
+#: src/Modules/Quote/QuoteController.php:59
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:59
+#: src/Modules/TransportGuide/TransportGuideController.php:85
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:76
+#: src/Pro/OrderActions.php:129 src/Pro/OrderActions.php:146
+#: src/Pro/OrderActions.php:163
+msgid "PDF"
+msgstr "PDF"
+
+#: src/BaseController.php:445 src/BaseController.php:455
+#: src/BaseController.php:500 src/BaseController.php:565
+#: src/BaseController.php:575 src/BaseController.php:630
+#: src/BaseController.php:657 src/BaseController.php:682
+#: src/Modules/TransportGuide/TransportGuideController.php:692
+msgid "click here"
+msgstr "clique aqui"
+
+#: src/BaseController.php:450 src/BaseController.php:495
+#: src/BaseController.php:570 src/BaseController.php:652
+#: src/BaseController.php:677
+#, php-format
+msgid "Problem accessing the %1$s PDF? Download again: %2$s."
+msgstr "Dificuldade em aceder ao PDF do(a) %1$s? Descarregue de novo: %2$s."
+
+#: src/BaseController.php:644 src/BaseController.php:673
+msgid "InvoiceXpress error while getting PDF"
+msgstr "Erro do InvoiceXpress a obter o PDF"
+
+#: src/BaseController.php:647
+#, php-format
+msgid ""
+"The %s PDF wasn't created due to InvoiceXpress service being temporarily "
+"down."
+msgstr ""
+"O PDF do(a) %s não foi criado devido ao InvoiceXpress estar temporariamente "
+"indisponível."
+
+#: src/BaseController.php:668
+#: src/Modules/CancelDocuments/CancelDocumentsController.php:123
+#: src/Modules/CreditNote/CreditNoteController.php:370
+#: src/Modules/CreditNote/CreditNoteController.php:422
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:253
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:318
+#: src/Modules/Invoice/InvoiceController.php:235
+#: src/Modules/Invoice/InvoiceController.php:280
+#: src/Modules/Invoice/InvoiceController.php:297
+#: src/Modules/Invoice/InvoiceController.php:548
+#: src/Modules/Invoice/InvoiceController.php:613
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:230
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:295
+#: src/Modules/Payment/PaymentController.php:168
+#: src/Modules/Proforma/ProformaController.php:184
+#: src/Modules/Proforma/ProformaController.php:248
+#: src/Modules/Quote/QuoteController.php:186
+#: src/Modules/Quote/QuoteController.php:250
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:232
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:297
+#: src/Modules/TransportGuide/TransportGuideController.php:291
+#: src/Modules/TransportGuide/TransportGuideController.php:356
+#: src/Modules/TransportGuide/TransportGuideController.php:604
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:271
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:336
+#: src/Pro/OrderActions.php:333 src/ReDownloadPDF.php:35
+msgid "Code"
+msgstr "Código"
+
+#: src/BaseController.php:669 src/BaseController.php:1066
+#: src/Modules/CancelDocuments/CancelDocumentsController.php:124
+#: src/Modules/CreditNote/CreditNoteController.php:371
+#: src/Modules/CreditNote/CreditNoteController.php:423
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:254
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:319
+#: src/Modules/Invoice/InvoiceController.php:236
+#: src/Modules/Invoice/InvoiceController.php:281
+#: src/Modules/Invoice/InvoiceController.php:298
+#: src/Modules/Invoice/InvoiceController.php:549
+#: src/Modules/Invoice/InvoiceController.php:614
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:231
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:296
+#: src/Modules/Payment/PaymentController.php:169
+#: src/Modules/Proforma/ProformaController.php:185
+#: src/Modules/Proforma/ProformaController.php:249
+#: src/Modules/Quote/QuoteController.php:187
+#: src/Modules/Quote/QuoteController.php:251
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:233
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:298
+#: src/Modules/TransportGuide/TransportGuideController.php:292
+#: src/Modules/TransportGuide/TransportGuideController.php:357
+#: src/Modules/TransportGuide/TransportGuideController.php:605
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:272
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:337
+#: src/Pro/OrderActions.php:334 src/ReDownloadPDF.php:36
+msgid "Message"
+msgstr "Mensagem"
+
+#: src/BaseController.php:915
+#: src/Modules/CancelDocuments/CancelDocumentsController.php:128
+#: src/Modules/CreditNote/CreditNoteController.php:107
+#: src/Modules/CreditNote/CreditNoteController.php:121
+#: src/Modules/CreditNote/CreditNoteController.php:358
+#: src/Modules/CreditNote/CreditNoteController.php:375
+#: src/Modules/CreditNote/CreditNoteController.php:427
+#: src/Modules/CreditNote/CreditNoteController.php:506
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:116
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:239
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:258
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:323
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:386
+#: src/Modules/Invoice/InvoiceController.php:240
+#: src/Modules/Invoice/InvoiceController.php:285
+#: src/Modules/Invoice/InvoiceController.php:302
+#: src/Modules/Invoice/InvoiceController.php:465
+#: src/Modules/Invoice/InvoiceController.php:534
+#: src/Modules/Invoice/InvoiceController.php:553
+#: src/Modules/Invoice/InvoiceController.php:618
+#: src/Modules/Invoice/InvoiceController.php:681
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:146
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:216
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:235
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:300
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:363
+#: src/Modules/Payment/PaymentController.php:130
+#: src/Modules/Payment/PaymentController.php:149
+#: src/Modules/Payment/PaymentController.php:173
+#: src/Modules/Proforma/ProformaController.php:100
+#: src/Modules/Proforma/ProformaController.php:170
+#: src/Modules/Proforma/ProformaController.php:189
+#: src/Modules/Proforma/ProformaController.php:253
+#: src/Modules/Proforma/ProformaController.php:316
+#: src/Modules/Quote/QuoteController.php:102
+#: src/Modules/Quote/QuoteController.php:172
+#: src/Modules/Quote/QuoteController.php:191
+#: src/Modules/Quote/QuoteController.php:255
+#: src/Modules/Quote/QuoteController.php:318
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:148
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:218
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:237
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:302
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:365
+#: src/Modules/TransportGuide/TransportGuideController.php:154
+#: src/Modules/TransportGuide/TransportGuideController.php:277
+#: src/Modules/TransportGuide/TransportGuideController.php:296
+#: src/Modules/TransportGuide/TransportGuideController.php:361
+#: src/Modules/TransportGuide/TransportGuideController.php:429
+#: src/Modules/TransportGuide/TransportGuideController.php:590
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:165
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:187
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:257
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:276
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:341
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:404
+#: src/ReDownloadPDF.php:40
+msgid "InvoiceXpress error"
+msgstr "Erro do InvoiceXpress"
+
+#: src/BaseController.php:918
+#, php-format
+msgid "An error occured while sending the %s email"
+msgstr "Ocorreu um erro ao enviar o email de %s"
+
+#: src/BaseController.php:949
+#, php-format
+msgid "Order #%s failed to issue automatic document:"
+msgstr "Encomenda #%s falhou a emissão do documento automático:"
+
+#: src/BaseController.php:1069 src/Modules/Invoice/InvoiceController.php:271
+#, php-format
+msgid ""
+"The document (%s) was created as draft on InvoiceXpress and you should "
+"finalize it there."
+msgstr ""
+"O documento (%s) foi criado como rascunho no InvoiceXpress e deve finalizá-"
+"lo lá."
+
+#: src/BaseController.php:1166
+#, php-format
+msgid "%s not issued"
+msgstr "%s não emitido(a)"
+
+#: src/BaseController.php:1169 src/Modules/Invoice/InvoiceController.php:219
+msgid "Reason unknown"
+msgstr "Razão desconhecida"
+
+#: src/BaseMenu.php:61 src/BaseMenu.php:102
+#, php-format
+msgid "%1$s %2$s - Settings"
+msgstr "%1$s %2$s - Configurações"
+
+#: src/BaseMenu.php:67
+#, php-format
+msgid "InvoiceXpress %s"
+msgstr "InvoiceXpress %s"
+
+#: src/BaseMenu.php:127
+#, php-format
+msgid ""
+"Because you’re using WPML, we highly recommend that you %1$sset your WP-"
+"Admin language%2$s to the default WPML language, when setting up Invoicing "
+"with InvoiceXpress for WooCommerce."
+msgstr ""
+"Porque está a usar o WPML, aconselhamos vivamente que %1$sdefina o idioma do "
+"WP-Admin%2$s para o idioma por omissão do WPML, ao configurar o “Invoicing "
+"with InvoiceXpress for WooCommerce”."
+
+#: src/BaseMenu.php:135
+#, php-format
+msgid "Current WP-Admin language: %s"
+msgstr "Idioma actual do WP-Admin: %s"
+
+#: src/BaseMenu.php:144
+#, php-format
+msgid "Default WPML language: %s"
+msgstr "Idioma por omissão no WPML: %s"
+
+#: src/BaseMenu.php:324
+msgid "Commercial InvoiceXpress information:"
+msgstr "Informação comercial do InvoiceXpress:"
+
+#: src/BaseMenu.php:333
+msgid "WordPress/WooCommerce development:"
+msgstr "Desenvolvimento WordPress/WooCommerce:"
+
+#: src/BaseMenu.php:342
+msgid "Useful links:"
+msgstr "Links úteis:"
+
+#: src/BaseMenu.php:347
+msgid "Buy Pro version"
+msgstr "Comprar versão Pro"
+
+#: src/BaseMenu.php:348
+msgid ""
+"https://shop.webdados.com/product/invoicing-with-invoicexpress-for-"
+"woocommerce-pro/"
+msgstr ""
+"https://shop.webdados.com/product/invoicing-with-invoicexpress-for-"
+"woocommerce-pro/"
+
+#: src/BaseMenu.php:351
+msgid "Get an InvoiceXpress free trial"
+msgstr "Experimente o InvoiceXpress gratuitamente"
+
+#: src/BaseMenu.php:355
+msgid "Pro plugin website"
+msgstr "Website do plugin Pro"
+
+#: src/BaseMenu.php:356
+msgid "https://invoicewoo.com"
+msgstr "https://invoicewoo.com"
+
+#: src/BaseMenu.php:359
+msgid "Free plugin on WordPress.org"
+msgstr "Plugin gratuito no WordPress.org"
+
+#: src/BaseMenu.php:360
+msgid "https://wordpress.org/plugins/woo-billing-with-invoicexpress/"
+msgstr "https://pt.wordpress.org/plugins/woo-billing-with-invoicexpress/"
+
+#: src/BaseMenu.php:363 src/BaseMenu.php:451
+msgid "Documentation"
+msgstr "Documentação"
+
+#: src/BaseMenu.php:364
+msgid "https://invoicewoo.com/documentation/"
+msgstr "https://invoicewoo.com/pt-pt/documentacao/"
+
+#: src/BaseMenu.php:367
+msgid "Pro plugin technical support"
+msgstr "Suporte técnico ao plugin Pro"
+
+#: src/BaseMenu.php:368
+msgid "https://invoicewoo.com/documentation/requesting-technical-support/"
+msgstr "https://invoicewoo.com/pt-pt/documentacao/solicitar-suporte-tecnico/"
+
+#: src/BaseMenu.php:371
+msgid "Free plugin support forum"
+msgstr "Fórum de suporte ao plugin gratuito"
+
+#: src/BaseMenu.php:372
+msgid "https://wordpress.org/support/plugin/woo-billing-with-invoicexpress"
+msgstr "https://wordpress.org/support/plugin/woo-billing-with-invoicexpress"
+
+#: src/BaseMenu.php:446
+msgid "Settings"
+msgstr "Configurações"
+
+#: src/BaseMenu.php:450
+msgctxt "Documentation URL"
+msgid "https://invoicewoo.com/documentation/"
+msgstr "https://invoicewoo.com/pt-pt/documentacao/"
+
+#: src/BaseSettings.php:78
+msgid ""
+"You can use the <code>{site_title}</code>, <code>{order_date}</code>, "
+"<code>{order_number}</code>, and <code>{customer_name}</code> placeholders"
+msgstr ""
+"Pode usar as variáveis <code>{site_title}</code>, <code>{order_date}</code>, "
+"<code>{order_number}</code>, e <code>{customer_name}</code>"
+
+#: src/BaseSettings.php:301
+#, php-format
+msgid "probably \"%s\""
+msgstr "provavelmente \"%s\""
+
+#: src/BaseSettings.php:445
+msgid "Translate with WPML String Translation"
+msgstr "Traduza com o WPML String Translation"
+
+#: src/BaseSettings.php:446
+msgid "Translate"
+msgstr "Traduzir"
+
+#: src/BaseSettings.php:666
+msgid "None (InvoiceXpress default)"
+msgstr "Nenhuma (por omissão no InvoiceXpress)"
+
+#: src/BaseSettings.php:734 src/BaseSettings.php:820
+#: src/Modules/Sequence/SequenceController.php:101
+msgid "None"
+msgstr "Nenhum"
+
+#: src/BaseSettings.php:793
+msgid "Immediately after the invoice"
+msgstr "Imediatamente depois da factura"
+
+#: src/BaseSettings.php:802 src/Settings/Tabs/General.php:137
+#: src/Settings/Tabs/General.php:152
+msgid "Not recommended"
+msgstr "Não recomendado"
+
+#: src/LicenseManager/License.php:118
+#, php-format
+msgid "There was a problem connecting to %s."
+msgstr "Houve um problema de ligação a %s."
+
+#: src/LicenseManager/Updater.php:162
+msgid "An error occurred while trying to identify the plugin."
+msgstr "Ocorreu um erro ao tentar identificar o plugin."
+
+#: src/LicenseManager/Updater.php:162 src/LicenseManager/Updater.php:169
+msgid "Try again"
+msgstr "Tente novamente"
+
+#: src/LicenseManager/Updater.php:169
+msgid "An Unexpected HTTP Error occurred during the API request."
+msgstr "Ocorreu um erro de HTTP inesperado durante o pedido da API."
+
+#: src/LicenseManager/Updater.php:264
+msgid "Update available"
+msgstr "Actualização disponível"
+
+#: src/LicenseManager/Updater.php:266
+msgid "Plugin up to date"
+msgstr "Plugin actualizado"
+
+#: src/LicenseManager/Updater.php:269 src/LicenseManager/Updater.php:275
+#: src/LicenseManager/Updater.php:279
+msgid "Unable to get update information"
+msgstr "Não foi possível obter informações de actualização"
+
+#: src/Menu/Menu.php:74
+msgid "Invalid licence key."
+msgstr "Chave de licenciamento inválida."
+
+#: src/Menu/Menu.php:95
+#, php-format
+msgid "%1$s is inactive, please enter your %2$sLicense Key%3$s"
+msgstr ""
+"%1$s está inactivo, por favor insira a sua %2$sChave de licenciamento%3$s"
+
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:189
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:258
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:285
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:310
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:476
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:489
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:502
+msgid "InvoiceXpress warning"
+msgstr "Aviso do InvoiceXpress"
+
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:192
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:261
+#, php-format
+msgid "This automatic %s was not created because the order is tax exempt"
+msgstr "A %s automática não foi criada porque não tem valor"
+
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:193
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:199
+#: src/Modules/CancelDocuments/CancelDocumentsController.php:249
+#: src/Modules/TransportGuide/TransportGuideController.php:83
+#: src/Modules/TransportGuide/TransportGuideController.php:281
+#: src/Modules/TransportGuide/TransportGuideController.php:332
+#: src/Modules/TransportGuide/TransportGuideController.php:341
+#: src/Modules/TransportGuide/TransportGuideController.php:382
+#: src/Modules/TransportGuide/TransportGuideController.php:400
+#: src/Modules/TransportGuide/TransportGuideController.php:433
+#: src/Modules/TransportGuide/TransportGuideController.php:485
+#: src/Modules/TransportGuide/TransportGuideController.php:519
+#: src/Modules/TransportGuide/TransportGuideController.php:594
+#: src/Modules/TransportGuide/TransportGuideController.php:640
+#: src/Modules/TransportGuide/TransportGuideController.php:651
+#: src/Modules/TransportGuide/TransportGuideController.php:688
+#: src/Plugin.php:58 src/Pro/DocumentsScheduler.php:66
+#: src/Settings/Tabs/Guides.php:36 src/Settings/Tabs/Guides.php:50
+#: src/Settings/Tabs/Guides.php:55 src/Settings/Tabs/Guides.php:65
+#: src/Settings/Tabs/Guides.php:70 src/Settings/Tabs/Guides.php:82
+#: src/Settings/Tabs/Guides.php:89 src/Settings/Tabs/Guides.php:100
+#: src/Settings/Tabs/Guides.php:107 src/Settings/Tabs/Guides.php:118
+#: src/Settings/Tabs/Guides.php:129 src/Settings/Tabs/Guides.php:211
+#: src/Settings/Tabs/Guides.php:222
+msgid "Delivery note"
+msgstr "Guia de transporte"
+
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:262
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:268
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:291
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:316
+#: src/Modules/CancelDocuments/CancelDocumentsController.php:216
+#: src/Modules/Invoice/InvoiceController.php:268
+#: src/Modules/Invoice/InvoiceController.php:272
+#: src/Modules/Invoice/InvoiceController.php:328
+#: src/Modules/Invoice/InvoiceController.php:374
+#: src/Modules/Invoice/InvoiceController.php:538
+#: src/Modules/Invoice/InvoiceController.php:589
+#: src/Modules/Invoice/InvoiceController.php:598
+#: src/Modules/Invoice/InvoiceController.php:639
+#: src/Modules/Invoice/InvoiceController.php:657
+#: src/Modules/Invoice/InvoiceController.php:685 src/Plugin.php:51
+#: src/Pro/DocumentsScheduler.php:71 src/Pro/OrderActions.php:127
+#: src/Settings/Tabs/Invoices.php:26 src/Settings/Tabs/Invoices.php:52
+#: src/Settings/Tabs/Invoices.php:67 src/Settings/Tabs/Invoices.php:89
+#: src/Settings/Tabs/Invoices.php:94 src/Settings/Tabs/Invoices.php:104
+#: src/Settings/Tabs/Invoices.php:111 src/Settings/Tabs/Invoices.php:122
+#: src/Settings/Tabs/Invoices.php:129 src/Settings/Tabs/Invoices.php:140
+#: src/Settings/Tabs/Invoices.php:151
+msgid "Invoice"
+msgstr "Factura"
+
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:286
+msgid "This automatic invoice was not created because it has no value"
+msgstr "A factura automática não foi criada porque não tem valor"
+
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:311
+msgid ""
+"This automatic invoice was not created, or will not be created, because "
+"there is no exemption motive – and it needs one"
+msgstr ""
+"A factura automática não foi criada, ou não será criada, porque não existe "
+"um motivo para a isenção – e é obrigatório"
+
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:458
+#: src/Modules/Invoice/InvoiceController.php:684
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:366
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:368
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:407
+#, php-format
+msgid ""
+"The %s wasn't created because this order already has an invoice type "
+"document or one is scheduled to be issued."
+msgstr ""
+"A %s não foi criada porque esta encomenda já tem um documento de facturação "
+"emitido ou agendado para emissão."
+
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:477
+#, php-format
+msgid "Order #%d is tax exempt"
+msgstr "A encomenda #%d é isenta de imposto"
+
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:480
+msgid "Order is tax exempt"
+msgstr "A encomenda #%d é isenta de imposto"
+
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:482
+#, php-format
+msgid "Order #%d needs to have VAT in order to issue an automatic %s."
+msgstr "A encomenda #%d necessita ter IVA para emitir uma %s automática."
+
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:490
+#, php-format
+msgid "Order #%d needs tax exemption motive"
+msgstr "A encomenda #%d necessita de um motivo para a isenção de imposto"
+
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:493
+msgid "Order needs tax exemption motive"
+msgstr "A encomenda necessita de um motivo para a isenção de imposto"
+
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:495
+#, php-format
+msgid "Order #%d needs tax exemption motive in order to issue an automatic %s."
+msgstr ""
+"A encomenda #%d necessita um motivo de isenção de IVA para emitir uma %s "
+"automática."
+
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:503
+#, php-format
+msgid "Order #%d has no value"
+msgstr "A encomenda #%d não tem valor"
+
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:506
+msgid "Order has no value"
+msgstr "A encomenda não tem valor"
+
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:508
+#, php-format
+msgid "Order #%d needs to have value in order to issue an automatic %s."
+msgstr "A encomenda #%d necessita ter valor para emitir uma %s automática."
+
+#: src/Modules/AutomaticInvoice/AutomaticInvoiceController.php:557
+#: src/Modules/TransportGuide/TransportGuideController.php:432
+#, php-format
+msgid ""
+"The %s wasn't created because this order already has one or is scheduled to "
+"be issued."
+msgstr ""
+"A %s não foi criada porque esta encomenda já tem uma emitida ou agendada "
+"para emissão."
+
+#: src/Modules/CancelDocuments/CancelDocumentsController.php:88
+#: src/Modules/CancelDocuments/CancelDocumentsController.php:96
+#: src/Modules/CancelDocuments/CancelDocumentsController.php:212
+#: src/Modules/CancelDocuments/CancelDocumentsController.php:245
+#: src/Modules/CancelDocuments/CancelDocumentsController.php:268
+#: src/Modules/CreditNote/CreditNoteController.php:405
+#: src/Modules/CreditNote/CreditNoteController.php:439
+#: src/Modules/CreditNote/CreditNoteController.php:476
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:81
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:299
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:340
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:357
+#: src/Modules/Invoice/InvoiceController.php:69
+#: src/Modules/Invoice/InvoiceController.php:74
+#: src/Modules/Invoice/InvoiceController.php:108
+#: src/Modules/Invoice/InvoiceController.php:413
+#: src/Modules/Invoice/InvoiceController.php:594
+#: src/Modules/Invoice/InvoiceController.php:635
+#: src/Modules/Invoice/InvoiceController.php:652
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:94
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:276
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:317
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:334
+#: src/Modules/Payment/PaymentController.php:100
+#: src/Modules/Payment/PaymentController.php:236
+#: src/Modules/Proforma/ProformaController.php:70
+#: src/Modules/Proforma/ProformaController.php:229
+#: src/Modules/Proforma/ProformaController.php:270
+#: src/Modules/Proforma/ProformaController.php:287
+#: src/Modules/Quote/QuoteController.php:71
+#: src/Modules/Quote/QuoteController.php:231
+#: src/Modules/Quote/QuoteController.php:272
+#: src/Modules/Quote/QuoteController.php:289
+#: src/Modules/Sequence/SequenceController.php:97
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:96
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:278
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:319
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:336
+#: src/Modules/TransportGuide/TransportGuideController.php:112
+#: src/Modules/TransportGuide/TransportGuideController.php:337
+#: src/Modules/TransportGuide/TransportGuideController.php:378
+#: src/Modules/TransportGuide/TransportGuideController.php:395
+#: src/Modules/TransportGuide/TransportGuideController.php:480
+#: src/Modules/TransportGuide/TransportGuideController.php:514
+#: src/Modules/TransportGuide/TransportGuideController.php:647
+#: src/Modules/Vat/VatController.php:218 src/Modules/Vat/VatController.php:236
+#: src/Modules/Vat/VatController.php:436
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:113
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:317
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:358
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:375
+#: src/ReDownloadPDF.php:49 src/Settings/Tabs/General.php:53
+msgid "InvoiceXpress"
+msgstr "InvoiceXpress"
+
+#: src/Modules/CancelDocuments/CancelDocumentsController.php:89
+#: src/Modules/CancelDocuments/CancelDocumentsController.php:97
+msgid "Cancel last document"
+msgstr "Cancelar último documento"
+
+#: src/Modules/CancelDocuments/CancelDocumentsController.php:98
+msgid "and order"
+msgstr "e a encomenda"
+
+#: src/Modules/CancelDocuments/CancelDocumentsController.php:111
+msgid "This order cannot be cancelled since it was already issued a receipt"
+msgstr "Esta encomenda não pode ser cancelada porque já foi emitido um recibo"
+
+#: src/Modules/CancelDocuments/CancelDocumentsController.php:215
+#: src/Modules/CancelDocuments/CancelDocumentsController.php:248
+#: src/Modules/CancelDocuments/CancelDocumentsController.php:271
+#, php-format
+msgid "%s %d cancelled"
+msgstr "%s %d cancelado(a)"
+
+#: src/Modules/CancelDocuments/CancelDocumentsController.php:272
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:66
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:243
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:294
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:303
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:344
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:362
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:390
+#: src/Plugin.php:59 src/Settings/Tabs/Guides.php:265
+msgid "Return delivery note"
+msgstr "Guia de devolução"
+
+#: src/Modules/CreditNote/CreditNoteController.php:108
+msgid "Partial Credit note of an Invoice-receipt not supported"
+msgstr ""
+"Não é suportado emitir uma Nota de crédito parcial de uma Factura-recibo"
+
+#: src/Modules/CreditNote/CreditNoteController.php:122
+msgid "Partial credit note by value is not supported"
+msgstr "Não é suportado emitir uma Nota de crédito parcial por valor"
+
+#: src/Modules/CreditNote/CreditNoteController.php:313
+#: src/Settings/Tabs/Invoices.php:551
+msgid "Refund motive"
+msgstr "Motivo do reembolso"
+
+#: src/Modules/CreditNote/CreditNoteController.php:361
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:242
+#: src/Modules/Invoice/InvoiceController.php:537
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:219
+#: src/Modules/Proforma/ProformaController.php:173
+#: src/Modules/Quote/QuoteController.php:175
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:221
+#: src/Modules/TransportGuide/TransportGuideController.php:280
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:260
+#, php-format
+msgid ""
+"The %s wasn't created due to InvoiceXpress service being temporarily down."
+"<br/>Try generating it again in a few minutes."
+msgstr ""
+"O(a) %s não foi criado(a) devido ao InvoiceXpress estar temporariamente "
+"indisponível.<br/>Tente de novo em alguns minutos."
+
+#: src/Modules/CreditNote/CreditNoteController.php:362
+#: src/Modules/CreditNote/CreditNoteController.php:400
+#: src/Modules/CreditNote/CreditNoteController.php:409
+#: src/Modules/CreditNote/CreditNoteController.php:443
+#: src/Modules/CreditNote/CreditNoteController.php:481 src/Plugin.php:55
+#: src/Settings/Tabs/Invoices.php:450 src/Settings/Tabs/Invoices.php:464
+#: src/Settings/Tabs/Invoices.php:469 src/Settings/Tabs/Invoices.php:479
+#: src/Settings/Tabs/Invoices.php:486 src/Settings/Tabs/Invoices.php:497
+#: src/Settings/Tabs/Invoices.php:504 src/Settings/Tabs/Invoices.php:515
+#: src/Settings/Tabs/Invoices.php:526
+msgid "Credit note"
+msgstr "Nota de crédito"
+
+#: src/Modules/CreditNote/CreditNoteController.php:408
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:302
+#: src/Modules/Invoice/InvoiceController.php:597
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:279
+#: src/Modules/Proforma/ProformaController.php:232
+#: src/Modules/Quote/QuoteController.php:234
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:281
+#: src/Modules/TransportGuide/TransportGuideController.php:340
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:320
+#, php-format
+msgid "Successfully created %s as draft"
+msgstr "%s criado(a) com sucesso como rascunho"
+
+#: src/Modules/CreditNote/CreditNoteController.php:442
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:343
+#: src/Modules/Invoice/InvoiceController.php:638
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:320
+#: src/Modules/Proforma/ProformaController.php:273
+#: src/Modules/Quote/QuoteController.php:275
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:322
+#: src/Modules/TransportGuide/TransportGuideController.php:381
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:361
+#, php-format
+msgid "Successfully finalized %s"
+msgstr "%s finalizado(a) com sucesso"
+
+#: src/Modules/CreditNote/CreditNoteController.php:480
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:361
+#: src/Modules/Invoice/InvoiceController.php:327
+#: src/Modules/Invoice/InvoiceController.php:656
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:338
+#: src/Modules/Payment/PaymentController.php:240
+#: src/Modules/Proforma/ProformaController.php:291
+#: src/Modules/Quote/QuoteController.php:293
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:340
+#: src/Modules/TransportGuide/TransportGuideController.php:399
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:379
+#, php-format
+msgid "Successfully created %1$s %2$s"
+msgstr "%1$s %2$s criado(a) com sucesso"
+
+#: src/Modules/CreditNote/CreditNoteController.php:507
+msgid ""
+"Credit note was not created because order lacks a Receipt or an invoicing "
+"document is scheduled to be issued."
+msgstr ""
+"Não foi criada uma Nota de crédito porque esta encomenda não tem um Recibo "
+"ou um documento de facturação está agendado para emissão."
+
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:65
+#: src/Modules/Invoice/InvoiceController.php:373
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:56
+#: src/Modules/Payment/PaymentController.php:74
+#: src/Modules/Proforma/ProformaController.php:55
+#: src/Modules/Quote/QuoteController.php:56
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:56
+#: src/Modules/TransportGuide/TransportGuideController.php:82
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:73
+#: src/Pro/OrderActions.php:126 src/Pro/OrderActions.php:143
+#: src/Pro/OrderActions.php:160 src/Settings/Tabs/Guides.php:35
+#: src/Settings/Tabs/Guides.php:264 src/Settings/Tabs/Invoices.php:51
+#: src/Settings/Tabs/Invoices.php:66 src/Settings/Tabs/Invoices.php:170
+#: src/Settings/Tabs/Invoices.php:265 src/Settings/Tabs/Invoices.php:354
+#: src/Settings/Tabs/Invoices.php:449 src/Settings/Tabs/Quotes.php:35
+#: src/Settings/Tabs/Quotes.php:130 src/Settings/Tabs/VatMoss.php:51
+#, php-format
+msgid "Issue %s"
+msgstr "Emitir %s"
+
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:117
+#: src/Modules/Invoice/InvoiceController.php:174
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:147
+#: src/Modules/Proforma/ProformaController.php:101
+#: src/Modules/Quote/QuoteController.php:103
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:149
+#: src/Modules/TransportGuide/TransportGuideController.php:155
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:166
+msgid "The VAT number is required"
+msgstr "O NIF é um campo obrigatório"
+
+#: src/Modules/DevolutionGuide/DevolutionGuideController.php:389
+#: src/Modules/Proforma/ProformaController.php:319
+#: src/Modules/Quote/QuoteController.php:321
+#, php-format
+msgid "The %s wasn't created because this order already has one."
+msgstr "O(a) %s não foi criado(a) porque esta encomenda já tem um(a)."
+
+#: src/Modules/Invoice/InvoiceController.php:70
+#: src/Modules/Invoice/InvoiceController.php:75
+msgid "Issue single Invoice from Orders"
+msgstr "Emitir Factura única das Encomendas"
+
+#: src/Modules/Invoice/InvoiceController.php:131
+#: src/Modules/Invoice/InvoiceController.php:132
+msgid "Orders must have same VAT."
+msgstr "As encomendas devem ter o mesmo NIF."
+
+#: src/Modules/Invoice/InvoiceController.php:162
+#, php-format
+msgid ""
+"Order %d already has an invoice document or one is scheduled to be issued."
+msgstr ""
+"A encomenda %d já tem um documento de facturação emitido ou agendado para "
+"emissão."
+
+#: src/Modules/Invoice/InvoiceController.php:218
+msgid "Document not issued"
+msgstr "Documento não emitido"
+
+#: src/Modules/Invoice/InvoiceController.php:466
+#: src/Modules/Vat/VatController.php:330 src/Pro/Vat.php:210
+msgid "VAT is a required field."
+msgstr "NIF é um campo obrigatório."
+
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:57
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:220
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:271
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:280
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:321
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:339
+#: src/Modules/InvoiceReceipt/InvoiceReceiptController.php:367
+#: src/Plugin.php:53 src/Pro/DocumentsScheduler.php:75
+#: src/Settings/Tabs/Invoices.php:28 src/Settings/Tabs/Invoices.php:355
+#: src/Settings/Tabs/Invoices.php:368 src/Settings/Tabs/Invoices.php:373
+#: src/Settings/Tabs/Invoices.php:383 src/Settings/Tabs/Invoices.php:390
+#: src/Settings/Tabs/Invoices.php:401 src/Settings/Tabs/Invoices.php:408
+#: src/Settings/Tabs/Invoices.php:419 src/Settings/Tabs/Invoices.php:430
+msgid "Invoice-receipt"
+msgstr "Factura-recibo"
+
+#: src/Modules/Payment/PaymentController.php:75
+#: src/Modules/Payment/PaymentController.php:241 src/Plugin.php:60
+#: src/Settings/Tabs/Invoices.php:266 src/Settings/Tabs/Invoices.php:275
+#: src/Settings/Tabs/Invoices.php:280 src/Settings/Tabs/Invoices.php:288
+#: src/Settings/Tabs/Invoices.php:295 src/Settings/Tabs/Invoices.php:306
+#: src/Settings/Tabs/Invoices.php:313 src/Settings/Tabs/Invoices.php:324
+#: src/Settings/Tabs/Invoices.php:335
+msgid "Receipt"
+msgstr "Recibo"
+
+#: src/Modules/Payment/PaymentController.php:102
+msgid "Set invoice as paid"
+msgstr "Marcar factura como paga"
+
+#: src/Modules/Payment/PaymentController.php:131
+msgid "There's already a Receipt."
+msgstr "Já existe um Recibo."
+
+#: src/Modules/Payment/PaymentController.php:150
+msgid "There's no invoice to set as paid"
+msgstr "Não existe Factura para marcar como paga"
+
+#: src/Modules/Proforma/ProformaController.php:56
+#: src/Modules/Proforma/ProformaController.php:174
+#: src/Modules/Proforma/ProformaController.php:224
+#: src/Modules/Proforma/ProformaController.php:233
+#: src/Modules/Proforma/ProformaController.php:274
+#: src/Modules/Proforma/ProformaController.php:292
+#: src/Modules/Proforma/ProformaController.php:320 src/Plugin.php:57
+#: src/Settings/Tabs/Quotes.php:131 src/Settings/Tabs/Quotes.php:144
+#: src/Settings/Tabs/Quotes.php:149 src/Settings/Tabs/Quotes.php:159
+#: src/Settings/Tabs/Quotes.php:166 src/Settings/Tabs/Quotes.php:177
+#: src/Settings/Tabs/Quotes.php:184 src/Settings/Tabs/Quotes.php:195
+#: src/Settings/Tabs/Quotes.php:206
+msgid "Proforma"
+msgstr "Proforma"
+
+#: src/Modules/Quote/QuoteController.php:57
+#: src/Modules/Quote/QuoteController.php:176
+#: src/Modules/Quote/QuoteController.php:226
+#: src/Modules/Quote/QuoteController.php:235
+#: src/Modules/Quote/QuoteController.php:276
+#: src/Modules/Quote/QuoteController.php:294
+#: src/Modules/Quote/QuoteController.php:322 src/Plugin.php:56
+#: src/Settings/Tabs/Quotes.php:36 src/Settings/Tabs/Quotes.php:49
+#: src/Settings/Tabs/Quotes.php:54 src/Settings/Tabs/Quotes.php:64
+#: src/Settings/Tabs/Quotes.php:71 src/Settings/Tabs/Quotes.php:82
+#: src/Settings/Tabs/Quotes.php:89 src/Settings/Tabs/Quotes.php:100
+#: src/Settings/Tabs/Quotes.php:111
+msgid "Quote"
+msgstr "Orçamento"
+
+#: src/Modules/Sequence/SequenceController.php:80
+msgid "No invoice sequences available."
+msgstr "Não estão disponíveis séries de facturação."
+
+#: src/Modules/Sequence/SequenceController.php:81
+msgid ""
+"Go to the General InvoiceXpress settings screen to reload the sequences."
+msgstr ""
+"Vá ao ecrã de configurações Geral do InvoiceXpress para recarregar as séries."
+
+#: src/Modules/Sequence/SequenceController.php:97
+msgid "Sequence for documents"
+msgstr "Séries para documentos"
+
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:57
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:222
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:273
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:282
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:323
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:341
+#: src/Modules/SimplifiedInvoice/SimplifiedInvoiceController.php:369
+#: src/Plugin.php:52 src/Pro/DocumentsScheduler.php:73
+#: src/Pro/OrderActions.php:144 src/Settings/Tabs/Invoices.php:27
+#: src/Settings/Tabs/Invoices.php:171 src/Settings/Tabs/Invoices.php:184
+#: src/Settings/Tabs/Invoices.php:189 src/Settings/Tabs/Invoices.php:199
+#: src/Settings/Tabs/Invoices.php:206 src/Settings/Tabs/Invoices.php:217
+#: src/Settings/Tabs/Invoices.php:224 src/Settings/Tabs/Invoices.php:235
+#: src/Settings/Tabs/Invoices.php:246
+msgid "Simplified invoice"
+msgstr "Factura simplificada"
+
+#: src/Modules/Taxes/TaxController.php:88
+msgid "Tax Exemption"
+msgstr "Isenção de imposto"
+
+#: src/Modules/Taxes/TaxController.php:90
+msgid "No Exemption"
+msgstr "Sem isenção"
+
+#: src/Modules/TransportGuide/TransportGuideController.php:484
+#, php-format
+msgid "Loaded at (%s):"
+msgstr "Carga em (%s):"
+
+#: src/Modules/TransportGuide/TransportGuideController.php:518
+#, php-format
+msgid "License plate (%s):"
+msgstr "Matrícula (%s):"
+
+#: src/Modules/TransportGuide/TransportGuideController.php:593
+#, php-format
+msgid ""
+"The %s AT Code wasn\\'t obtained due to InvoiceXpress service being "
+"temporarily down.<br/>Try again in a few minutes."
+msgstr ""
+"O Código AT da %s não foi obtido devido ao InvoiceXpress estar "
+"temporariamente indisponível.<br/>Tente de novo em alguns minutos."
+
+#: src/Modules/TransportGuide/TransportGuideController.php:609
+#: src/Modules/TransportGuide/TransportGuideController.php:667
+msgid "InvoiceXpress error getting AT Code"
+msgstr "Erro do InvoiceXpress a obter o Código AT"
+
+#: src/Modules/TransportGuide/TransportGuideController.php:639
+#, php-format
+msgid "%1$s AT Code: %2$s"
+msgstr "AT Code da %1$s: %2$s"
+
+#: src/Modules/TransportGuide/TransportGuideController.php:650
+#, php-format
+msgid "Successfully fetched %1$s AT Code: %2$s"
+msgstr "Código AT da %1$s obtido com sucesso: %2$s"
+
+#: src/Modules/TransportGuide/TransportGuideController.php:668
+msgid "The AT Code is not available"
+msgstr "O Código AT não está disponível"
+
+#: src/Modules/TransportGuide/TransportGuideController.php:687
+#, php-format
+msgid "Error getting the %1$s AT Code. Try again: %2$s."
+msgstr "Erro ao obter o Código AT da %1$s? Descarregue de novo: %2$s."
+
+#: src/Modules/Vat/VatController.php:162 src/Modules/Vat/VatController.php:193
+#: src/Modules/Vat/VatController.php:218 src/Modules/Vat/VatController.php:236
+#: src/Modules/Vat/VatController.php:272
+msgid "VAT number"
+msgstr "Número de contribuinte (NIF/NIPC)"
+
+#: src/Modules/Vat/VatController.php:221
+msgid "User VAT number"
+msgstr "NIF do utilizador"
+
+#: src/Modules/Vat/VatController.php:281 src/Modules/Vat/VatController.php:320
+msgid "Invalid Portuguese VAT number."
+msgstr "NIF Português inválido."
+
+#: src/Modules/Vat/VatController.php:436
+msgid "Document observations"
+msgstr "Observações do documento"
+
+#: src/Modules/Vat/VatController.php:437
+msgid "Observations to be inserted into InvoiceXpress documents"
+msgstr "Observações a inserir em documentos do InvoiceXpress"
+
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:74
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:261
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:312
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:321
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:362
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:380
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:408
+#: src/Plugin.php:54 src/Pro/DocumentsScheduler.php:77
+#: src/Pro/OrderActions.php:161 src/Settings/Tabs/VatMoss.php:52
+#: src/Settings/Tabs/VatMoss.php:73 src/Settings/Tabs/VatMoss.php:78
+#: src/Settings/Tabs/VatMoss.php:88 src/Settings/Tabs/VatMoss.php:95
+#: src/Settings/Tabs/VatMoss.php:106 src/Settings/Tabs/VatMoss.php:113
+#: src/Settings/Tabs/VatMoss.php:124 src/Settings/Tabs/VatMoss.php:135
+msgid "VAT MOSS invoice"
+msgstr "Factura VAT MOSS"
+
+#: src/Modules/VatMossInvoice/VatMossInvoiceController.php:188
+msgid "The order is not VAT MOSS eligible"
+msgstr "A encomenda não é elegível para VAT MOSS"
+
+#: src/Plugin.php:162
+msgid "Every 5 minutes"
+msgstr "A cada 5 minutos"
+
+#: src/Pro/DocumentsScheduler.php:101
+#, php-format
+msgid "%1$s automatic issuing scheduled to %2$s"
+msgstr "Emissão automática de %1$s agendada %2$s"
+
+#: src/Pro/DocumentsScheduler.php:168
+#, php-format
+msgid "%d second(s)"
+msgstr "%d segundo(s)"
+
+#: src/Pro/DocumentsScheduler.php:171
+#, php-format
+msgid "%d minute(s)"
+msgstr "%d minuto(s)"
+
+#: src/Pro/DocumentsScheduler.php:174
+#, php-format
+msgid "%d hour(s)"
+msgstr "%d hora(s)"
+
+#: src/Pro/DocumentsScheduler.php:182
+#, php-format
+msgid "%d day(s)"
+msgstr "%d dia(s)"
+
+#: src/Pro/OrderActions.php:123 src/Pro/OrderActions.php:140
+#: src/Pro/OrderActions.php:157
+#, php-format
+msgid "%1$s (%2$s) and set as paid"
+msgstr "%1$s (%2$s) e marcar como paga"
+
+#: src/Pro/OrderActions.php:338
+msgid "InvoiceXpress error while sending email"
+msgstr "Erro do InvoiceXpress a enviar email"
+
+#: src/Pro/OrderActions.php:378
+#, php-format
+msgid "Download %1$s %2$s"
+msgstr "Descarregar %1$s %2$s"
+
+#: src/Pro/OrderActions.php:428
+msgid "Billing documents"
+msgstr "Documentos de facturação"
+
+#: src/Pro/Vat.php:189
+msgid "VAT exemption applied (Artigo 14.º do RITI)"
+msgstr "Isenção de IVA aplicada (Artigo 14.º do RITI)"
+
+#: src/ReDownloadPDF.php:53
+#, php-format
+msgid "Successfully downloaded %1$s PDF file"
+msgstr "Descarregado o PDF do(a) %1$s com sucesso"
+
+#: src/ReDownloadPDF.php:74
+msgid "Malformed url."
+msgstr "URL mal formado."
+
+#: src/Settings/Settings.php:36 src/Settings/Settings.php:56
+msgid "Not installed or not active."
+msgstr "Não instalado ou não activo."
+
+#: src/Settings/Settings.php:41 src/Settings/Settings.php:61
+msgid "Installed and active"
+msgstr "Instalado e activo"
+
+#: src/Settings/Settings.php:42 src/Settings/Settings.php:62
+msgid "go to settings"
+msgstr "ir para as configurações"
+
+#: src/Settings/Tabs/API.php:22
+msgid "Plugin licensing"
+msgstr "Licenciamento do plugin"
+
+#: src/Settings/Tabs/API.php:25
+#, php-format
+msgid "To use this plugin you need to get a valid license key %1$shere%2$s."
+msgstr ""
+"Para utilizar este plugin, adquira uma chave de licenciamento válida %1$saqui"
+"%2$s."
+
+#: src/Settings/Tabs/API.php:31
+msgid "License key"
+msgstr "Chave de licenciamento"
+
+#: src/Settings/Tabs/API.php:39
+msgid "Not valid"
+msgstr "Inválida"
+
+#: src/Settings/Tabs/API.php:41 src/Settings/Tabs/API.php:74
+msgid "Licensing and API"
+msgstr "Licenciamento e API"
+
+#: src/Settings/Tabs/API.php:52
+msgid "Valid"
+msgstr "Válida"
+
+#: src/Settings/Tabs/API.php:54
+msgid "Checking for updates"
+msgstr "A verificar actualizações"
+
+#: src/Settings/Tabs/API.php:59
+#, php-format
+msgid "%1$sClick here for technical support%2$s"
+msgstr "%1$sClique aqui para obter suporte técnico%2$s"
+
+#: src/Settings/Tabs/API.php:78
+msgid "InvoiceXpress API"
+msgstr "API do InvoiceXpress"
+
+#: src/Settings/Tabs/API.php:81
+#, php-format
+msgid ""
+"To connect to the InvoiceXpress API you need to get your API details on your "
+"%1$sInvoiceXpress%2$s account &gt; Account &gt; API."
+msgstr ""
+"Para ligar à API do InvoiceXpress necessita obter os detalhes da API na sua "
+"conta no %1$sInvoiceXpress%2$s &gt; Conta &gt; API."
+
+#: src/Settings/Tabs/API.php:87
+msgid "Subdomain"
+msgstr "Subdomínio"
+
+#: src/Settings/Tabs/API.php:89 src/Settings/Tabs/API.php:98
+#, php-format
+msgid "%s on InvoiceXpress"
+msgstr "%s no InvoiceXpress"
+
+#: src/Settings/Tabs/API.php:96
+msgid "API key"
+msgstr "Chave da API"
+
+#: src/Settings/Tabs/General.php:26
+msgid "General"
+msgstr "Geral"
+
+#: src/Settings/Tabs/General.php:29
+msgid "Document sequences"
+msgstr "Séries de documentos"
+
+#: src/Settings/Tabs/General.php:33
+msgid "Default sequence"
+msgstr "Série por omissão"
+
+#: src/Settings/Tabs/General.php:34
+msgid "Sequence to use, by default, when generating documents"
+msgstr "Série a utilizar, por omissão, quando se emitem documentos"
+
+#: src/Settings/Tabs/General.php:38
+msgid "Sequence selection"
+msgstr "Escolha de série"
+
+#: src/Settings/Tabs/General.php:39
+msgid ""
+"Allow sequence selection when generating documents, overriding the default "
+"chosen above"
+msgstr ""
+"Permitir a escolha da série quando se emitem documentos, em vez de utilizar "
+"a definida em cima"
+
+#: src/Settings/Tabs/General.php:45
+msgid "Email and PDF files"
+msgstr "Email e ficheiros PDF"
+
+#: src/Settings/Tabs/General.php:49
+msgid "PDF file method"
+msgstr "Método de ficheiro PDF"
+
+#: src/Settings/Tabs/General.php:52
+msgid "WordPress / WooCommerce"
+msgstr "WordPress / WooCommerce"
+
+#: src/Settings/Tabs/General.php:53 src/Settings/Tabs/General.php:54
+msgid "Experimental"
+msgstr "Experimental"
+
+#: src/Settings/Tabs/General.php:54
+msgid "Hybrid"
+msgstr "Híbrido"
+
+#: src/Settings/Tabs/General.php:58
+msgid ""
+"WordPress / WooCommerce: the PDF is downloaded to your web server and then "
+"sent to the client, attached, using the WooCommerce email templates and the "
+"WordPress email delivery system (slower, stores the PDF locally)"
+msgstr ""
+"WordPress / WooCommerce: o PDF é descarregado para o seu servidor e enviado, "
+"em anexo, para o cliente utilizando o modelo de email do WooCommerce e o "
+"sistema de envio e email do WordPress (mais lento, armazena o PDF localmente)"
+
+#: src/Settings/Tabs/General.php:59
+msgid ""
+"InvoiceXpress: the PDF is not downloaded to your web server and is sent to "
+"the client, attached, using the InvoiceXpress email templates and delivery "
+"system (faster, does not store the PDF locally)"
+msgstr ""
+"InvoiceXpress: o PDF não é descarregado para o seu servidor e é enviado ao "
+"cliente, em anexo, utilizando o modelo e sistema de email do InvoiceXpress "
+"(mais rápido, não armazena o PDF localmente)"
+
+#: src/Settings/Tabs/General.php:60
+msgid ""
+"Hybrid: the PDF is not downloaded to your web server and is sent to the "
+"client, as a link, using the WooCommerce email templates and the WordPress "
+"email delivery system (faster, does not store the PDF locally)"
+msgstr ""
+"Híbrido: o PDF não é descarregado para o seu servidor e é enviado para o "
+"cliente, como um link, utilizando o modelo de email do WooCommerce e o "
+"sistema de envio e email do WordPress (mais rápido, não armazena o PDF "
+"localmente)"
+
+#: src/Settings/Tabs/General.php:64
+msgid "Email logo"
+msgstr "Logotipo no email"
+
+#: src/Settings/Tabs/General.php:65
+msgid "Include your InvoiceXpress personalized logo on the email"
+msgstr "Incluir o seu logotipo personalizado no InvoiceXpress no email"
+
+#: src/Settings/Tabs/General.php:66 src/Settings/Tabs/Guides.php:205
+msgid "Will result in an error on trial accounts"
+msgstr "Vai causar um erro em contas de teste"
+
+#: src/Settings/Tabs/General.php:72
+msgid "Bcc all emails to"
+msgstr "Todos os emails em Bcc para"
+
+#: src/Settings/Tabs/General.php:74
+msgid "Type an email address to receive all invoicing documents on Bcc"
+msgstr ""
+"Insira um endereço de email para receber todos os documentos de facturação "
+"em Bcc"
+
+#: src/Settings/Tabs/General.php:79
+msgid "Miscellaneous"
+msgstr "Diversos"
+
+#: src/Settings/Tabs/General.php:83
+msgid "Product code"
+msgstr "Código do produto"
+
+#: src/Settings/Tabs/General.php:84
+msgid "Product field to use when generating the product code on InvoiceXpress"
+msgstr ""
+"Campo do produto a utilizar quando se gera o código do produto no "
+"InvoiceXpress"
+
+#: src/Settings/Tabs/General.php:87
+msgid "SKU (if set, defaults to ID)"
+msgstr "REF (se definido, ou será usado o ID)"
+
+#: src/Settings/Tabs/General.php:88
+msgid "ID"
+msgstr "ID"
+
+#: src/Settings/Tabs/General.php:92
+msgid "Default product unit"
+msgstr "Unidade de produto por omissão"
+
+#: src/Settings/Tabs/General.php:93
+msgid "What does your store sell? This is important for SAF-T reports."
+msgstr ""
+"O que é que a sua loja vende? Isto é importante para os relatórios SAF-T."
+
+#: src/Settings/Tabs/General.php:96 src/Settings/Tabs/General.php:106
+msgid "Product"
+msgstr "Produto"
+
+#: src/Settings/Tabs/General.php:97 src/Settings/Tabs/General.php:105
+msgid "Service"
+msgstr "Serviço"
+
+#: src/Settings/Tabs/General.php:101
+msgid "Virtual product unit"
+msgstr "Unidade de produto virtual"
+
+#: src/Settings/Tabs/General.php:102
+msgid "Product unit for virtual products"
+msgstr "Unidade para produtos virtuais"
+
+#: src/Settings/Tabs/General.php:105
+msgid "Recommended"
+msgstr "Recomendado"
+
+#: src/Settings/Tabs/General.php:110
+msgid "Documents entity"
+msgstr "Entidade dos documentos"
+
+#: src/Settings/Tabs/General.php:111
+msgid ""
+"Customer field to use when setting the documents client name on InvoiceXpress"
+msgstr ""
+"Campo do cliente a utilizar quando se define o nome do cliente do documento "
+"no InvoiceXpress"
+
+#: src/Settings/Tabs/General.php:114
+msgid "Company (if not set defaults to First name + Last name)"
+msgstr ""
+"Empresa (se não estiver definido, por omissão será utilizado o Primeiro nome "
+"+ Último nome)"
+
+#: src/Settings/Tabs/General.php:115
+msgid "First name + Last name"
+msgstr "Primeiro nome + Último nome"
+
+#: src/Settings/Tabs/General.php:119
+msgid "Documents language"
+msgstr "Idioma dos documentos"
+
+#: src/Settings/Tabs/General.php:120
+msgid "The language used to issue documents on InvoiceXpress"
+msgstr "O idioma utilizado na emissão de documentos no InvoiceXpress"
+
+#: src/Settings/Tabs/General.php:123
+msgid "Portuguese"
+msgstr "Português"
+
+#: src/Settings/Tabs/General.php:124
+msgid "English"
+msgstr "Inglês"
+
+#: src/Settings/Tabs/General.php:125
+msgid "Spanish"
+msgstr "Espanhol"
+
+#: src/Settings/Tabs/General.php:129
+msgid "Document cancelation"
+msgstr "Cancelamento de documentos"
+
+#: src/Settings/Tabs/General.php:130
+msgid "Allow cancelation of last document"
+msgstr "Permitir o cancelamento do último documento"
+
+#: src/Settings/Tabs/General.php:131
+msgid ""
+"This feature allows you to cancel the last document created. This is only "
+"valid for documents in the \"final\" state. Already paid invoices must be "
+"refunded in order to cancel the document. You must set cancelation motive "
+"for Invoices and Guides on the corresponding settings tab."
+msgstr ""
+"Esta opção permite cancelar o último documento criado. Isto é válido apenas "
+"para documentos no estado \"final\". As facturas já pagas devem ser "
+"reembolsadas para cancelar o documento. Tem de definir o motivo de "
+"cancelamento para Facturas e Guias na área de configurações correspondente."
+
+#: src/Settings/Tabs/General.php:135
+msgid "Leave documents as Draft"
+msgstr "Deixar documentos como rascunho"
+
+#: src/Settings/Tabs/General.php:136
+msgid "Instead of finishing documents, leave them as Draft"
+msgstr "Em vez de finalizar os documentos, deixá-los como rascunho"
+
+#: src/Settings/Tabs/General.php:137
+msgid ""
+"You'll have to finish the documents on InvoiceXpress and options like "
+"setting documents as paid or sending them via email will not work. Documents "
+"will also not be available to download directly on the website."
+msgstr ""
+"Terá de finalizar os documentos no InvoiceXpress e opções como marcar "
+"documentos como pagos ou envio por email não irão funcionar. Os documentos "
+"também não ficarão disponíveis para descarregar directamente no website."
+
+#: src/Settings/Tabs/General.php:141
+msgid "Automatic document errors"
+msgstr "Erros de documentos automáticos"
+
+#: src/Settings/Tabs/General.php:143
+#, php-format
+msgid "Send automatic documents errors to %s"
+msgstr "Enviar erros de documentos automáticos para %s"
+
+#: src/Settings/Tabs/General.php:144
+msgid "If any kind of automatic issuing of documents is activated"
+msgstr ""
+"Se a emissão de qualquer tipo de documentos automáticos estiver activada"
+
+#: src/Settings/Tabs/General.php:148
+msgid "Update order status"
+msgstr "Actualizar estado da encomenda"
+
+#: src/Settings/Tabs/General.php:149
+msgid "Change order status when issuing documents"
+msgstr "Alterar o estado da encomenda quando se emitem documentos"
+
+#: src/Settings/Tabs/General.php:154
+msgctxt "Documentation URL (Settings, General, Update order status)"
+msgid ""
+"https://invoicewoo.com/documentation/settings/general/"
+"#miscellaneous_update_order_status"
+msgstr ""
+"https://invoicewoo.com/documentation/settings/general/"
+"#miscellaneous_update_order_status"
+
+#: src/Settings/Tabs/General.php:155 src/Settings/Tabs/Taxes.php:39
+msgid "Check the documentation"
+msgstr "Verifique a documentação"
+
+#: src/Settings/Tabs/General.php:157 src/Settings/Tabs/Invoices.php:79
+msgid ""
+"This feature will be discontinued soon and if you disable it you will not be "
+"able to enable it again"
+msgstr ""
+"Esta funcionalidade vai ser descontinuada em breve e se a inactivar não a "
+"vai conseguir activar de novo"
+
+#: src/Settings/Tabs/General.php:162
+msgid "Prevent issuing with non-standard coupons"
+msgstr "Prevenir emissão com cupões desconhecidos"
+
+#: src/Settings/Tabs/General.php:163
+msgid ""
+"Prevent issuing any document if the order contains non-standard WooCommerce "
+"coupon types"
+msgstr ""
+"Prevenir a emissão de qualquer documento se a encomenda contiver tipos de "
+"cupões que não pertençam ao core do WooCommerce"
+
+#: src/Settings/Tabs/General.php:164
+msgid ""
+"Recommended if you use coupons that create a discount on the order total, "
+"like gift certificates, which can cause documents to end up with incorrect "
+"values"
+msgstr ""
+"Recomendado se utiliza cupões que criam um desconto no total da encomenda, "
+"como vales de presente, que podem causar o documento ficar com valores "
+"incorrectos"
+
+#: src/Settings/Tabs/General.php:169
+msgid "Documents on My Account"
+msgstr "Documentos na Minha conta"
+
+#: src/Settings/Tabs/General.php:170
+msgid "List billing documents on My Account &gt; Orders"
+msgstr "Listar os documentos de facturação em Minha conta &gt; Encomendas"
+
+#: src/Settings/Tabs/Guides.php:26
+msgid "Delivery and Return guides"
+msgstr "Guias de Transporte e Devolução"
+
+#: src/Settings/Tabs/Guides.php:29 src/Settings/Tabs/Guides.php:41
+msgid "Delivery notes"
+msgstr "Guias de transporte"
+
+#: src/Settings/Tabs/Guides.php:40 src/Settings/Tabs/Guides.php:269
+#: src/Settings/Tabs/Invoices.php:56 src/Settings/Tabs/Invoices.php:73
+#: src/Settings/Tabs/Invoices.php:175 src/Settings/Tabs/Invoices.php:359
+#: src/Settings/Tabs/Invoices.php:454 src/Settings/Tabs/Quotes.php:40
+#: src/Settings/Tabs/Quotes.php:135 src/Settings/Tabs/VatMoss.php:56
+#, php-format
+msgid "Allow issuing %s"
+msgstr "Permitir emissão de %s"
+
+#: src/Settings/Tabs/Guides.php:49 src/Settings/Tabs/Invoices.php:88
+#: src/Settings/Tabs/Invoices.php:183 src/Settings/Tabs/Invoices.php:274
+#: src/Settings/Tabs/Invoices.php:367 src/Settings/Tabs/Invoices.php:463
+#: src/Settings/Tabs/Quotes.php:48 src/Settings/Tabs/Quotes.php:143
+#: src/Settings/Tabs/VatMoss.php:72
+#, php-format
+msgid "Email %s"
+msgstr "%s por email"
+
+#: src/Settings/Tabs/Guides.php:54
+#, php-format
+msgid "Send %s to a custom email"
+msgstr "Enviar %s para um email personalizado"
+
+#: src/Settings/Tabs/Guides.php:64
+#, php-format
+msgid "%s email address"
+msgstr "Endereço de email para %s"
+
+#: src/Settings/Tabs/Guides.php:69
+#, php-format
+msgid ""
+"Set the email address to sent the %s to (normally you, the warehouse or the "
+"dropshipping supplier)"
+msgstr ""
+"Defina o endereço de email para onde enviar o(a) %s (normalmente você, o "
+"armazém ou o fornecedor de dropshipping)"
+
+#: src/Settings/Tabs/Guides.php:81 src/Settings/Tabs/Invoices.php:103
+#: src/Settings/Tabs/Invoices.php:198 src/Settings/Tabs/Invoices.php:287
+#: src/Settings/Tabs/Invoices.php:382 src/Settings/Tabs/Invoices.php:478
+#: src/Settings/Tabs/Quotes.php:63 src/Settings/Tabs/Quotes.php:158
+#: src/Settings/Tabs/VatMoss.php:87
+#, php-format
+msgid "%s email subject"
+msgstr "Assunto de email de %s"
+
+#: src/Settings/Tabs/Guides.php:88 src/Settings/Tabs/Invoices.php:110
+#: src/Settings/Tabs/Invoices.php:205 src/Settings/Tabs/Invoices.php:294
+#: src/Settings/Tabs/Invoices.php:389 src/Settings/Tabs/Invoices.php:485
+#: src/Settings/Tabs/Quotes.php:70 src/Settings/Tabs/Quotes.php:165
+#: src/Settings/Tabs/VatMoss.php:94
+#, php-format
+msgid "%s for order #{order_number} on {site_title}"
+msgstr "%s da encomenda #{order_number} em {site_title}"
+
+#: src/Settings/Tabs/Guides.php:99 src/Settings/Tabs/Invoices.php:121
+#: src/Settings/Tabs/Invoices.php:216 src/Settings/Tabs/Invoices.php:305
+#: src/Settings/Tabs/Invoices.php:400 src/Settings/Tabs/Invoices.php:496
+#: src/Settings/Tabs/Quotes.php:81 src/Settings/Tabs/Quotes.php:176
+#: src/Settings/Tabs/VatMoss.php:105
+#, php-format
+msgid "%s email heading"
+msgstr "Cabeçalho de email de %s"
+
+#: src/Settings/Tabs/Guides.php:106 src/Settings/Tabs/Invoices.php:128
+#: src/Settings/Tabs/Invoices.php:223 src/Settings/Tabs/Invoices.php:312
+#: src/Settings/Tabs/Invoices.php:407 src/Settings/Tabs/Invoices.php:503
+#: src/Settings/Tabs/Quotes.php:88 src/Settings/Tabs/Quotes.php:183
+#: src/Settings/Tabs/VatMoss.php:112
+#, php-format
+msgid "%s for order #{order_number}"
+msgstr "%s da encomenda #{order_number}"
+
+#: src/Settings/Tabs/Guides.php:117 src/Settings/Tabs/Invoices.php:139
+#: src/Settings/Tabs/Invoices.php:234 src/Settings/Tabs/Invoices.php:323
+#: src/Settings/Tabs/Invoices.php:418 src/Settings/Tabs/Invoices.php:514
+#: src/Settings/Tabs/Quotes.php:99 src/Settings/Tabs/Quotes.php:194
+#: src/Settings/Tabs/VatMoss.php:123
+#, php-format
+msgid "%s email body"
+msgstr "Corpo de email de %s"
+
+#: src/Settings/Tabs/Guides.php:124
+#, php-format
+msgid ""
+"Hi,\n"
+"\n"
+"Please find attached the %s for order #{order_number}, from the customer "
+"{customer_name}, from {order_date} on {site_title}.\n"
+"\n"
+"Thank you."
+msgstr ""
+"Olá,\n"
+"\n"
+"A %s da encomenda #{order_number}, do(a) cliente {customer_name}, de "
+"{order_date} em {site_title} segue em anexo.\n"
+"\n"
+"Obrigado."
+
+#: src/Settings/Tabs/Guides.php:141
+msgid "License plate"
+msgstr "Matrícula"
+
+#: src/Settings/Tabs/Guides.php:142
+msgid "Default vehicle registration plate, if applicable"
+msgstr "Matrícula do veículo por omissão, se aplicável"
+
+#: src/Settings/Tabs/Guides.php:153
+msgid "Load site address"
+msgstr "Morada do local de carga"
+
+#: src/Settings/Tabs/Guides.php:154
+msgid "Address of the warehouse from which goods are dispatched"
+msgstr "Morada do armazém de onde os bens são despachados"
+
+#: src/Settings/Tabs/Guides.php:161
+msgid "Load site postcode"
+msgstr "Código postal do local de carga"
+
+#: src/Settings/Tabs/Guides.php:162
+msgid "Postcode of the warehouse from which goods are dispatched"
+msgstr "Código postal do armazém de onde os bens são despachados"
+
+#: src/Settings/Tabs/Guides.php:173
+msgid "Load site city"
+msgstr "Localidade do local de carga"
+
+#: src/Settings/Tabs/Guides.php:174
+msgid "City of the warehouse from which goods are dispatched"
+msgstr "Localidade do código postal do armazém de onde os bens são despachados"
+
+#: src/Settings/Tabs/Guides.php:185
+msgid "Load site country"
+msgstr "País do local de carga"
+
+#: src/Settings/Tabs/Guides.php:186
+msgid "Country of the warehouse from which goods are dispatched"
+msgstr "País do armazém de onde os bens são despachados"
+
+#: src/Settings/Tabs/Guides.php:192 src/Settings/Tabs/Guides.php:275
+#: src/Settings/Tabs/Invoices.php:543
+msgid "Cancellation motive"
+msgstr "Motivo do cancelamento"
+
+#: src/Settings/Tabs/Guides.php:193
+msgid "Default cancellation motive for Delivery note"
+msgstr "Motivo de cancelamento por omissão para Guia de transporte"
+
+#: src/Settings/Tabs/Guides.php:202
+msgid "Get AT Code"
+msgstr "Obter Código AT"
+
+#: src/Settings/Tabs/Guides.php:206
+msgid ""
+"Do not enable this option unless you absolutely need AT Code for some "
+"integration with 3rd party software"
+msgstr ""
+"Não active esta opção a não ser que necessite absolutamente do Código AT "
+"para alguma integração com outro software"
+
+#: src/Settings/Tabs/Guides.php:210
+#, php-format
+msgid "Save the %s AT Code into a custom field"
+msgstr "Gravar o Código AT da %s num campo personalizado"
+
+#: src/Settings/Tabs/Guides.php:218 src/Settings/Tabs/Invoices.php:582
+msgid "Automatic issuing"
+msgstr "Emissão automática"
+
+#: src/Settings/Tabs/Guides.php:221
+#, php-format
+msgid "Issue %s automatically"
+msgstr "Emitir %s automaticamente"
+
+#: src/Settings/Tabs/Guides.php:231 src/Settings/Tabs/Invoices.php:589
+#, php-format
+msgid "Delayed %1$s via developer hooks - Currently %2$s documents scheduled"
+msgstr ""
+"Atrasado %1$s através de hooks de desenvolvedores - Actualmente %2$s "
+"documentos agendados"
+
+#: src/Settings/Tabs/Guides.php:241 src/Settings/Tabs/Invoices.php:606
+msgid "Not for tax exempt orders"
+msgstr "Não para encomendas isentas de imposto"
+
+#: src/Settings/Tabs/Guides.php:242 src/Settings/Tabs/Invoices.php:607
+msgid "Do not issue the automatic document for orders that have no VAT"
+msgstr "Não emitir documentos automáticos para encomendas sem IVA"
+
+#: src/Settings/Tabs/Guides.php:243 src/Settings/Tabs/Invoices.php:608
+msgid ""
+"Useful if you have several tax exemption motives and want to check if the "
+"correct one is assigned before issuing the document"
+msgstr ""
+"Útil se tiver vários motivos de isenção de imposto e quiser verificar se o "
+"correcto está atribuído antes de emitir o documento"
+
+#: src/Settings/Tabs/Guides.php:249 src/Settings/Tabs/Invoices.php:622
+msgid "Order status"
+msgstr "Estado da encomenda"
+
+#: src/Settings/Tabs/Guides.php:250
+msgid "Order status that will trigger the Delivery note automatic issue"
+msgstr ""
+"Estado da encomenda que origina a emissão automática da Guia de transporte"
+
+#: src/Settings/Tabs/Guides.php:258 src/Settings/Tabs/Guides.php:270
+msgid "Return delivery notes"
+msgstr "Guias de devolução"
+
+#: src/Settings/Tabs/Guides.php:276
+msgid "Default cancellation motive for Return delivery note"
+msgstr "Motivo de cancelamento por omissão para Guia de devolução"
+
+#: src/Settings/Tabs/Guides.php:287
+msgid "General guides settings"
+msgstr "Configurações gerais de guias"
+
+#: src/Settings/Tabs/Guides.php:291
+msgid "Guides without prices"
+msgstr "Guias sem valores"
+
+#: src/Settings/Tabs/Guides.php:292
+msgid "Issue guides without prices"
+msgstr "Emitir guias sem valores"
+
+#: src/Settings/Tabs/Invoices.php:34
+#, php-format
+msgid "%1$s (or %2$s)"
+msgstr "%1$s (ou %2$s)"
+
+#: src/Settings/Tabs/Invoices.php:36 src/Settings/Tabs/VatMoss.php:26
+#: src/Settings/Tabs/VatMoss.php:29
+msgid "VAT MOSS"
+msgstr "VAT MOSS"
+
+#: src/Settings/Tabs/Invoices.php:42
+msgid "Invoices and Credit notes"
+msgstr "Facturas e Notas de crédito"
+
+#: src/Settings/Tabs/Invoices.php:45 src/Settings/Tabs/Invoices.php:57
+msgid "Invoices"
+msgstr "Facturas"
+
+#: src/Settings/Tabs/Invoices.php:69
+msgid "in bulk"
+msgstr "em massa"
+
+#: src/Settings/Tabs/Invoices.php:74
+msgid "one single Invoice for several orders"
+msgstr "uma Factura única para várias encomendas"
+
+#: src/Settings/Tabs/Invoices.php:78
+msgid ""
+"Not recommended unless you frequently get several orders from the same "
+"clients at the same time"
+msgstr ""
+"Não recomendado a não ser que receba frequentemente várias encomendas do "
+"mesmo cliente ao mesmo tempo"
+
+#: src/Settings/Tabs/Invoices.php:93 src/Settings/Tabs/Invoices.php:188
+#: src/Settings/Tabs/Invoices.php:279 src/Settings/Tabs/Invoices.php:372
+#: src/Settings/Tabs/Invoices.php:468 src/Settings/Tabs/Quotes.php:53
+#: src/Settings/Tabs/Quotes.php:148 src/Settings/Tabs/VatMoss.php:77
+#, php-format
+msgid "Send %s to customer by email"
+msgstr "Enviar %s para o cliente por email"
+
+#: src/Settings/Tabs/Invoices.php:146 src/Settings/Tabs/Invoices.php:241
+#: src/Settings/Tabs/Invoices.php:330 src/Settings/Tabs/Invoices.php:425
+#: src/Settings/Tabs/Invoices.php:521 src/Settings/Tabs/Quotes.php:106
+#: src/Settings/Tabs/Quotes.php:201 src/Settings/Tabs/VatMoss.php:130
+#, php-format
+msgid ""
+"Hi {customer_name},\n"
+"\n"
+"Please find attached your %s for order #{order_number} from {order_date} on "
+"{site_title}.\n"
+"\n"
+"Thank you."
+msgstr ""
+"Olá {customer_name},\n"
+"\n"
+"A sua %s da encomenda #{order_number} de {order_date} em {site_title} segue "
+"em anexo.\n"
+"\n"
+"Obrigado."
+
+#: src/Settings/Tabs/Invoices.php:164 src/Settings/Tabs/Invoices.php:176
+msgid "Simplified invoices"
+msgstr "Facturas simplificadas"
+
+#: src/Settings/Tabs/Invoices.php:165
+msgid "Only available for Portuguese InvoiceXpress accounts."
+msgstr "Disponível apenas para contas InvoiceXpress portuguesas."
+
+#: src/Settings/Tabs/Invoices.php:259
+msgid "Receipts"
+msgstr "Recibos"
+
+#: src/Settings/Tabs/Invoices.php:268
+msgid "Allow manually setting Invoices and Simplified invoices as paid"
+msgstr ""
+"Permitir que Facturas e Facturas simplificadas sejam marcadas como pagas de "
+"forma manual"
+
+#: src/Settings/Tabs/Invoices.php:348 src/Settings/Tabs/Invoices.php:360
+msgid "Invoice-receipts"
+msgstr "Facturas-recibo"
+
+#: src/Settings/Tabs/Invoices.php:443 src/Settings/Tabs/Invoices.php:455
+msgid "Credit notes"
+msgstr "Notas de crédito"
+
+#: src/Settings/Tabs/Invoices.php:457
+msgid ""
+"A Credit note will be automatically issued when an order, that already has "
+"an Invoice-receipt or Receipt, is (partially or totally) refunded."
+msgstr ""
+"A Nota de crédito será automaticamente emitida quando uma encomenda, que já "
+"tenha uma Factura-recibo ou Recibo, seja (totalmente ou parcialmente) "
+"reembolsada."
+
+#: src/Settings/Tabs/Invoices.php:539
+msgid "General Invoices and Credit notes settings"
+msgstr "Configurações gerais de Facturas e Notas de crédito"
+
+#: src/Settings/Tabs/Invoices.php:544
+msgid "Default cancellation motive for Invoice and Simplified invoice"
+msgstr "Motivo por omissão para cancelamento de Factura/Factura simplificada"
+
+#: src/Settings/Tabs/Invoices.php:552
+msgid "Default refund motive"
+msgstr "Motivo de reembolso por omissão"
+
+#: src/Settings/Tabs/Invoices.php:557
+msgid "Issue automatic receipt"
+msgstr "Emitir recibo automático"
+
+#: src/Settings/Tabs/Invoices.php:558
+msgid ""
+"Automatically set Invoices and Simplified invoices as paid after issuing"
+msgstr ""
+"Definir automaticamente Facturas e Facturas simplificadas como pagas após "
+"emitidas"
+
+#: src/Settings/Tabs/Invoices.php:561
+msgid "applies to VAT MOSS also"
+msgstr "também se aplica a VAT MOSS"
+
+#: src/Settings/Tabs/Invoices.php:565
+msgid ""
+"For both manual or automatic Invoices - Recommended if you are getting "
+"prepaid, before shipping and issuing the invoice"
+msgstr ""
+"Tanto para facturas manuais como automáticas - Recomendado se o pagamento é "
+"efectuado antes do envio e da emissão da factura"
+
+#: src/Settings/Tabs/Invoices.php:569
+msgid "Automatic receipt trigger"
+msgstr "Despoletar de recibo automático"
+
+#: src/Settings/Tabs/Invoices.php:570
+msgid ""
+"Issue the automatic receipt immediately after the invoice or on a specific "
+"order status?"
+msgstr ""
+"Emitir o recibo automático imediatamente depois da factura ou num estado de "
+"encomenda específico?"
+
+#: src/Settings/Tabs/Invoices.php:578
+msgid "Automatic invoicing"
+msgstr "Facturação automática"
+
+#: src/Settings/Tabs/Invoices.php:583
+msgid "Issue invoicing documents automatically"
+msgstr "Emitir documentos de facturação automaticamente"
+
+#: src/Settings/Tabs/Invoices.php:599
+msgid "Orders with no value"
+msgstr "Encomendas sem valor"
+
+#: src/Settings/Tabs/Invoices.php:600
+msgid "Issue automatic invoicing documents for orders with no value"
+msgstr "Emitir documentos de facturação automáticos para encomendas sem valor"
+
+#: src/Settings/Tabs/Invoices.php:614
+msgid "Document type"
+msgstr "Tipo de documento"
+
+#: src/Settings/Tabs/Invoices.php:615
+msgid ""
+"The invoicing document that should be automatically issued (must be enabled "
+"on the options above)"
+msgstr ""
+"O documento de facturação que deve ser emitido automaticamente (tem de estar "
+"activo nas opções acima)"
+
+#: src/Settings/Tabs/Invoices.php:623
+msgid ""
+"Order status that will trigger the automatic issue of the invoicing document"
+msgstr ""
+"Estado da encomenda que origina a emissão automática do documento de "
+"facturação"
+
+#: src/Settings/Tabs/Quotes.php:26
+msgid "Quotes and Proformas"
+msgstr "Orçamentos e Proformas"
+
+#: src/Settings/Tabs/Quotes.php:29 src/Settings/Tabs/Quotes.php:41
+msgid "Quotes"
+msgstr "Orçamentos"
+
+#: src/Settings/Tabs/Quotes.php:124 src/Settings/Tabs/Quotes.php:136
+msgid "Proformas"
+msgstr "Proformas"
+
+#: src/Settings/Tabs/Taxes.php:26
+msgid "Taxes"
+msgstr "Impostos"
+
+#: src/Settings/Tabs/Taxes.php:29
+msgid "General taxes settings"
+msgstr "Configurações gerais de impostos"
+
+#: src/Settings/Tabs/Taxes.php:32
+#, php-format
+msgid ""
+"Before using the plugin, you have to make sure your %1$sWooCommerce taxes"
+"%2$s are properly configured.%3$s%4$s"
+msgstr ""
+"Antes de utilizar este plugin, por favor confirme que tem os %1$simpostos do "
+"WooCommerce%2$s correctamente configurados.%3$s%4$s"
+
+#: src/Settings/Tabs/Taxes.php:38
+msgctxt "Documentation URL (Installation guide, Setting up WooCommerce taxes)"
+msgid ""
+"https://invoicewoo.com/documentation/installation-guide/setting-up-"
+"woocommerce-taxes/"
+msgstr ""
+"https://invoicewoo.com/pt-pt/documentacao/guia-de-instalacao/configurar-"
+"impostos-no-woocommerce/"
+
+#: src/Settings/Tabs/Taxes.php:44
+msgid "Portuguese company"
+msgstr "Empresa portuguesa"
+
+#: src/Settings/Tabs/Taxes.php:45
+msgid "This is a store of a Portuguese company"
+msgstr "Esta é uma loja de uma empresa portuguesa"
+
+#: src/Settings/Tabs/Taxes.php:46
+msgid ""
+"Check only if you have a Portuguese VAT number and your business is a "
+"company (or similar VAT passive subject)"
+msgstr ""
+"Activar apenas se tem um NIF português e o seu negócio é uma empresa (ou "
+"sujeito passivo de IVA similar)"
+
+#: src/Settings/Tabs/Taxes.php:50
+msgid "Default tax"
+msgstr "Imposto por omissão"
+
+#: src/Settings/Tabs/Taxes.php:51
+msgid ""
+"Tax to use, by default, when generating documents (this will also change "
+"your default tax on InvoiceXpress)"
+msgstr ""
+"Imposto a aplicar por omissão ao emitir documentos (também vai modificar o "
+"imposto por omissão no InvoiceXpress)"
+
+#: src/Settings/Tabs/Taxes.php:57 src/Settings/Tabs/Taxes.php:90
+msgid "VAT field"
+msgstr "Campo NIF"
+
+#: src/Settings/Tabs/Taxes.php:60
+#, php-format
+msgid ""
+"If you install and correctly configure the free %1$s%2$s%3$s plugin by "
+"Aelia, its VAT field is used instead of ours.<br/>There's no need to do use "
+"it unless you need to exempt VAT on B2B transactions inside the EU.%4$s%5$s"
+msgstr ""
+"Se instalar e configurar correctamente o plugin gratuito %1$s%2$s%3$s by "
+"Aelia, o campo NIF desse plugin é usado em vez do nosso.<br/>Não tem de o "
+"usar a não ser que necessite de aplicar isenção de IVA em transacções B2B "
+"dentro da UE.%4$s%5$s"
+
+#: src/Settings/Tabs/Taxes.php:62 src/Settings/Tabs/Taxes.php:110
+msgid "WooCommerce EU VAT Assistant"
+msgstr "WooCommerce EU VAT Assistant"
+
+#: src/Settings/Tabs/Taxes.php:67 src/Settings/Tabs/Taxes.php:84
+#, php-format
+msgid "Current status: %s"
+msgstr "Estado actual: %s"
+
+#: src/Settings/Tabs/Taxes.php:73
+msgid "or"
+msgstr "ou"
+
+#: src/Settings/Tabs/Taxes.php:77
+#, php-format
+msgid ""
+"(<strong>Experimental</strong>) If you install and correctly configure the "
+"%1$s%2$s%3$s plugin by WooCommerce, its VAT field is used instead of ours."
+"<br/>There's no need to do use it unless you need to exempt VAT on B2B "
+"transactions inside the EU.%4$s%5$s"
+msgstr ""
+"(<strong>Experimental</strong>) Se instalar e configurar correctamente o "
+"plugin %1$s%2$s%3$s by WooCommerce, o campo NIF desse plugin é usado em vez "
+"do nosso.<br/>Não tem de o usar a não ser que necessite de aplicar isenção "
+"de IVA em transacções B2B dentro da UE.%4$s%5$s"
+
+#: src/Settings/Tabs/Taxes.php:79
+msgid "EU VAT Number"
+msgstr "EU VAT Number"
+
+#: src/Settings/Tabs/Taxes.php:91
+msgid "VAT field on the checkout"
+msgstr "Campo NIF na finalização de compra"
+
+#: src/Settings/Tabs/Taxes.php:92
+msgid ""
+"Include our own VAT field on the checkout or use the value from WooCommerce "
+"EU VAT Assistant by Aelia or EU VAT Field by WooCommerce"
+msgstr ""
+"Incluir o nosso campo NIF na finalização de compra (ou usar o valor do "
+"WooCommerce EU VAT Assistant by Aelia ou do EU VAT Field by WooCommerce)"
+
+#: src/Settings/Tabs/Taxes.php:96
+msgid "Mandatory VAT field"
+msgstr "Campo NIF obrigatório"
+
+#: src/Settings/Tabs/Taxes.php:97
+msgid "Make the VAT field mandatory"
+msgstr "Fazer com que o campo NIF seja obrigatório"
+
+#: src/Settings/Tabs/Taxes.php:105
+msgid "Tax exemption"
+msgstr "Isenção de imposto"
+
+#: src/Settings/Tabs/Taxes.php:108
+#, php-format
+msgid ""
+"On B2B transactions inside the EU, the exemption (Artigo 14.º do RITI) will "
+"only be applied if you install and correctly configure the free %1$s%2$s%3$s "
+"plugin by Aelia or the %4$s%5$s%6$s plugin by WooCommerce (experimental "
+"support).<br/>This is currently only supported for sellers that are "
+"Portuguese companies.<br/>You only need one of the plugins and only if you "
+"do B2B transactions inside the EU."
+msgstr ""
+"Em transacções B2B dentro da EU, a isenção (Artigo 14.º do RITI) apenas será "
+"aplicada instalando e configurando correctamente o plugin gratuito %1$s%2$s"
+"%3$s by Aelia ou o plugin %4$s%5$s%6$s by WooCommerce (suporte experimental)."
+"<br/>Actualmente só é suportado para vendedores que sejam empresas "
+"portuguesas.<br/>Só necessita de um dos plugins e apenas se fizer "
+"transacções B2B dentro da EU."
+
+#: src/Settings/Tabs/Taxes.php:113
+msgid "EU VAT Field"
+msgstr "EU VAT Field"
+
+#: src/Settings/Tabs/Taxes.php:118
+msgid "Tax exemption motive"
+msgstr "Motivo de isenção de imposto"
+
+#: src/Settings/Tabs/Taxes.php:119
+msgid ""
+"You should set a Tax exemption motive if your business is exempt from taxes"
+msgstr ""
+"Tem de definir um motivo para a isenção de imposto se o seu negócio estiver "
+"isento"
+
+#: src/Settings/Tabs/Taxes.php:124
+msgid ""
+"not applicable for B2B within the EU, which will be \"Artigo 14.º do RITI\" "
+"automatically"
+msgstr ""
+"não aplicável para B2B dentro da EU, que será automaticamente “Artigo 14.º "
+"do RITI”"
+
+#: src/Settings/Tabs/Taxes.php:131
+msgid "No exemption applicable"
+msgstr "Isenção não aplicável"
+
+#: src/Settings/Tabs/Taxes.php:154
+msgid "Tax exemption name"
+msgstr "Nome da isenção de imposto"
+
+#: src/Settings/Tabs/Taxes.php:155
+msgid "This should be the 0% tax name defined on your InvoiceXpress account"
+msgstr "Deve ser o nome da taxa de 0% definida na sua conta InvoiceXpress"
+
+#: src/Settings/Tabs/VatMoss.php:33
+msgid ""
+"VAT MOSS invoices support is experimental and we do not currently provide "
+"technical support on this feature."
+msgstr ""
+"O suporte para facturas VAT MOSS é experimental e actualmente não prestamos "
+"suporte técnico a esta funcionalidade."
+
+#: src/Settings/Tabs/VatMoss.php:35
+#, php-format
+msgid ""
+"DO NOT activate this option before talking to your accountant and "
+"%1$schecking the documentation%2$s."
+msgstr ""
+"NÃO active esta opção sem falar antes com o seu contabilista e %1$sconsultar "
+"a documentação%2$s."
+
+#: src/Settings/Tabs/VatMoss.php:39
+#| msgid "https://invoicewoo.com/documentation/"
+msgid "https://invoicewoo.com/documentation/settings/vat-moss/"
+msgstr "https://invoicewoo.com/documentation/settings/vat-moss/"
+
+#: src/Settings/Tabs/VatMoss.php:43
+msgid ""
+"VAT MOSS invoices should only be issued for digital products sold to end "
+"consumers in the EU (except those in your country)."
+msgstr ""
+"As facturas VAT MOSS só devem ser emitidas para produtos digitais vendidos a "
+"consumidores finais na UE (excepto os do seu país)."
+
+#: src/Settings/Tabs/VatMoss.php:44
+msgid ""
+"You are responsible for setting the correct taxes on both InvoiceXpress and "
+"WooCommerce."
+msgstr ""
+"É responsável por definir os impostos correctos tanto no InvoiceXpress como "
+"no WooCommerce."
+
+#: src/Settings/Tabs/VatMoss.php:57
+msgid "VAT MOSS invoices"
+msgstr "Facturas VAT MOSS"
+
+#: src/Settings/Tabs/VatMoss.php:59
+msgid "Manually or automatically (if set on the invoices settings tab)"
+msgstr ""
+"Manualmente ou automaticamente (se definido na aba de configurações de "
+"facturas)"
+
+#: src/Settings/Tabs/VatMoss.php:63
+msgid "VAT MOSS sequence"
+msgstr "Série VAT MOSS"
+
+#: src/Settings/Tabs/VatMoss.php:64
+msgid ""
+"Sequence to use when generating VAT MOSS invoices (exclusive for this "
+"purpose)"
+msgstr ""
+"Série a utilizar ao emitir facturas VAT MOSS (exclusiva para este propósito)"
+
+#~ msgid ""
+#~ "If you are issuing VAT MOSS invoices only for some orders we strongly "
+#~ "recommend you do not set up any automatic invoicing for other documents "
+#~ "or you will end up with duplicate invoices."
+#~ msgstr ""
+#~ "Se está a emitir facturas VAT MOSS apenas para algumas encomendas "
+#~ "recomendamos vivamente que não configure nenhuma facturação automática "
+#~ "para outros documentos ou ficará com facturas duplicadas."
+
+#~ msgid "Only manually for the moment"
+#~ msgstr "Apenas manuais de momento"
+
+#~ msgid "PDF Download successfull! Refresh the parent page."
+#~ msgstr "PDF descarregado com sucesso! Actualize a página anterior."
+
+#~ msgid "Email errors"
+#~ msgstr "Erros por email"
+
+#~ msgid "Default"
+#~ msgstr "Por omissão"
+
+#~ msgid "Email"
+#~ msgstr "Email"
+
+#~ msgid "Invalid VAT number"
+#~ msgstr "NIF inválido"
+
+#~ msgid "allow_url_fopen must be enabled on your php.ini."
+#~ msgstr "allow_url_fopen deve estar activo no seu php.ini."
+
+#~ msgid "Failed to communicate with InvoiceXpress."
+#~ msgstr "Falha ao comunicar com o InvoiceXpress."
+
+#~ msgid ""
+#~ "The %s wasn't created due to InvoiceXpress service being temporarily down."
+#~ "<br/>Cancel the refund and try generating it again in a few minutes."
+#~ msgstr ""
+#~ "A %s não foi criada devido ao InvoiceXpress estar temporariamente "
+#~ "indisponível.<br/>Cancele o reembolso e tente de novo em alguns minutos."
+
+#~ msgid "Invoice successfully created."
+#~ msgstr "Factura criada com sucesso."
+
+#~ msgid "Error creating invoice."
+#~ msgstr "Erro ao criar a factura."
+
+#~ msgid "Download "
+#~ msgstr "Descarregar "
+
+#~ msgid " (PDF): "
+#~ msgstr " (PDF): "
+
+#~ msgid "Problem accessing PDF? Download again:"
+#~ msgstr "Dificuldade em aceder ao PDF? Descarregue de novo:"
+
+#, fuzzy
+#~| msgid "Delivery note"
+#~ msgid "Delivery guide"
+#~ msgstr "Guia de transporte"
+
+#~ msgid "Transport guide"
+#~ msgstr "Guia de transporte"
+
+#~ msgid "Devolution guide"
+#~ msgstr "Guia de devolução"
+
+#~ msgid ""
+#~ "Download %1$s %2$s (%3$s): %4$s.<br/>Problem accessing PDF? Download "
+#~ "again: %5$s"
+#~ msgstr ""
+#~ "Descarregar %1$s %2$s (%3$s): %4$s.<br/>Dificuldade em aceder ao PDF? "
+#~ "Descarregue de novo: %5$s"
+
+#~ msgid "%s - Settings"
+#~ msgstr "%s %s - Configurações"
+
+#~ msgid "errors"
+#~ msgstr "Erros"
+
+#~ msgid "Cancellation reason"
+#~ msgstr "Motivo do cancelamento"
+
+#~ msgid "None."
+#~ msgstr "Nenhuma."
+
+#~ msgid "Transport and Devolution guides"
+#~ msgstr "Guias de Transporte e Devolução"
+
+#~ msgid "Transport guides"
+#~ msgstr "Guias de transporte"
+
+#~ msgid "Default cancellation motive for Transport guide"
+#~ msgstr "Motivo de cancelamento por omissão para Guia de transporte"
+
+#~ msgid "Devolution guides"
+#~ msgstr "Guias de devolução"
+
+#~ msgid "Simplified Invoice"
+#~ msgstr "Factura simplificada"
+
+#~ msgid "Invoicing with InvoiceXpress for WooCommerce - Pro"
+#~ msgstr "Invoicing with InvoiceXpress for WooCommerce - Pro"
+
+#~ msgid ""
+#~ "WooCommerce manual and automatic legal invoicing made easy with "
+#~ "InvoiceXpress integration."
+#~ msgstr ""
+#~ "Facturação legal manual e automática no WooCommerce, de forma fácil, com "
+#~ "integração com o InvoiceXpress."
+
+#~ msgid "Webdados"
+#~ msgstr "Webdados"
+
+#~ msgid "https://www.webdados.pt"
+#~ msgstr "https://www.webdados.pt"
+
+#~ msgid "License plate (transport guide):"
+#~ msgstr "Matrícula (guia de transporte):"
+
+#, fuzzy
+#~| msgid "Invoice-receipt"
+#~ msgid "Invoices-receipt"
+#~ msgstr "Factura-recibo"
+
+#~ msgid "Issue Devolution Guide (PDF)"
+#~ msgstr "Emitir Guia de devolução (PDF)"
+
+#~ msgid "Issue Invoice (PDF)"
+#~ msgstr "Emitir Factura (PDF)"
+
+#~ msgid "Issue Simplified Invoice (PDF)"
+#~ msgstr "Emitir Factura simplificada (PDF)"
+
+#~ msgid "Issue Simplified Invoice (PDF) and set as paid"
+#~ msgstr "Emitir Factura simplificada (PDF) e marcar como paga"
+
+#~ msgid "Issue Transport guide (PDF)"
+#~ msgstr "Emitir Guia de transporte (PDF)"
+
+#~ msgid "Issue Transport guide"
+#~ msgstr "Emitir Guia de transporte"
+
+#~ msgid "Issue Invoice"
+#~ msgstr "Emitir Factura"

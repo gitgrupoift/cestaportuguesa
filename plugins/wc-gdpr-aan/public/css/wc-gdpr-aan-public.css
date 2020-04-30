@@ -1,0 +1,9 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+ 
+ div.wc-gdpr-textbox-1 {
+ 	font-size: 0.75em;
+ 	padding: 10px !important;
+ }

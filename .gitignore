@@ -1,0 +1,12 @@
+# Criado em 30.04.2020
+
+wp-content/*
+!wp-content/plugins/
+*.log
+*.sql
+*.sqlite
+node_modules/
+
+wp-content/plugins/woocommerce/
+wp-content/plugins/woo-billing-with-invoicexpress-pro/
+wp-content/plugins/elementor/

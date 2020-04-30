@@ -1,0 +1,49 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+input#myonoffswitch{display:none}
+input#myonoffswitch_tu{display:none}
+input#myonoffswitch_w{display:none}
+input#myonoffswitch_calendar_on_of{display:none}
+input#myonoffswitch_VF_disable{display:none}
+input#myonoffswitch_option_calendar_required{display:none}
+input#myonoffswitch_th{display:none}
+input#myonoffswitch_f{display:none}
+input#myonoffswitch_sa{display:none}
+input#myonoffswitch_sun{display:none}
+.onoffswitch{position:relative;width:90px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}
+.onoffswitch-1{position:relative;width:66px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}
+.onoffswitch-checkbox{display:none}
+.onoffswitch-label{display:block;overflow:hidden;cursor:pointer;border:2px solid #999;border-radius:20px}
+.onoffswitch-inner{display:block;width:200%;margin-left:-100%;transition:margin .3s ease-in 0s}
+.onoffswitch-inner:before,.onoffswitch-inner:after{display:block;float:left;width:50%;height:30px;padding:0;line-height:30px;font-size:14px;color:white;font-family:Trebuchet,Arial,sans-serif;font-weight:bold;box-sizing:border-box}
+.onoffswitch-inner:before{content:"Disable";padding-left:10px;background-color:#8e8e8e;color:#fff}
+.onoffswitch-inner:after{content:"Enable";padding-right:10px;background-color:#4796b3;color:#fff;text-align:right}
+.onoffswitch-switch{display:block;width:18px;margin:6px;background:#fff;position:absolute;top:0;bottom:0;right:56px;border:2px solid #999;border-radius:20px;transition:all .3s ease-in 0s}
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner{margin-left:0}
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch{right:0}
+.onoffswitch-inner-1{display:block;width:200%;margin-left:-100%;transition:margin .3s ease-in 0s}
+.onoffswitch-inner-1:before,.onoffswitch-inner-1:after{display:block;float:left;width:50%;height:30px;padding:0;line-height:30px;font-size:14px;color:white;font-family:Trebuchet,Arial,sans-serif;font-weight:bold;box-sizing:border-box}
+.onoffswitch-inner-1:before{content:"Yes";padding-left:10px;background-color:#4796b3;color:#fff}
+.onoffswitch-inner-1:after{content:"No";padding-right:6px;background-color:#8e8e8e;color:#fff;text-align:right}
+.onoffswitch-switch-1{display:block;width:18px;margin:6px;background:#fff;position:absolute;top:0;bottom:0;right:29px;border:2px solid #999;border-radius:20px;transition:all .3s ease-in 0s}
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-inner-1{margin-left:0}
+.onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch-1{right:0}
+.center-on-page select{-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;appearance:none;outline:0;box-shadow:none;border:0!important;background:#4796b3;background-image:none}
+.center-on-page .select{position:relative;display:block;width:4em;height:3em;line-height:2.5;background:#4796b3;border-radius:.25em}
+.center-on-page select{width:100%;height:100%;margin:0;padding:0 0 0 .5em;color:#fff;cursor:pointer}
+.center-on-page select::-ms-expand{display:none}
+.center-on-page .select::after{content:'\25BC';position:absolute;top:0;right:0;bottom:0;padding:0 1em;background:#4796b3;color:#fff;pointer-events:none}
+.center-on-page .select:hover::after{color:#fff}
+.center-on-page .select::after{-webkit-transition:.25s all ease;-o-transition:.25s all ease;transition:.25s all ease}
+select#custome_option_delivery_day{padding-left:6px;font-size:17px;font-weight:bold;text-transform:uppercase}
+td.pxl-option,th.pxl-option{width:28%}
+td.ddfd h2{border-bottom:1px solid;border-top:0;margin-bottom:0;padding-bottom:8px;border-width:2px;padding-top:unset}
+.ui-datepicker .ui-datepicker-calendar .ui-state-highlight a{background:#4796b3 none;color:white}
+input.input_text {width: 200px;}
+.calendar_icon { position: relative;}
+.calendar_icon:before { content: ''; background: url(../css/img/calendar.svg); position: absolute; left: -30px;top: 0;width: 26px;height: 26px; background-repeat: no-repeat; }
+.SettingDetails { display: flex;flex-wrap: wrap; }
+.PluginSettings { width: 58%; }
+.sideBar { width: 42%; }
