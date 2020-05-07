@@ -6,6 +6,20 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Cesta\\Abstract\\' => array($baseDir . '/abstract'),
+    'Tgallice\\FBMessenger\\' => array($vendorDir . '/tgallice/fb-messenger-sdk/src'),
+    'Symfony\\Polyfill\\Util\\' => array($vendorDir . '/symfony/polyfill-util'),
+    'Symfony\\Polyfill\\Php72\\' => array($vendorDir . '/symfony/polyfill-php72'),
+    'Symfony\\Polyfill\\Php56\\' => array($vendorDir . '/symfony/polyfill-php56'),
+    'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
+    'Symfony\\Polyfill\\Intl\\Idn\\' => array($vendorDir . '/symfony/polyfill-intl-idn'),
+    'Symfony\\Component\\EventDispatcher\\' => array($vendorDir . '/symfony/event-dispatcher'),
+    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
+    'GuzzleHttp\\Psr7\\' => array($vendorDir . '/guzzlehttp/psr7/src'),
+    'GuzzleHttp\\Promise\\' => array($vendorDir . '/guzzlehttp/promises/src'),
+    'GuzzleHttp\\' => array($vendorDir . '/guzzlehttp/guzzle/src'),
+    'Cesta\\Elementor\\Widgets\\' => array($baseDir . '/classes/Elementor/Widgets'),
+    'Cesta\\Elementor\\Controls\\' => array($baseDir . '/classes/Elementor/Controls'),
+    'Cesta\\Elementor\\' => array($baseDir . '/classes/Elementor'),
     'Cesta\\' => array($baseDir . '/classes'),
+    'CestaBot\\' => array($baseDir . '/bot'),
 );

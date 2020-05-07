@@ -17,15 +17,15 @@ This extension for [WooCommerce](https://www.woocommerce.com) allows you to rend
 
 = Shortcode Documentation =
 **New Shorter Shortcode: ajax_add_to_cart is now an option for enh_ajax_add_to_cart_button**
-The required field for every button is the product, with six optional fields:
-- variation (used for variable products)
+The required field for every button is the product_id, with six optional fields:
+- variation_id (used for variable products)
 - title (to reflect the label before the button)
 - quantity (sets the default quantity **AND hides the quantity checkbox**)
 - show_quantity (**if quantity is specified**, re-enables the checkbox)
 - show_price
 - button_text
 
-`[enh_ajax_add_to_cart_button product={pid} variation={vid} show_price={beginning|b|after|a|rear|r} button_text={STRING} title={none|attributes|att|attribute} quantity={INTEGER} show_quantity={yes} ]`
+`[enh_ajax_add_to_cart_button product_id={pid} variation_id={vid} show_price={beginning|b|after|a|rear|r} button_text={STRING} title={none|attributes|att|attribute} quantity={INTEGER} show_quantity={yes} ]`
 
 
 SIMPLE PRODUCT: Use only the required parameters to make a quantity box and add to cart button for a simple product with the title to the left:
@@ -128,6 +128,9 @@ At this point, no. This is designed to supplement your store to let the buttons 
 4. No title for quantity and button inputs
 
 == Changelog ==
+
+= 1.5.1 =
+* Fixed bug where currency positioning was not taking effect from WooCommerce settings.
 
 = 1.5.0 =
 * Added button blocking using the disabled html parameter. This prevents requests being skipped when many buttons pressed within short time.

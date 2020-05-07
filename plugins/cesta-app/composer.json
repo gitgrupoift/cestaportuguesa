@@ -13,8 +13,13 @@
     "autoload": {
         "psr-4": {
             "Cesta\\": "classes/",
-            "Cesta\\Abstract\\": "abstract/"
+            "CestaBot\\": "bot/",
+            "Cesta\\Elementor\\": "classes/Elementor/",
+            "Cesta\\Elementor\\Widgets\\": "classes/Elementor/Widgets",
+            "Cesta\\Elementor\\Controls\\": "classes/Elementor/Controls"
         }
     },
-    "require": {}
+    "require": {
+        "tgallice/fb-messenger-sdk": "^1.0@dev"
+    }
 }

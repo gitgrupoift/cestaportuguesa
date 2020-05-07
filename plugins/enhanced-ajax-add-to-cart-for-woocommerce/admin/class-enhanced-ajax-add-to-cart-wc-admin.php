@@ -138,10 +138,12 @@ class Enhanced_Ajax_Add_To_Cart_Wc_Admin {
 
 		if ( ! is_null( $product ) && $product !== false ){
 
-			$price_display = get_woocommerce_currency_symbol() . $product->get_price();
+			$price = $product->get_price();
 			if ( $variation !== null && $variation !== false ) {
-				$price_display = get_woocommerce_currency_symbol() . $variation->get_price();
+				$price = $variation->get_price();
 			}
+			$negative = $price < 0;
+			$price_display = ( $negative ? '-' : '' ) . sprintf( get_woocommerce_price_format(), get_woocommerce_currency_symbol(), $price );
 
 			if ( false != $variation_id )
 				$a2c_html .= '<div class="woocommerce-variation-add-to-cart variations_button">';

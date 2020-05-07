@@ -2,7 +2,7 @@
 /**
  * Functions
  *
- * @package WPMultiStepCheckoutPro
+ * @package WPMultiStepCheckout
  */
 
 defined( 'ABSPATH' ) || exit;

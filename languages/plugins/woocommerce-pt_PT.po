@@ -2,12 +2,12 @@
 # This file is distributed under the same license as the Plugins - WooCommerce - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2020-04-28 06:32:23+0000\n"
+"PO-Revision-Date: 2020-05-03 10:22:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/2.4.0-alpha\n"
+"X-Generator: GlotPress/3.0.0-alpha\n"
 "Language: pt\n"
 "Project-Id-Version: Plugins - WooCommerce - Stable (latest release)\n"
 
@@ -540,10 +540,6 @@ msgid "Shipping rates can not be negative numbers."
 msgstr "As taxas de envio não podem ser números negativos."
 
 #: packages/woocommerce-admin/dist/app/index.js:27
-msgid "Post code"
-msgstr "Código portal"
-
-#: packages/woocommerce-admin/dist/app/index.js:27
 msgid "Address line 2 (optional)"
 msgstr "Morada (linha 2)"
 
@@ -614,6 +610,10 @@ msgstr "Loja conectada a WooCommerce.com e extensões a ser instaladas."
 #: packages/woocommerce-admin/dist/app/index.js:27
 msgid "Set a store notice"
 msgstr "Defina um aviso de loja"
+
+#: packages/woocommerce-admin/dist/app/index.js:27
+msgid "Post code"
+msgstr "Código postal"
 
 #: packages/woocommerce-admin/dist/app/index.js:27
 msgid "Customize"
@@ -3229,6 +3229,10 @@ msgstr "Lusaka"
 #: i18n/states.php:1519
 msgid "Muchinga"
 msgstr "Muchinga"
+
+#: templates/myaccount/downloads.php:40 templates/myaccount/orders.php:101
+msgid "Browse products"
+msgstr "Ver produtos"
 
 #: i18n/states.php:1435
 msgid "Midway Atoll"

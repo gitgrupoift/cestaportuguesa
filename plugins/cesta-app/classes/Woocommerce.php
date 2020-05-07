@@ -3,6 +3,8 @@
 namespace Cesta;
 use Cesta\QuantityCart;
 use Cesta\OrderStatus;
+use Cesta\DataLayer;
+use Cesta\OderReports;
 
 class Woocommerce {
     
@@ -29,16 +31,76 @@ class Woocommerce {
         add_filter('manage_edit-shop_order_sortable_columns', array($this, 'sortable_product_columns'));
 
         $this->includes();
+
+        add_filter( 'woocommerce_admin_order_actions', array($this, 'add_custom_order_status_actions_button'), 100, 2 );
         
+    }
+    
+    public function add_custom_order_status_actions_button( $actions, $order ) {
+
+        if ( $order->has_status( array( 'processing', 'picking-progress', 'shipping-fail' ) ) ) {
+            
+            if ( ! $order->has_status( array( 'picking-progress' ) ) ) {
+                $action_slug = 'picking_progress';
+
+                $actions[$action_slug] = array(
+                    'url'       => wp_nonce_url( admin_url( 'admin-ajax.php?action=woocommerce_mark_order_status&status=picking-progress&order_id=' . $order->get_id() ), 'woocommerce-mark-order-status' ),
+                    'name'      => __( 'Preparo e Aquisição', 'woocommerce' ),
+                    'action'    => $action_slug,
+                );
+            }
+
+            $action_slug = 'shipping_progress';
+
+            $actions[$action_slug] = array(
+                'url'       => wp_nonce_url( admin_url( 'admin-ajax.php?action=woocommerce_mark_order_status&status=shipping-progress&order_id=' . $order->get_id() ), 'woocommerce-mark-order-status' ),
+                'name'      => __( 'Para a Distribuição', 'woocommerce' ),
+                'action'    => $action_slug,
+            );
+            
+            $action_slug = 'at_courier';
+
+            $actions[$action_slug] = array(
+                'url'       => wp_nonce_url( admin_url( 'admin-ajax.php?action=woocommerce_mark_order_status&status=at-courier&order_id=' . $order->get_id() ), 'woocommerce-mark-order-status' ),
+                'name'      => __( 'Na Transportadora', 'woocommerce' ),
+                'action'    => $action_slug,
+            );
+            
+            unset($actions['complete']);
+        }
+        
+        if ( $order->has_status( array( 'at-courier', 'shipping-progress', 'picking-progress' ) ) ) {
+            
+            $action_slug = 'completed';
+
+            $actions[$action_slug] = array(
+                'url'       => wp_nonce_url( admin_url( 'admin-ajax.php?action=woocommerce_mark_order_status&status=completed&order_id=' . $order->get_id() ), 'woocommerce-mark-order-status' ),
+                'name'      => __( 'Concluído', 'woocommerce' ),
+                'action'    => $action_slug,
+            );
+            
+            if ( ! $order->has_status( array( 'picking-progress' ) ) ) {
+                $action_slug = 'shipping_fail';
+
+                $actions[$action_slug] = array(
+                    'url'       => wp_nonce_url( admin_url( 'admin-ajax.php?action=woocommerce_mark_order_status&status=shipping-fail&order_id=' . $order->get_id() ), 'woocommerce-mark-order-status' ),
+                    'name'      => __( 'Falha na Entrega', 'woocommerce' ),
+                    'action'    => $action_slug,
+                );
+            }
+        }
+        
+        return $actions;
     }
     
     protected function includes() {
         
         new QuantityCart();
         new OrderStatus();
+        new OrderProducts();
         
     }
-    
+
     /**
     * Inclui colunas por localidade
     * @param    $columns    string  Nome da coluna a ordenar.
@@ -179,9 +241,11 @@ class Woocommerce {
     public function portugal_concelhos($states) {
         
         $states['PT'] = array(
-            'VC'    =>  'Viana do Castelo',
-            'BA'    =>  'Barcelos',
-            'PL'    =>  'Ponte de Lima'
+            'BA'   =>  'Barcelos',
+            //'BRG'   =>  'Braga',
+            'ES'    =>  'Esposende',
+            'PL'    =>  'Ponte de Lima',
+            'VC'    =>  'Viana do Castelo'
         );
         
         return $states;

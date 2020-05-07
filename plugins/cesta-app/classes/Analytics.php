@@ -10,6 +10,7 @@ class Analytics {
         
         $this->analytics = $analytics;
         add_action('wp_head', array($this, 'analytics_main'));
+  
         
     }
     
@@ -19,7 +20,7 @@ class Analytics {
     
     public function set( $tracking_code ) {
         $this->analytics = $tracking_code;    
-    }    
+    }
     
     public static function analytics_main() {
         

@@ -1,0 +1,43 @@
+﻿"Título do produto",REF,"Itens vendidos","N. Revenue",Encomendas,Categoria,Variações,Estado,Stock
+"Ovo (6 ovos)",,9,10.18,4,Mercearia,0,N/A,N/A
+"Cenoura sem rama (500gr)",CEN,8,3.68,5,Legumes,0,N/A,N/A
+"Bróculos (1 pé)",BROC,7,10.57,5,Legumes,0,N/A,N/A
+"Alface Frisada (unidade = 1 pé)",ALF_FRIS,7,6.52,6,Legumes,0,N/A,N/A
+"Pepino (500 gr)",PEPI,7,5.61,3,"Época em Maio, Legumes",0,N/A,N/A
+"Laranja do Algarve (quilo)",LAR,7,6.53,5,Frutas,0,N/A,N/A
+"Cebola (500gr)",CEB,6,6.24,4,Legumes,0,N/A,N/A
+"Pão Escuro/Mistura de Trigo e Centeio Pequeno",PE_TC_P,6,0.74,1,Padaria,0,N/A,N/A
+"Nectarina (500 gr)",NECT,6,9.61,5,Frutas,0,N/A,N/A
+"Tomate (500 gr)",TOM,5,4.47,3,Legumes,0,N/A,N/A
+"Courgette (500gr)",COUR,5,6.14,4,"Época em Maio, Legumes",0,N/A,N/A
+"Cereja (250gr)",CER,5,11.8,3,"Época em Maio, Frutas",0,N/A,N/A
+"Couve Portuguesa - Penca (500 gr)",COUV_PEN,5,4,3,Legumes,0,N/A,N/A
+"Morangos (500gr)",MORANG,5,9.45,5,"Época em Maio, Frutas",0,N/A,N/A
+"Batata Doce Laranja (quilo)",BAT_DOCE,4,9.44,4,Legumes,0,N/A,N/A
+"Alho Francês (1 talo)",ALHO_F,4,2.83,2,"Época em Maio, Legumes",0,N/A,N/A
+"Pêra Rocha (500 gr)",PER_ROC,4,3.73,3,Frutas,0,N/A,N/A
+"Clementina (500gr)",CLEM,4,4.52,4,Frutas,0,N/A,N/A
+"Feijão-verde (500gr)",FEIJ_V,4,6.6,3,Legumes,0,N/A,N/A
+"Banana (cacho de 4 bananas)",BAN,3,3.54,2,Frutas,0,N/A,N/A
+"Cogumelos Brancos (250gr)",COG_BRAN,3,4.26,3,Legumes,0,N/A,N/A
+"Nêspera (500 gr)",NESP,3,5.24,2,Frutas,0,N/A,N/A
+"Couve Coração (1 pé)",COUV_COR,3,2.55,3,Legumes,0,N/A,N/A
+"Couve Flor (1 pé)",COUV_FLOR,3,7.08,3,Legumes,0,N/A,N/A
+"Mirtilo (125gr)",MIRT,3,4.78,1,"Época em Maio, Frutas",0,N/A,N/A
+"Nabo (molho de 3)",NABO,3,6.78,3,Legumes,0,N/A,N/A
+"Limão (quilo)",LIMAO,2,3.4,2,Frutas,0,N/A,N/A
+"Pão Multicereais (Aos Sábados)",P_MC,2,0.47,1,Padaria,0,N/A,N/A
+"Alho Seco Pequeno (5 cabeças)",ALHO,2,1.88,2,Legumes,0,N/A,N/A
+"Regueifa Grande (Aos Sábados)",P_REG_G,2,4.9,2,Padaria,0,N/A,N/A
+"Kiwi (500gr)",KIWI,2,3.02,2,Frutas,0,N/A,N/A
+"Berinjela (1 unidade)",BERIN,2,1.32,2,Legumes,0,N/A,N/A
+"Batata Nova (quilo)",BAT_NOV,2,2.64,2,Legumes,0,N/A,N/A
+"Melão Verde (1 unidade)",MELAO,1,4.72,1,Frutas,0,N/A,N/A
+"Regueifa Pequena (Aos Sábados)",P_REG_P,1,1.23,1,Padaria,0,N/A,N/A
+"Meloa (unidade)",MELOA,1,4.72,1,Frutas,0,N/A,N/A
+"Tangerina (500 gr)",TANG,1,1.13,1,Frutas,0,N/A,N/A
+"Tomate-cereja (250gr)",TOM_CER,1,1.42,1,Legumes,0,N/A,N/A
+"Bola de Trigo Grande",P_BOL_G,1,2.45,1,Padaria,0,N/A,N/A
+"Pimento Verde (1 unidade)",PIM_VERD,1,0.85,1,Legumes,0,N/A,N/A
+"Abacate (1 unidade)",ABAC,1,2.83,1,Frutas,0,"Por encomenda",0
+"Broa de Milho (Kg)",P_BROA,1,1.7,1,Padaria,0,N/A,N/A
