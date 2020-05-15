@@ -23,7 +23,7 @@ class OrderPaid
         add_action('woocommerce_order_status_completed', [$this, 'documentCreateComplete']);
         add_action('woocommerce_order_status_processing', [$this, 'documentCreateProcessing']);
     }
-    
+
     public function documentCreateComplete($orderId)
     {
         try {

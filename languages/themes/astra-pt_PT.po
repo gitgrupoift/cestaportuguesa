@@ -8,8 +8,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-05-01 18:19+0000\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2020-05-12 18:36+0000\n"
+"Last-Translator: A Cesta Portuguesa\n"
 "Language-Team: Português\n"
 "Language: pt_PT\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
@@ -185,7 +185,7 @@ msgstr ""
 #: inc/customizer/configurations/colors-background/class-astra-body-colors-configs.php:44
 #: inc/customizer/configurations/colors-background/class-astra-footer-colors-configs.php:45
 msgid "Text Color"
-msgstr ""
+msgstr "Cor do Texto"
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-color-configs.php:117
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-color-configs.php:132
@@ -379,7 +379,7 @@ msgstr ""
 #: inc/customizer/configurations/buttons/class-astra-customizer-button-configs.php:579
 #: inc/customizer/configurations/layout/class-astra-header-layout-configs.php:306
 msgid "Right"
-msgstr ""
+msgstr "Direita"
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:265
 #: inc/core/class-astra-admin-settings.php:920
@@ -499,7 +499,7 @@ msgstr ""
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:115
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:258
 msgid "Uppercase"
-msgstr ""
+msgstr "Caixa Alta"
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-typo-configs.php:151
 #: inc/addons/heading-colors/customizer/class-astra-heading-colors-configs.php:100
@@ -509,7 +509,7 @@ msgstr ""
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:116
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:259
 msgid "Lowercase"
-msgstr ""
+msgstr "Minúsculas"
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-typo-configs.php:167
 #: inc/addons/heading-colors/customizer/class-astra-heading-colors-configs.php:115
@@ -717,7 +717,7 @@ msgstr ""
 #. Translators: Author Name.
 #: inc/blog/blog-config.php:148
 msgid "View all posts by %1$s"
-msgstr ""
+msgstr "Ver todos os posts de %1$s"
 
 #: inc/blog/blog-config.php:201 inc/blog/blog-config.php:457
 msgid "Read More &raquo;"
@@ -950,7 +950,7 @@ msgstr "Sem Barra Lateral"
 #: inc/customizer/configurations/layout/class-astra-sidebar-layout-configs.php:117
 #: inc/metabox/class-astra-meta-boxes.php:233
 msgid "Left Sidebar"
-msgstr ""
+msgstr "Barra Lateral Esquerda"
 
 #: inc/compatibility/edd/customizer/sections/class-astra-edd-sidebar-configs.php:62
 #: inc/compatibility/edd/customizer/sections/class-astra-edd-sidebar-configs.php:81
@@ -994,7 +994,7 @@ msgstr ""
 #: inc/compatibility/edd/customizer/sections/layout/class-astra-edd-archive-layout-configs.php:71
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-astra-woo-shop-layout-configs.php:87
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 #: inc/compatibility/edd/customizer/sections/layout/class-astra-edd-archive-layout-configs.php:72
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-astra-woo-shop-layout-configs.php:88
@@ -1085,7 +1085,7 @@ msgstr ""
 #. translators: 1 Author Name.
 #: inc/compatibility/lifterlms/class-astra-lifterlms.php:266
 msgid "By: %s"
-msgstr ""
+msgstr "Por: %s"
 
 #: inc/compatibility/lifterlms/class-astra-lifterlms.php:303
 #: inc/compatibility/lifterlms/class-astra-lifterlms.php:322
@@ -1114,7 +1114,7 @@ msgstr ""
 
 #: inc/compatibility/lifterlms/class-astra-lifterlms.php:318
 msgid "Leave Review"
-msgstr ""
+msgstr "Deixar um Comentário"
 
 #: inc/compatibility/lifterlms/class-astra-lifterlms.php:664
 #: inc/metabox/class-astra-meta-boxes.php:270
@@ -1241,7 +1241,7 @@ msgstr ""
 
 #: inc/compatibility/woocommerce/woocommerce-common-functions.php:84
 msgid "Out of stock"
-msgstr ""
+msgstr "Esgotado"
 
 #: inc/compatibility/woocommerce/woocommerce-common-functions.php:137
 msgid "Availability:"
@@ -1425,7 +1425,7 @@ msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:848
 msgid "Upload Logo"
-msgstr ""
+msgstr "Carregar Logo"
 
 #: inc/core/class-astra-admin-settings.php:853
 msgid "Set Colors"
@@ -1667,7 +1667,7 @@ msgstr "Páginas:"
 
 #: inc/core/class-theme-strings.php:67
 msgid "By "
-msgstr ""
+msgstr "Por"
 
 #: inc/core/class-theme-strings.php:69
 msgid "1 Comment"
@@ -1683,7 +1683,7 @@ msgstr "Próxima Página"
 
 #: inc/core/class-theme-strings.php:72 inc/core/class-theme-strings.php:89
 msgid "Previous Page"
-msgstr ""
+msgstr "Página Anterior"
 
 #. translators: 1: Post type label
 #: inc/core/class-theme-strings.php:77 inc/core/class-theme-strings.php:92
@@ -1887,7 +1887,7 @@ msgstr ""
 
 #: inc/customizer/configurations/colors-background/class-astra-advanced-footer-colors-configs.php:88
 msgid "Title Color"
-msgstr ""
+msgstr "Cor do Título"
 
 #: inc/customizer/configurations/colors-background/class-astra-body-colors-configs.php:57
 msgid "Theme Color"
@@ -1982,7 +1982,7 @@ msgstr ""
 #: inc/customizer/configurations/layout/class-astra-footer-layout-configs.php:94
 #: inc/customizer/configurations/layout/class-astra-footer-layout-configs.php:147
 msgid "Text"
-msgstr ""
+msgstr "Texto"
 
 #: inc/customizer/configurations/layout/class-astra-footer-layout-configs.php:95
 #: inc/customizer/configurations/layout/class-astra-footer-layout-configs.php:123
@@ -2237,7 +2237,7 @@ msgstr ""
 
 #: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:133
 msgid "Site Icon"
-msgstr ""
+msgstr "Ícone do Site"
 
 #: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:148
 msgid "Display Site Title"
@@ -2270,7 +2270,7 @@ msgstr ""
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:79
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:223
 msgid "Variants"
-msgstr ""
+msgstr "Variantes"
 
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:171
 msgid "Paragraph Margin Bottom"
@@ -2401,7 +2401,7 @@ msgstr ""
 #: inc/customizer/custom-controls/responsive-background/class-astra-control-responsive-background.php:267
 #: inc/customizer/custom-controls/responsive-background/class-astra-control-responsive-background.php:354
 msgid "Left Center"
-msgstr ""
+msgstr "Centro Esquerda"
 
 #: inc/customizer/custom-controls/background/class-astra-control-background.php:140
 #: inc/customizer/custom-controls/responsive-background/class-astra-control-responsive-background.php:181

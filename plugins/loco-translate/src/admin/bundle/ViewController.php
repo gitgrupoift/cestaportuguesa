@@ -100,7 +100,7 @@ class Loco_admin_bundle_ViewController extends Loco_admin_bundle_BaseController 
         $pot = $project->getPot();
         
         // prevent editing of POT when config prohibits
-        if( $project->isPotLocked() ) {
+        if( $project->isPotLocked() || 1 < Loco_data_Settings::get()->pot_protect ) {
             if( $pot && $pot->exists() ){
                 $meta = Loco_gettext_Metadata::load($pot);
                 $p['nav'][] = new Loco_mvc_ViewParams( array(
@@ -268,10 +268,12 @@ class Loco_admin_bundle_ViewController extends Loco_admin_bundle_BaseController 
         // bundle may not be fully configured
         $configured = $bundle->isConfigured();
 
-        // Hello Dolly is an exception. don't show unless configured deliberately 
-        if( ! $configured && 'hello.php' === $bundle->getHandle() && 'Hello Dolly' === $bundle->getName() ){
-            $this->set( 'redirect', Loco_mvc_AdminRouter::generate('core-view') );
-            return $this->view('admin/bundle/alias');
+        // Hello Dolly is an exception. don't show unless configured deliberately
+        if( 'Hello Dolly' === $bundle->getName() && 'hello.php' === basename($bundle->getHandle()) ){
+            if( ! $configured || 'meta' === $configured ){
+                $this->set( 'redirect', Loco_mvc_AdminRouter::generate('core-view') );
+                return $this->view('admin/bundle/alias');
+            }
         }
 
         // Collect all configured projects
@@ -318,5 +320,5 @@ class Loco_admin_bundle_ViewController extends Loco_admin_bundle_BaseController 
         return $this->view( 'admin/bundle/view' );
     }
 
-    
+   
 }

@@ -4,7 +4,7 @@ namespace Cesta;
 use Cesta\QuantityCart;
 use Cesta\OrderStatus;
 use Cesta\DataLayer;
-use Cesta\OderReports;
+use Cesta\OrderAmount;
 
 class Woocommerce {
     
@@ -49,6 +49,7 @@ class Woocommerce {
                     'action'    => $action_slug,
                 );
             }
+            
 
             $action_slug = 'shipping_progress';
 
@@ -98,6 +99,7 @@ class Woocommerce {
         new QuantityCart();
         new OrderStatus();
         new OrderProducts();
+        new OrderAmount();
         
     }
 
@@ -241,11 +243,30 @@ class Woocommerce {
     public function portugal_concelhos($states) {
         
         $states['PT'] = array(
-            'BA'   =>  'Barcelos',
-            //'BRG'   =>  'Braga',
+            'AM'    =>  'Amares',
+            'AV'    =>  'Arcos de Valdevez',
+            'BA'    =>  'Barcelos',
+            'BR'    =>  'Braga',
+            'CB'    =>  'Cabeceiras de Basto',
+            'CM'    =>  'Caminha',
+            'CL'    =>  'Celorico de Basto',
             'ES'    =>  'Esposende',
+            'FF'    =>  'Fafe',
+            'GU'    =>  'Guimarães',
+            'ME'    =>  'Melgaço',
+            'MO'    =>  'Monção',
+            'PC'    =>  'Paredes de Coura',
+            'PB'    =>  'Ponte da Barca',
             'PL'    =>  'Ponte de Lima',
-            'VC'    =>  'Viana do Castelo'
+            'PH'    =>  'Póvoa de Lanhoso',
+            'TB'    =>  'Terras de Bouro',
+            'VL'    =>  'Valença',
+            'VC'    =>  'Viana do Castelo',
+            'VM'    =>  'Vieira do Minho',
+            'CV'    =>  'Vila Nova de Cerveira',
+            'FM'    =>  'Vila Nova de Famalicão',
+            'VV'    =>  'Vila Verde',
+            'VZ'    =>  'Vizela'
         );
         
         return $states;

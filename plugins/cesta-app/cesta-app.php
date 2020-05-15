@@ -27,6 +27,7 @@ use Cesta\Elementor as CEW;
 
 define('CESTA_VERSION', '1.0.0');
 define('CESTA_DIR', plugin_dir_path( __FILE__ ));
+define('CESTA_CLASSES', CESTA_DIR . 'classes/');
 define('CESTA_DATA', CESTA_DIR . 'data/');
 define('CESTA_JS', site_url() . '/wp-content/plugins/cesta-app/assets/js/');
 define('CESTA_CSS', site_url() . '/wp-content/plugins/cesta-app/assets/css/');

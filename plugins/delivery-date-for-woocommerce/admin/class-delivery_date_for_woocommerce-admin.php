@@ -140,7 +140,7 @@ class DDFW_Admin {
 	}
 	public function ddfw_delivery_date_new_order_column( $columns ) {
 			$new_columns = ( is_array( $columns ) ) ? $columns : array();
-			$new_columns['ddfw_delivery_date'] = 'Data de Entrega Apontada';
+			$new_columns['ddfw_delivery_date'] = 'Order Delivery Date';
 			return $new_columns;
 	}
 	public function  ddfw_delivery_date_new_order_column_value( $column ) {
@@ -155,7 +155,15 @@ class DDFW_Admin {
 		}
 	}
 	public function ddfw_checkout_delivery_date_display_admin($order){
-		echo '<p><strong>'.__('Data de Entrega').':</strong> ' . get_post_meta( $order->get_id(), '_ddfw_delivery_date', true ) . '</p>';
+		$order_delivery_date = get_post_meta( $order->get_id(), '_ddfw_delivery_date', true );
+		echo '<p><strong>'.__('Delivery Date').':</strong> <input  type="text" class="" name="_ddfw_delivery_date" value="'.$order_delivery_date.'"></p>';
+	}
+	public function ddfw_woocommerce_saved_order_items( $order_id, $items ){
+		if(is_array($items) && sizeof($items) > 0){
+			if(isset($items['_ddfw_delivery_date']) && $items['_ddfw_delivery_date'] != ""){
+				update_post_meta( $order_id, '_ddfw_delivery_date', $items['_ddfw_delivery_date'] );
+			}
+		}
 	}
 }
 	function ddfw_delivery_options_page(){   

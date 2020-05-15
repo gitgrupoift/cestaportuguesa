@@ -178,6 +178,8 @@ class DDFW {
 		$this->ddfw_loader->add_action( 'woocommerce_admin_order_data_after_billing_address',$ddfw_plugin_admin,'ddfw_checkout_delivery_date_display_admin');
 		$this->ddfw_loader->add_filter( 'manage_edit-shop_order_columns', $ddfw_plugin_admin,'ddfw_delivery_date_new_order_column' );	
 		$this->ddfw_loader->add_action( 'manage_shop_order_posts_custom_column', $ddfw_plugin_admin,'ddfw_delivery_date_new_order_column_value', 2 );	
+		$this->ddfw_loader->add_action( 'woocommerce_saved_order_items', $ddfw_plugin_admin,'ddfw_woocommerce_saved_order_items',10 , 2);	
+		
 		}
 		
 			

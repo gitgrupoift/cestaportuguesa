@@ -16,7 +16,8 @@
             "CestaBot\\": "bot/",
             "Cesta\\Elementor\\": "classes/Elementor/",
             "Cesta\\Elementor\\Widgets\\": "classes/Elementor/Widgets",
-            "Cesta\\Elementor\\Controls\\": "classes/Elementor/Controls"
+            "Cesta\\Elementor\\Controls\\": "classes/Elementor/Controls",
+            "Cesta\\ProductGift\\": "classes/ProductGift/"
         }
     },
     "require": {

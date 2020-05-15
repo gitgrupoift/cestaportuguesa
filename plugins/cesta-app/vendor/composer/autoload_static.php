@@ -43,6 +43,7 @@ class ComposerStaticInite4bb1edc38a633f41f6255b8aa8b6f65
         ),
         'C' => 
         array (
+            'Cesta\\ProductGift\\' => 18,
             'Cesta\\Elementor\\Widgets\\' => 24,
             'Cesta\\Elementor\\Controls\\' => 25,
             'Cesta\\Elementor\\' => 16,
@@ -96,6 +97,10 @@ class ComposerStaticInite4bb1edc38a633f41f6255b8aa8b6f65
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
+        'Cesta\\ProductGift\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/classes/ProductGift',
+        ),
         'Cesta\\Elementor\\Widgets\\' => 
         array (
             0 => __DIR__ . '/../..' . '/classes/Elementor/Widgets',
@@ -128,6 +133,7 @@ class ComposerStaticInite4bb1edc38a633f41f6255b8aa8b6f65
         'Cesta\\Elementor\\Widgets\\OneProduct' => __DIR__ . '/../..' . '/classes/Elementor/Widgets/OneProduct.php',
         'Cesta\\Elementor\\Widgets\\PdfView' => __DIR__ . '/../..' . '/classes/Elementor/Widgets/PdfView.php',
         'Cesta\\Optimize' => __DIR__ . '/../..' . '/classes/Optimize.php',
+        'Cesta\\OrderAmount' => __DIR__ . '/../..' . '/classes/OrderAmount.php',
         'Cesta\\OrderProducts' => __DIR__ . '/../..' . '/classes/OrderProducts.php',
         'Cesta\\OrderStatus' => __DIR__ . '/../..' . '/classes/OrderStatus.php',
         'Cesta\\QuantityCart' => __DIR__ . '/../..' . '/classes/QuantityCart.php',

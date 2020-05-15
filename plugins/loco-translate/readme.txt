@@ -3,8 +3,8 @@ Contributors: timwhitlock
 Tags: translation, translators, localization, localisation, l10n, i18n, Gettext, PO, MO, productivity, multilingual, internationalization
 Requires at least: 4.1
 Requires PHP: 5.2.4
-Tested up to: 5.4
-Stable tag: 2.3.3
+Tested up to: 5.4.1
+Stable tag: 2.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -96,6 +96,16 @@ We don't collect your data or snoop on you. See the [plugin privacy notice](http
 
 
 == Changelog ==
+
+= 2.3.4 =
+* Updated translatable strings
+* Added missing template recommendation
+* Alerting in debug mode when scripts are tampered with
+* Fix for Hello Dolly being installed into a folder
+* Removed translation column in POT edit mode
+* Added setting to prevent 'translating' of POT files
+* Enabled some linkable translations using wp_kses
+* Bumped WordPress version to 5.4.1
 
 = 2.3.3 =
 * Fixed fatal error when class not found
@@ -322,7 +332,7 @@ We don't collect your data or snoop on you. See the [plugin privacy notice](http
 
 == Upgrade Notice ==
 
-= 2.3.3 =
+= 2.3.4 =
 * Various bug fixes and improvements
 
 

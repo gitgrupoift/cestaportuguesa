@@ -15,6 +15,7 @@ return array(
     'Cesta\\Elementor\\Widgets\\OneProduct' => $baseDir . '/classes/Elementor/Widgets/OneProduct.php',
     'Cesta\\Elementor\\Widgets\\PdfView' => $baseDir . '/classes/Elementor/Widgets/PdfView.php',
     'Cesta\\Optimize' => $baseDir . '/classes/Optimize.php',
+    'Cesta\\OrderAmount' => $baseDir . '/classes/OrderAmount.php',
     'Cesta\\OrderProducts' => $baseDir . '/classes/OrderProducts.php',
     'Cesta\\OrderStatus' => $baseDir . '/classes/OrderStatus.php',
     'Cesta\\QuantityCart' => $baseDir . '/classes/QuantityCart.php',

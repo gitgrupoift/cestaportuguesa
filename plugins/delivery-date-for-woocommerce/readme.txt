@@ -104,5 +104,15 @@ Yes! this plugin is tested with the latest woocommerce plugin. Check out [the de
 * fix issues for virtual product option
 * give email label for delivery date.
 
+= 1.1.5 =
+* Adminisrator can edit the Delivery date from the order page in admin panel
+
+= 1.1.6 = 
+* Minor bug fixes
+* removed the datepicker from order edit screen
+
+= 1.1.7 = 
+* Minor bug fixes for the admin settings
+
 == Upgrade Notice == 
 First version, no upgrades needed.

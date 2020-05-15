@@ -62,7 +62,7 @@ class Payment
         $insert = Curl::simple('paymentMethods/insert', $this->mapPropsToValues());
 
         if (isset($insert['payment_method_id'])) {
-            $this->payment_method_id = $insert['category_id'];
+            $this->payment_method_id = $insert['payment_method_id'];
             return $this;
         }
 
