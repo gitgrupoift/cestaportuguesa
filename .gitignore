@@ -5,7 +5,12 @@
 *.sqlite
 node_modules/
 
-/plugins/woocommerce/
-/plugins/woo-billing-with-invoicexpress-pro/
-/plugins/elementor/
-/uploads/
+plugins/woocommerce/
+plugins/woo-billing-with-invoicexpress-pro/
+plugins/elementor/
+plugins/advanced-custom-fields/
+languages/
+uploads/
+themes/
+cache/
+ai1wm-backups/
