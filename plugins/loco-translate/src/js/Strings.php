@@ -20,23 +20,66 @@ class Loco_js_Strings extends Loco_hooks_TranslateBuffer {
         // Message appears after sync operation
         __("Merged from source code",'loco-translate');
 
-        // Summary of new strings after running in-editor Sync
+        /* Summary of new strings after running in-editor Sync
+         * xgettext: javascript-format */
         _n("1 new string added","%s new strings added",0,'loco-translate');
 
-        // Summary of existing strings that no longer exist after running in-editor Sync
+        /* Summary of existing strings that no longer exist after running in-editor Sync
+         * xgettext: javascript-format */
         _n("1 obsolete string removed","%s obsolete strings removed",0,'loco-translate');
 
-        /* Message appears after sync operation when nothing has changed. %s refers to a POT file.
+        /* Summary of existing translations where the source text has changed slightly
          * xgettext: javascript-format */
-        __("Already up to date with %s",'loco-translate');
+        _n("1 string marked Fuzzy","%s strings marked Fuzzy",0,'loco-translate');
 
-        // Message appears after sync operation when nothing has changed
-        __("Already up to date with source code",'loco-translate');
+        /* Message appears after sync operation, where %s refers to a POT file.
+         * xgettext: javascript-format */
+        __("Strings up to date with %s",'loco-translate');
+
+        // Message appears after sync operation.
+        __("Strings up to date with source code",'loco-translate');
+
+        // xgettext: javascript-format
+        __("%s unique source strings.",'loco-translate');
+
+        /* characters meaning individual unicode characters of source text
+         * xgettext: javascript-format */
+        __("%s characters will be sent for translation.",'loco-translate');
+
+        /* %s%% is a percentage, e.g. 50%
+         * xgettext: javascript-format */
+        __("Translation progress %s%%",'loco-translate');
+
+        // xgettext: javascript-format
+        _n("Translation job aborted with one string remaining","Translation job aborted with %s strings remaining",0,'loco-translate');
+
+        /* e.g. via Google Translate
+         * xgettext: javascript-format */
+        _n("%s string translated via %s","%s strings translated via %s",0,'loco-translate');
+
+        // xgettext: javascript-format
+        _n("%s string updated","%s strings updated",0,'loco-translate');
+
+        //
+        __("Nothing needed updating",'loco-translate');
+
+        //
+        __("Use this translation",'loco-translate');
+
+        //
+        __("Suggested translations",'loco-translate');
+
+        //
+        __("Loading suggestions",'loco-translate');
+
+        //
+        __("Keep this translation",'loco-translate');
 
         // Warning appears when user tries to refresh or navigate away when editor work is unsaved
         __("Your changes will be lost if you continue without saving",'loco-translate');
 
-        // Shows total string count at top of editor
+        /* Shows total string count at top of editor
+         * xgettext: javascript-format */
         _n("1 string","%s strings",0,'loco-translate');
 
         /* Shows percentage translated at top of editor
@@ -102,7 +145,10 @@ class Loco_js_Strings extends Loco_hooks_TranslateBuffer {
         _x("Translated","Editor",'loco-translate');
 
         //
-        _x("Fuzzy","Editor",'loco-translate');
+        _x("Toggle Fuzzy","Editor",'loco-translate');
+
+        //
+        _x("Suggest translation","Editor",'loco-translate');
 
         // Label for the source text window when no translation selected
         _x("Source text not loaded","Editor",'loco-translate');

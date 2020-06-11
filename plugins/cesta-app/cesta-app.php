@@ -7,7 +7,7 @@
  * Author URI:      https://grupoift.pt
  * Text Domain:     cesta-app
  * Domain Path:     /languages
- * Version:         1.1.0
+ * Version:         1.2.0
  *
  * @package         Cesta_App
  */
@@ -24,8 +24,10 @@ use Cesta\AdminDisplay;
 use Cesta\Security;
 use Cesta\Optimize;
 use Cesta\Elementor as CEW;
+use Cesta\SEO;
+//use Cesta\PriceHistory;
 
-define('CESTA_VERSION', '1.0.0');
+define('CESTA_VERSION', '1.2.0');
 define('CESTA_DIR', plugin_dir_path( __FILE__ ));
 define('CESTA_CLASSES', CESTA_DIR . 'classes/');
 define('CESTA_DATA', CESTA_DIR . 'data/');
@@ -43,49 +45,11 @@ Optimize::instance();
 AdminDisplay::get_instance();
 
 $GLOBALS['wc_city_select'] = new Woocommerce();
+new SEO();
 
 /*
+ * Cria nova tabela SQL para historial de preços na ativação
+ *
 
-function is_product_in_cart($product_id){
-
-	$product_cart_id = WC()->cart->generate_cart_id( $product_id );
-    $in_cart = WC()->cart->find_product_in_cart( $product_cart_id );
- 
-    if ( $in_cart ) {
-        return true;
-    }
-	return false;
-}
-
-
-
-function if_cart_total_over($value) {
-    global $woocommerce;
-    $totals = $woocommerce->cart->total;
-    if($totals > $value) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-add_action( 'woocommerce_cart_calculate_fees', 'change_price_of_product' );
-
-function change_price_of_product( $cart_object ) {	
-    $target_product_id = 3221;
-    $totals = $cart_object->cart_contents_total * 1.088889;
-    
-	if(is_product_in_cart(3221)) {
-        if($totals > 15){
-            foreach ( $cart_object->get_cart() as $key => $value ) {
-                if ( $value['product_id'] == $target_product_id ) {
-                    $value['data']->set_price(3.99);
-				    $new_price = $value['data']->get_price();
-                    //$cart_object->calculate_totals();
-                }
-            }
-        }
-    }
-    
-}
-
+$wc_price_history = new PriceHistory();
+register_activation_hook( __FILE__, array( $wc_price_history,  'wc_price_history_sql' ) );*/

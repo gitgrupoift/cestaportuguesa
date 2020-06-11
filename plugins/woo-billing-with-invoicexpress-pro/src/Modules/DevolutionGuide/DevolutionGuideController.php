@@ -193,7 +193,7 @@ class DevolutionGuideController extends BaseController {
 
 			$invoice_data = array(
 				'date'             => date_i18n( 'd/m/Y' ),
-				'due_date'         => $this->get_due_date( 'devolution_guide' ),
+				'due_date'         => $this->get_due_date( 'devolution_guide', $order_object ),
 				'loaded_at'        => $loaded_at_time,
 				'license_plate'    => $license_plate,
 				'address_from'     => $address_from_data,

@@ -607,12 +607,6 @@ html {
   top: -5px;
 }
 
-.editor-post-title__block .editor-post-title__input {
-  padding-right: 28px;
-  padding-left: 28px;
-  font-weight: normal;
-}
-
 .editor-post-title__block,
 .editor-default-block-appender,
 .block-editor-block-list__block {
@@ -634,7 +628,7 @@ html {
   max-width: 1400px;
 }
 
-.block-editor-block-list__layout .block-editor-block-list__layout {
+.edit-post-visual-editor .block-editor-block-list__layout .block-editor-block-list__layout {
   padding: 0;
 }
 

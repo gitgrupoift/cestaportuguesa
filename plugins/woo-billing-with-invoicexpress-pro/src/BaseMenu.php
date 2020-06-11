@@ -226,8 +226,41 @@ abstract class BaseMenu {
 			jQuery( document ).ready( function( $ ) {
 
 				//Show and hide fields
-				function ix_show_hide_fiels() {
-					// First run.
+				function ix_show_hide_fields() {
+
+					//Invoice and Invoice-receipts related fields
+					if ( $( '#section-ix_invoices_invoices' ).length && $( '#section-ix_invoices_simplified_invoices' ).length ) {
+						var show_invoice_related = false;
+						if ( $( '#hd_wc_ie_plus_create_invoice' ).is( ':checked' ) || $( '#hd_wc_ie_plus_create_simplified_invoice' ).is( ':checked' ) ) {
+							show_invoice_related = true;
+						}
+						var fields = $( '.only-for-invoice-or-simplified' );
+						var elements = $( '.only-for-invoice-or-simplified' ).parents( 'table.form-table tr' );
+						if ( show_invoice_related ) {
+							//Receipts section
+							$( '#section-ix_invoices_receipts' ).show();
+							//Other fields
+							fields.parents( 'table.form-table tr' ).show();
+						} else {
+							//Receipts section
+							$( '#section-ix_invoices_receipts' ).hide();
+							//Other fields
+							fields.parents( 'table.form-table tr' ).hide();
+						}
+						//Hide automatic options
+						if ( $( '#hd_wc_ie_plus_create_invoice' ).is( ':checked' ) ) {
+							$( '#hd_wc_ie_plus_automatic_invoice_type > option[value="invoice"]' ).show();
+						} else {
+							$( '#hd_wc_ie_plus_automatic_invoice_type > option[value="invoice"]' ).hide();
+						}
+						if ( $( '#hd_wc_ie_plus_create_simplified_invoice' ).is( ':checked' ) ) {
+							$( '#hd_wc_ie_plus_automatic_invoice_type > option[value="simplified_invoice"]' ).show();
+						} else {
+							$( '#hd_wc_ie_plus_automatic_invoice_type > option[value="simplified_invoice"]' ).hide();
+						}
+					}
+
+					//First run.
 					$( '.has-parent-field' ).each( function() {
 						var parent_field = $( this ).find( 'td span.parent_field_data' ).attr( 'data-parent-field' );
 						var parent_value = $( this ).find( 'td span.parent_field_data' ).attr( 'data-parent-value' );
@@ -246,7 +279,7 @@ abstract class BaseMenu {
 						}
 					});
 
-					// Second run - for grand children.
+					//Second run - for grand children.
 					$( '.has-parent-field' ).each( function() {
 						if ( $( this ).is( ':visible' ) ) {
 							var parent_field = $( this ).find( 'td span.parent_field_data' ).attr( 'data-parent-field' );
@@ -257,10 +290,10 @@ abstract class BaseMenu {
 					});
 				}
 
-				ix_show_hide_fiels();
+				ix_show_hide_fields();
 
 				$( '.ix_form_field' ).change( function() {
-					ix_show_hide_fiels();
+					ix_show_hide_fields();
 				} );
 
 				//Update scheduled documents count

@@ -174,7 +174,7 @@ class InvoiceReceiptController extends BaseController {
 
 			$invoice_data = array(
 				'date'             => date_i18n( 'd/m/Y' ),
-				'due_date'         => $this->get_due_date( 'invoice_receipt' ),
+				'due_date'         => $this->get_due_date( 'invoice_receipt', $order_object ),
 				'reference'        => $this->get_order_number( $order_object ),
 				'client'           => $client_data,
 				'items'            => $items_data,
@@ -203,6 +203,7 @@ class InvoiceReceiptController extends BaseController {
 				'request' => 'invoice_receipts.json',
 				'args'    => array(
 					'invoice_receipt' => $invoice_data
+					//'invoice' => $invoice_data
 				),
 			);
 			$json_request = new JsonRequest( $params );

@@ -5,6 +5,7 @@ use Cesta\QuantityCart;
 use Cesta\OrderStatus;
 use Cesta\DataLayer;
 use Cesta\OrderAmount;
+//use Cesta\ProductGift;
 
 class Woocommerce {
     
@@ -100,6 +101,7 @@ class Woocommerce {
         new OrderStatus();
         new OrderProducts();
         new OrderAmount();
+        //new ProductGift();
         
     }
 
@@ -252,17 +254,30 @@ class Woocommerce {
             'CL'    =>  'Celorico de Basto',
             'ES'    =>  'Esposende',
             'FF'    =>  'Fafe',
+            //'FE'    =>  'Felgueiras',
+            //'GO'    => 'Gondomar',
             'GU'    =>  'Guimarães',
+            //'LO'    =>  'Lousada',
+            //'MA'    =>  'Matosinhos',
             'ME'    =>  'Melgaço',
             'MO'    =>  'Monção',
+            //'PA'    =>  'Paredes',
             'PC'    =>  'Paredes de Coura',
+            //'PF'    =>  'Paços de Ferreira',
+            //'PE'    =>  'Penafiel',
             'PB'    =>  'Ponte da Barca',
             'PL'    =>  'Ponte de Lima',
+            //'PO'    =>  'Porto',
             'PH'    =>  'Póvoa de Lanhoso',
+            //'PV'    =>  'Póvoa de Varzim',
+            //'ST'    =>  'Santo Tirso',
             'TB'    =>  'Terras de Bouro',
+            //'TR'    =>  'Trofa',
             'VL'    =>  'Valença',
+            //'VA'    =>  'Valongo',
             'VC'    =>  'Viana do Castelo',
             'VM'    =>  'Vieira do Minho',
+            //'VD'    =>  'Vila do Conde',
             'CV'    =>  'Vila Nova de Cerveira',
             'FM'    =>  'Vila Nova de Famalicão',
             'VV'    =>  'Vila Verde',

@@ -215,7 +215,7 @@ class VatMossInvoiceController extends BaseController {
 
 			$invoice_data = array(
 				'date'             => date_i18n( 'd/m/Y' ),
-				'due_date'         => $this->get_due_date( 'vat_moss_invoice' ),
+				'due_date'         => $this->get_due_date( 'vat_moss_invoice', $order_object ),
 				'reference'        => $this->get_order_number( $order_object ),
 				'client'           => $client_data,
 				'items'            => $items_data,
@@ -244,6 +244,7 @@ class VatMossInvoiceController extends BaseController {
 				'request' => 'vat_moss_invoices.json',
 				'args'    => array(
 					'vat_moss_invoice' => $invoice_data
+					//'invoice' => $invoice_data
 				),
 			);
 			$json_request = new JsonRequest( $params );

@@ -184,11 +184,20 @@ class Vat {
 				( 'true' == $order_object->get_meta( '_vat_number_is_validated' ) ) //WooCommerce EU VAT Field
 			)
 		) {
-			// Artigo 14.º do RITI.
-			$order_object->update_meta_data( '_billing_tax_exemption_reason', 'M16' );
-			$order_object->add_order_note( __( 'VAT exemption applied (Artigo 14.º do RITI)', 'woo-billing-with-invoicexpress' ) );
+			//Para bens: M16 - 14.º RITI (por omissão) / Para serviços: M08 - 6.º CIVA - Autoliquidação
+			$exemption_reason = apply_filters( 'invoicexpress_woocommerce_eu_vies_exemption_reason', get_option( 'hd_wc_ie_plus_exemption_reason_eu_b2b',  'M16' ), $order_object );
+			$order_object->update_meta_data( '_billing_tax_exemption_reason', $exemption_reason );
+			$order_object->add_order_note( sprintf(
+				__( 'VAT exemption applied (%s)', 'woo-billing-with-invoicexpress' ),
+				'Artigo 14.º do RITI'
+			) );
 		}
+
 		$order_object->save();
+
+		//Anything else?
+		do_action( 'invoicexpress_woocommerce_after_update_order_meta_frontend', $order_object );
+
 	}
 
 	//VAT Validation only for our field or Aelia

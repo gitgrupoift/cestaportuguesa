@@ -195,7 +195,7 @@ class InvoiceController extends BaseController {
 
 		$invoice_data = array(
 			'date'             => date_i18n( 'd/m/Y' ),
-			'due_date'         => $this->get_due_date( 'invoice' ),
+			'due_date'         => $this->get_due_date( 'invoice', $first_order_object ),
 			'reference'        => implode( ', ', $order_numbers ),
 			'client'           => $client_data,
 			'items'            => $items,
@@ -492,7 +492,7 @@ class InvoiceController extends BaseController {
 
 			$invoice_data = array(
 				'date'             => date_i18n( 'd/m/Y' ),
-				'due_date'         => $this->get_due_date( 'invoice' ),
+				'due_date'         => $this->get_due_date( 'invoice', $order_object ),
 				'reference'        => $this->get_order_number( $order_object ),
 				'client'           => $client_data,
 				'items'            => $items_data,

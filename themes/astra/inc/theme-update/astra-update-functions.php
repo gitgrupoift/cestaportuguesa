@@ -201,3 +201,21 @@ function astra_responsive_base_background_option() {
 
 	update_option( 'astra-settings', $theme_options );
 }
+
+
+/**
+ * Do not apply new wide/full image CSS for existing users.
+ *
+ * @since 2.4.4
+ *
+ * @return void
+ */
+function astra_gtn_full_wide_image_group_css() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Set flag to not load button specific CSS.
+	if ( ! isset( $theme_options['gtn-full-wide-image-grp-css'] ) ) {
+		$theme_options['gtn-full-wide-image-grp-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

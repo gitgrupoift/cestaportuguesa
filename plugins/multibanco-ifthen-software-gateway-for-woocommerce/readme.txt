@@ -6,7 +6,7 @@ Plugin URI: https://www.webdados.pt/wordpress/plugins/multibanco-ifthen-software
 Requires at least: 4.1
 Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 4.2.1
+Stable tag: 4.2.2
 
 This plugin allows customers with a Portuguese bank account to pay WooCommerce orders using Multibanco (Pag. Serviços), MB WAY and Payshop through IfthenPay’s payment gateway.
 
@@ -21,6 +21,8 @@ This is the official [IfthenPay](https://ifthenpay.com) plugin, and a contract w
 
 **This plugin will soon require WordPress 4.4, WooCommerce 3.0 and PHP 7.0 or above.**
 If you cannot update any of these components, you should check the changelog of this plugin to find out which is the last version you can use in your scenario.
+
+**If you’re using WooCommerce 4.2.0 and experiencing problems with orders changing values and new references being created [check this out](https://wordpress.org/support/topic/importante-encomenda-muda-de-valor-no-woocommerce-4-2-0/) and report issues [here](https://github.com/woocommerce/woocommerce/issues/26582)**
 
 = Are you already issuing automatic invoices on your WooCommerce store? =
 
@@ -99,8 +101,8 @@ There are also filters for this. See `hooks-examples.php`.
 
 = I want to charge an additional fee for Multibanco and/or MB WAY payments. How should I do it? =
 
-You shouldn't! To our knowledge, it’s illegal under Portuguese law to charge an extra fee based on the payment method chosen by the customer.
-If you don't care about legislation, plugins are available that allow you to set extra fees per payment method. Please, don't ask us for support on this.
+You shouldn’t! To our knowledge, it’s illegal under [Portuguese law](https://www.bportugal.pt/sites/default/files/anexos/legislacoes/dl3ano2010.PDF) and a [European directive](https://europa.eu/youreurope/business/finance-funding/making-receiving-payments/electronic-cash-payments/index_en.htm) to charge an extra fee based on the payment method chosen by the customer.
+If you don’t care about legislation, plugins are available that allow you to set extra fees per payment method. Please, don’t ask us for support on this.
 
 = How much time does the customer have to pay with MB WAY? =
 
@@ -112,7 +114,7 @@ Yes. This plugin is officially WPML compatible. You will need the WPML and WPML 
 
 = [WPML] How can I translate the payment method title and description the customer sees in the checkout page to secondary languages? =
 
-Go to WPML > String Translation > Search and translate the `multibanco_ifthen_for_woocommerce_gateway_title`, `multibanco_ifthen_for_woocommerce_gateway_description`, `mbway_ifthen_for_woocommerce_gateway_title` and `mbway_ifthen_for_woocommerce_gateway_description` strings in the `woocommerce` domain. Don't forget to check the “Translation is complete” checkbox and click “Save”. You should also translate the “Extra instructions” strings by searching the `multibanco_ifthen_for_woocommerce_extra_instructions` string on the `multibanco_ifthen_for_woocommerce` domain and the `mbway_ifthen_for_woocommerce_extra_instructions` string on the `mbway_ifthen_for_woocommerce` domain.
+Go to WPML > String Translation > Search and translate the `multibanco_ifthen_for_woocommerce_gateway_title`, `multibanco_ifthen_for_woocommerce_gateway_description`, `mbway_ifthen_for_woocommerce_gateway_title` and `mbway_ifthen_for_woocommerce_gateway_description` strings in the `woocommerce` domain. Don’t forget to check the “Translation is complete” checkbox and click “Save”. You should also translate the “Extra instructions” strings by searching the `multibanco_ifthen_for_woocommerce_extra_instructions` string on the `multibanco_ifthen_for_woocommerce` domain and the `mbway_ifthen_for_woocommerce_extra_instructions` string on the `mbway_ifthen_for_woocommerce` domain.
 
 = [SMS] How to include the Multibanco payment instructions in the SMS sent by “WooCommerce - APG SMS Notifications”? =
 
@@ -130,19 +132,19 @@ Go to YITH Plugins > SMS Notifications > SMS Settings and add the `{multibanco_i
 
 Yes, you should use the `multibanco_ifthen_base_ent_subent` filter. See `hooks-examples.php`.
 
-= [Advanced] Can I use a specific MB Way Key based on order details? =
+= [Advanced] Can I use a specific MB WAY Key based on order details? =
 
 Yes, you should use the `multibanco_ifthen_base_mbwaykey` filter. See `hooks-examples.php`.
 
 = [Advanced] The order is set "On Hold", can I make it "Pending" by default? =
 
-I don't know why on earth you would want to do this, but… yes, you can. Just return `false` to the `multibanco_ifthen_set_on_hold` and/or `mbway_ifthen_set_on_hold` filter.
+I don’t know why on earth you would want to do this, but… yes, you can. Just return `false` to the `multibanco_ifthen_set_on_hold` and/or `mbway_ifthen_set_on_hold` filter.
 Be advised that no "new order" email, with payment instructions, will be sent to the customer unless you use some plugin or custom code to force it.
 
-= [Advanced] I've set up WooCommerce to cancel unpaid orders after x minutes, why are my Multibanco and/or MB WAY orders not being canceled? =
+= [Advanced] I’ve set up WooCommerce to cancel unpaid orders after x minutes, why are my Multibanco and/or MB WAY orders not being canceled? =
 
 WooCommerce only automatically cancels "Pending" orders, not "On Hold", because these orders are set to be paid by offline methods (like this one), and payment can occur at any time, even after the order is canceled. Still, if you want to take that risk, just return `true` to the `multibanco_ifthen_cancel_unpaid_orders` and/or `mbway_ifthen_cancel_unpaid_orders` filter.
-You can also restore that order’s product stock by returning `true` to the `multibanco_ifthen_cancel_unpaid_orders_restore_stock` and/or `mbway_ifthen_cancel_unpaid_orders_restore_stock` filter, although the WooCommerce team [doesn't recommend](https://github.com/woocommerce/woocommerce/issues/3712#issuecomment-23650563) it.
+You can also restore that order’s product stock by returning `true` to the `multibanco_ifthen_cancel_unpaid_orders_restore_stock` and/or `mbway_ifthen_cancel_unpaid_orders_restore_stock` filter, although the WooCommerce team [doesn’t recommend](https://github.com/woocommerce/woocommerce/issues/3712#issuecomment-23650563) it.
 Be advised the Multibanco reference will still be active and can be paid at any ATM or home banking service.
 
 = [Advanced] Can I prevent the plugin from adding the payment instructions and/or the payment received message to emails? =
@@ -152,7 +154,7 @@ You can use the `multibanco_ifthen_email_instructions_payment_received_send` and
 
 = IfthenPay says my callback URL is returning a 404 error. Should I sit in a corner and cry or is there a solution? =
 
-Don't cry! There’s a solution!
+Don’t cry! There’s a solution!
 You probably have weird permalink settings (or permalinks not set at all) in your WordPress installation.
 Tell them to change the callback URL from `https://yourwebsite/wc-api/WC_Multibanco_IfThen_Webdados/?chave=[CHAVE_ANTI_PHISHING]&entidade=[ENTIDADE]&referencia=[REFERENCIA]&valor=[VALOR]` to `https://yourwebsite/?wc-api=WC_Multibanco_IfThen_Webdados&chave=[CHAVE_ANTI_PHISHING]&entidade=[ENTIDADE]&referencia=[REFERENCIA]&valor=[VALOR]`.
 
@@ -165,7 +167,7 @@ For premium, urgent and experimental integrations support or custom developments
 = Is this plugin compliant with the European Union General Data Protection Regulation (GDPR)? =
 
 This plugin does not collect or send to Webdados (the plugin author) or IfthenPay (the payment processor) any private data of the website where it’s installed, it’s customers or the orders themselves.
-In the MB Way module, the mobile phone number is collected to request the payment authorization and it can be legitimately processed based on article 6 (1) (b) of the GDPR.
+In the MB WAY module, the mobile phone number is collected to request the payment authorization and it can be legitimately processed based on article 6 (1) (b) of the GDPR.
 IfthenPay’s privacy policy can be found at [https://ifthenpay.com/termos-politica-privacidade/](https://ifthenpay.com/termos-politica-privacidade/)
 
 = Can I contribute with a translation? =
@@ -174,8 +176,20 @@ Sure. Go to [GlotPress](https://translate.wordpress.org/projects/wp-plugins/mult
 
 == Changelog ==
 
-= 4.2.1 =
+= 4.2.2 =
 * You can safely update this plugin if you’re running WooCommece 2.6.0 or newer **but we’ll very soon drop support for WooCommerce previous to 3.0 (which was launched in April 2017)**
+* **Temporarily, while [this WooCommerce bug](https://github.com/woocommerce/woocommerce/issues/26582) is not solved, the value will not be matched when checking the callback and no new Multibanco or Payshop reference will be issued if the order changes value**
+* Clarification on the settings page that the same set of entities or keys should never be used in more than one platform
+* Links to the Payshop agents and CTT stores search on the Payshop method extra instructions default message
+* Fix MB WAY phone number field hidden on some themes
+* Fix MB WAY and Payshop key fields appearance on the payment method settings
+* Show the Pay button on My Account for Multibanco and Payshop "On hold" orders
+* Better information when MB WAY order is already paid for
+* Better debug when requesting the MB WAY payment to the IfthenPay webservice
+* readme.txt tweaks
+* Tested with WordPress 5.5-alpha-47923 and WooCommerce 4.2.0
+
+= 4.2.1 =
 * Bugfix issuing new Multibanco or Payshop payment details when the order value is changed on wp-admin on WooCommerce 4.0 and above
 * Extensions and other premium plugins list on the payment gateways settings page
 * Tested with WordPress 5.5-alpha-47547 and WooCommerce 4.0.1
@@ -348,13 +362,13 @@ Sure. Go to [GlotPress](https://translate.wordpress.org/projects/wp-plugins/mult
 * Fixed a small bug where the Multibanco payment details would be regenerated if, for some exotic reason, an order value was changed on wp-admin for already paid orders
 
 = 3.2.1 =
-* New `multibanco_ifthen_multibanco_settings_fields` and `multibanco_ifthen_mbway_settings_fields` filters to allow 3rd party plugins to add fields to the Multibanco and MB Way settings screen
+* New `multibanco_ifthen_multibanco_settings_fields` and `multibanco_ifthen_mbway_settings_fields` filters to allow 3rd party plugins to add fields to the Multibanco and MB WAY settings screen
 * `index.php` file because "best practices"
 * Small coding standards fixes
 
 = 3.2 =
-* New behaviour for special entities that don't allow repeated payments in a specific time frame (only for WooCommerce 3.0 and above)
-* New `multibanco_ifthen_base_mbwaykey` filter to be able to change the base MB Way Key used to generate the payment details, based on the order, which may be useful for marketplaces
+* New behaviour for special entities that don’t allow repeated payments in a specific time frame (only for WooCommerce 3.0 and above)
+* New `multibanco_ifthen_base_mbwaykey` filter to be able to change the base MB WAY Key used to generate the payment details, based on the order, which may be useful for marketplaces
 * Bumped `WC tested up to` tag
 
 = 3.1.2 =
@@ -365,26 +379,26 @@ Sure. Go to [GlotPress](https://translate.wordpress.org/projects/wp-plugins/mult
 
 = 3.1.1 =
 * GDPR chit-chat on the FAQ
-* We no longer store the mobile phone number used for MB Way
+* We no longer store the mobile phone number used for MB WAY
 
 = 3.1 =
 * Complete grammar and spelling review
-* MB Way description limited to 70 characters (Site name #order_id)
+* MB WAY description limited to 70 characters (Site name #order_id)
 * Bumped `WC tested up to` tag
 
 = 3.0.6 =
-* Fixed a fatal error bug if the order is not found when the MB Way callback is invoked by IfthenPay
+* Fixed a fatal error bug if the order is not found when the MB WAY callback is invoked by IfthenPay
 * Better feedback to the customer, informing that there are only 5 minutes to complete the payment – because it seems SIBS has changed the timeout and told no one about it  ¯\_(ツ)_/¯
 
 = 3.0.5 =
 * Better WooCommerce detection
-* Always round MB Way values to two decimals
-* Clean problematic characters from the MB Way payment description
+* Always round MB WAY values to two decimals
+* Clean problematic characters from the MB WAY payment description
 * Small fixes
 * Bumped `WC tested up to` tag
 
 = 3.0.4 =
-* Debug when contacting the IfthenPay webservice to create the MB Way payment request (shame on us...)
+* Debug when contacting the IfthenPay webservice to create the MB WAY payment request (shame on us...)
 * Better feedback to the customer, informing that there are only 15 minutes to complete the payment
 * Bumped `WC tested up to` tag
 
@@ -410,7 +424,7 @@ Sure. Go to [GlotPress](https://translate.wordpress.org/projects/wp-plugins/mult
 
 = 2.1.4 =
 * Fixed a bug where on WooCommerce < 3.0 references would be re-used incorrectly
-* Re-enabled the use of references when they're not used anymore on on-hold or pending orders
+* Re-enabled the use of references when they’re not used anymore on on-hold or pending orders
 
 = 2.1.3 =
 * Small change for compatibility with the new “WC – APG SMS Notifications” timer for on-hold status messages functionality
@@ -561,9 +575,9 @@ Sure. Go to [GlotPress](https://translate.wordpress.org/projects/wp-plugins/mult
 
 
 = 1.7.9 =
-* Warning for new users that haven't yet asked IfthenPay for the “Callback” activation
+* Warning for new users that haven’t yet asked IfthenPay for the “Callback” activation
 * New `multibanco_ifthen_email_instructions_payment_received` filter to customize the “Multibanco payment received” text on emails
-* Bugfix: Sometimes the “Multibanco payment received” wouldn't show up on the client email
+* Bugfix: Sometimes the “Multibanco payment received” wouldn’t show up on the client email
 * Small settings screen fixes
 * Minor spelling errors correction (Thanks @dmatos)
 
@@ -622,9 +636,9 @@ Sure. Go to [GlotPress](https://translate.wordpress.org/projects/wp-plugins/mult
 * New “SMS payment instructions” class to be able to integrate with SMS sending plugins in the future
 * New `multibanco_ifthen_sms_instructions` filter to customize the SMS payment instructions
 * [WooCommerce - APG SMS Notifications](https://wordpress.org/support/plugin/woocommerce-apg-sms-notifications) plugin integration: it’s now possible to add the Multibanco payment details to the SMS message sent by this plugin by using the %multibanco_ifthen% variable on the message template
-* Shows alternate callback URL on WordPress installations that don't have pretty permalinks active (Why? Oh why??)
+* Shows alternate callback URL on WordPress installations that don’t have pretty permalinks active (Why? Oh why??)
 * New callback test tool on the edit order screen, if WP_DEBUG is set to true
-* WPML: Tries to fix the locale if WPML is active and we're loading via AJAX
+* WPML: Tries to fix the locale if WPML is active and we’re loading via AJAX
 * WPML: Get’s the title in the correct language for the icon’s alt attribute
 * WPML: Shows the payment instructions on the correct language on the “Thank You” page and on Order Status and Customer Notes emails
 * Now using WooCommerce’s `payment_complete` function so that orders with only downloadable items go directly to completed instead of processing
@@ -647,7 +661,7 @@ Sure. Go to [GlotPress](https://translate.wordpress.org/projects/wp-plugins/mult
 * Minor Portuguese translation tweaks.
 
 = 1.6 =
-* It’s now possible to decide either to reduce stock when the payment is confirmed via callback (default) or when the order is placed by the client. On the first case you don't have to fix the stock if the order is never paid but you'll also not have the quantity reserved for this order. On the second case you'll have to manually fix the stock if the order is never paid.
+* It’s now possible to decide either to reduce stock when the payment is confirmed via callback (default) or when the order is placed by the client. On the first case you don’t have to fix the stock if the order is never paid but you’ll also not have the quantity reserved for this order. On the second case you’ll have to manually fix the stock if the order is never paid.
 * There’s 2 filters that allow changing the payment instructions on both the “Thank you” page and on the client email. You can choose either to manipulate the default HTML or create your own. See `filters_examples.php`
 * Minor Portuguese translation tweaks.
 

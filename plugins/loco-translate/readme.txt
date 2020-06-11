@@ -1,10 +1,10 @@
-=== Plugin Name ===
+=== Loco Translate ===
 Contributors: timwhitlock
 Tags: translation, translators, localization, localisation, l10n, i18n, Gettext, PO, MO, productivity, multilingual, internationalization
 Requires at least: 4.1
 Requires PHP: 5.2.4
 Tested up to: 5.4.1
-Stable tag: 2.3.4
+Stable tag: 2.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,6 +20,7 @@ It also provides localization tools for developers, such as extracting strings a
 Features include:
 
 * Built-in translation editor within WordPress admin
+* Integration with automatic translation APIs
 * Create and update language files directly in your theme or plugin
 * Extraction of translatable strings from your source code
 * Native MO file compilation without the need for Gettext on your system
@@ -67,11 +68,13 @@ More information on using the plugin is [available here](https://localise.biz/wo
 
 == Frequently Asked Questions ==
 
-= How do I use it? = 
+Please visit the [FAQs page](https://localise.biz/wordpress/plugin/faqs) on our website for the most common issues.
+
+= How do I use Loco Translate? = 
 
 Try our [Guides and Tutorials](https://localise.biz/wordpress/plugin#guides).
 
-= How do I get help? =
+= How do I get more help? =
 
 If you have a problem using Loco Translate, please try our [help pages](https://localise.biz/wordpress/plugin).
 There's a lot of information there to help you understand how it works and the most common pitfalls to avoid.
@@ -96,6 +99,14 @@ We don't collect your data or snoop on you. See the [plugin privacy notice](http
 
 
 == Changelog ==
+
+= 2.4.0
+* Added support for third party translation APIs
+* Added file references to editor source pane in code view
+* Added fuzzy matching during editor Sync operation
+* Style changes including rearrangement of editor buttons
+* Elevated warnings when scripts are tampered with
+* Removed remnants of legacy version 1.x
 
 = 2.3.4 =
 * Updated translatable strings
@@ -332,8 +343,8 @@ We don't collect your data or snoop on you. See the [plugin privacy notice](http
 
 == Upgrade Notice ==
 
-= 2.3.4 =
-* Various bug fixes and improvements
+= 2.4.0 =
+* Various improvements including automatic translation support
 
 
 
@@ -351,5 +362,6 @@ The PO file editor supports the following keyboard shortcuts for faster translat
 * Toggle Fuzzy: `Ctrl U`
 * Save PO / compile MO: `Ctrl S`
 * Toggle invisibles: `Shift Ctrl I`
+* Suggest translation: `Ctrl J`
 
 Mac users can use ⌘ Cmd instead of Ctrl.

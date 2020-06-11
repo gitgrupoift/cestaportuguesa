@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 final class WC_IfthenPay_Webdados {
 	
 	/* Version */
-	public $version = '4.2.1';
+	public $version = '4.2.2';
 
 	/* IDs */
 	public $multibanco_id = 'multibanco_ifthen_for_woocommerce';
@@ -151,6 +151,8 @@ final class WC_IfthenPay_Webdados {
 		add_action( 'woocommerce_order_item_add_action_buttons', array( $this, 'multibanco_maybe_value_changed' ) );
 		// Admin notices to warn about old technology
 		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
+		// Order needs payment for all our methods
+		add_action( 'woocommerce_order_needs_payment', array( $this, 'woocommerce_order_needs_payment' ), 10, 2 );
 		// Our crons - Only if WooCommerce >= 3
 		if ( version_compare( WC_VERSION, '3.0', '>=' ) ) {
 			// Create cron
@@ -483,6 +485,10 @@ final class WC_IfthenPay_Webdados {
 						$order_mbway_details = $this->get_mbway_order_details( $order->mb_get_id() )
 					) {
 						echo '<p><img src="'.esc_url( $this->mbway_banner ).'" style="display: block; margin: auto; max-width: auto; max-height: 48px;" alt="MB WAY" title="MB WAY"/></p>';
+						echo '<p>'.__( 'MB WAY Key', 'multibanco-ifthen-software-gateway-for-woocommerce' ).': '.trim( $order_mbway_details['mbwaykey'] ).'<br/>';
+						echo __( 'Request ID', 'multibanco-ifthen-software-gateway-for-woocommerce' ).': '.trim( $order_mbway_details['id_pedido'] ).'<br/>';
+						echo __( 'Phone', 'multibanco-ifthen-software-gateway-for-woocommerce' ).': '.trim( $order->mb_get_meta( '_'.$this->mbway_id.'_phone' ) ).'<br/>';
+						echo __( 'Value', 'multibanco-ifthen-software-gateway-for-woocommerce' ).': '.wc_price( $order_mbway_details['val'] ).'</p>';
 						if ( $order->mb_has_status( 'on-hold' ) || $order->mb_has_status( 'pending' ) ) {
 							if ( trim( $order_mbway_details['exp'] ) != '' ) {
 								echo '<p>'.__( 'Expiration', 'multibanco-ifthen-software-gateway-for-woocommerce' ).': '.$this->mbway_format_expiration( $order_mbway_details['exp'], $order->mb_get_id() ).'</p>';
@@ -1099,6 +1105,9 @@ final class WC_IfthenPay_Webdados {
 	/* Change Ref if order total is changed on wp-admin */
 	public function multibanco_maybe_value_changed( $order ) {
 
+		// TEMPORARY - https://github.com/woocommerce/woocommerce/issues/26582
+		if ( version_compare( WC_VERSION, '4.2.0', '=' ) ) return;
+
 		if ( is_admin() ) {
 			
 			//We only do it for regular orders, not subscriptions or other special types of orders
@@ -1201,7 +1210,7 @@ wc_price( $order_total_to_pay )
 					case $this->payshop_id:
 						if ( version_compare( WC_VERSION, '3.0', '>=' ) ) {
 							$order_status = $order->mb_get_status();
-							if ( in_array( $order_status , array( 'on-hold', 'pending', 'partially-paid' ) ) ) {
+							if ( in_array( $order_status, array( 'on-hold', 'pending', 'partially-paid' ) ) ) {
 
 								$order_total_to_pay = $this->get_order_total_to_pay( $order );
 								if (
@@ -1400,7 +1409,6 @@ wc_price( $order_total_to_pay )
 		if ( apply_filters( 'mbway_ifthen_cancel_unpaid_orders', false ) ) {
 			$methods[] = $this->mbway_id;
 		}
-		var_dump($methods);
 		if ( count( $methods ) > 0 ) {
 			if ( version_compare( WC_VERSION, '3.0', '<' ) ) return;
 			$held_duration = get_option( 'woocommerce_hold_stock_minutes' );
@@ -1814,6 +1822,34 @@ wc_price( $order_total_to_pay )
 			) );
 		}
 		wp_die();
+	}
+
+	/**
+	* Order needs payment
+	*
+	* @since 4.2.2
+	*/
+	public function woocommerce_order_needs_payment( $needs_payment, $order ) {
+		$order_id = version_compare( WC_VERSION, '3.0', '>=' ) ? $order->get_id() : $order->id;
+		$order = new WC_Order_MB_Ifthen( intval( $order_id ) );
+		if (
+			in_array(
+				$order->mb_get_payment_method(),
+				array(
+					$this->multibanco_id,
+					$this->mbway_id,
+					$this->payshop_id
+				)
+			)
+			&&
+			in_array(
+				$order->mb_get_status(),
+				array( 'on-hold', 'pending', 'partially-paid' )
+			)
+		) {
+			return true;
+		}
+		return $needs_payment;
 	}
 
 	/**

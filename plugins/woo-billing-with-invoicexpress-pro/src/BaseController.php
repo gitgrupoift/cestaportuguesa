@@ -1021,7 +1021,7 @@ class BaseController {
 	 * @param  $type The document type.
 	 * @return string The document client name.
 	 */
-	public function get_due_date( $type ) {
+	public function get_due_date( $type, $order_object ) {
 		switch ( $type ) {
 			// Invoicing documents (except Invoice-receipt)
 			case 'invoice':

@@ -7,7 +7,7 @@
 <!-- V2 -->
 <div id="moove_gdpr_cookie_modal" class="lity-hide" role="dialog">
   <div class="moove-gdpr-modal-content moove-clearfix logo-position-<?php echo esc_attr( $content->logo_position ); ?> <?php echo esc_attr( $content->theme ); ?>">
-    <a href="#" class="moove-gdpr-modal-close" rel="nofollow"><span class="gdpr-icon moovegdpr-arrow-close"></span></a>
+    <button class="moove-gdpr-modal-close"><span class="gdpr-icon moovegdpr-arrow-close"></span></button>
     <div class="moove-gdpr-modal-left-content">
       <ul id="moove-gdpr-menu">
         <?php echo gdpr_get_module('tab-navigation'); ?>

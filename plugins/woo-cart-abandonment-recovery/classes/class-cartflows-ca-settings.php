@@ -84,6 +84,20 @@ class Cartflows_Ca_Settings {
 			'wcf_ca_ignore_users'
 		);
 
+		add_settings_field(
+			'wcar_email_admin_on_recovery',
+			__( 'Notify recovery to admin', 'woo-cart-abandonment-recovery' ),
+			array( $this, 'wcar_email_admin_on_recovery' ),
+			WCF_CA_PAGE_NAME,
+			WCF_CA_GENERAL_SETTINGS_SECTION,
+			array( __( 'This option will send an email to admin on new order recovery.', 'woo-cart-abandonment-recovery' ) )
+		);
+
+		register_setting(
+			WCF_CA_SETTINGS_OPTION_GROUP,
+			'wcar_email_admin_on_recovery'
+		);
+
 		// End: General Settings for cart abandonment.
 		// Start: Delete coupons settings for cart abandonment.
 
@@ -370,6 +384,23 @@ class Cartflows_Ca_Settings {
 		echo wp_kses_post( $html );
 	}
 
+	/**
+	 * Callback for send email to admin.
+	 *
+	 * @param array $args args.
+	 * @since 1.1.5
+	 */
+	public function wcar_email_admin_on_recovery( $args ) {
+		$email_admin_on_recovery = get_option( 'wcar_email_admin_on_recovery' );
+
+		$html = '';
+		printf(
+			'<input type="checkbox" id="wcar_email_admin_on_recovery" name="wcar_email_admin_on_recovery" value="on"
+			' . checked( 'on', $email_admin_on_recovery, false ) . ' />'
+		);
+		$html .= '<label for="wcar_email_admin_on_recovery"> ' . $args[0] . '</label>';
+		echo wp_kses_post( $html );
+	}
 
 	/**
 	 * Callback for cart abandonment cut off time.

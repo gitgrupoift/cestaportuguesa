@@ -27,14 +27,14 @@ jQuery(document).ready(function ($) {
 			success: function (response) {
 				deactivateFormBlock();
 				if (response) {
-					console.log("ORDER IS CANCELLABLE");
+					//console.log("ORDER IS CANCELLABLE");
 				} else {
 					$("#order_status").val(old_status);
 					$("select[name=wc_order_action]").val(old_action);
 					window.alert(
 						hd_wc_ie_cancel_order.alert_message
 					);
-					console.log("ORDER IS NOT CANCELLABLE");
+					//console.log("ORDER IS NOT CANCELLABLE");
 				}
 				$(".save_order").attr("disabled", false);
 				$(".wc-reload").attr("disabled", false);

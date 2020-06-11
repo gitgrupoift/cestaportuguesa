@@ -63,7 +63,7 @@ class BaseSettings {
 	 * @access protected
 	 * @var    string
 	 */
-	protected $ix_zero_tax_name = '';
+	protected $ix_zero_tax_name = 'Isento';
 
 	/**
 	 * Initialize the class and set its properties.
@@ -197,18 +197,38 @@ class BaseSettings {
 
 		foreach ( $tab['sections'] as $section_key => $section ) {
 			?>
-			<h2><?php echo esc_html( $section['title'] ); ?></h2>
-			<?php
-			if ( ! empty( $section['description'] ) ) {
-				printf(
-					'<p>%s</p>',
-					wp_kses_post( trim( $section['description'] ) )
-				);
-			}
-			?>
-			<table class="form-table">
-				<?php do_settings_fields( 'invoicexpress_woocommerce', $section_key ); ?>
-			</table>
+			<div id="section-<?php echo esc_attr( trim( $section_key ) ); ?>">
+				<h2><?php echo esc_html( $section['title'] ); ?></h2>
+				<?php
+				if ( ! empty( $section['description'] ) ) {
+					printf(
+						'<p>%s</p>',
+						wp_kses_post( trim( $section['description'] ) )
+					);
+				}
+				$class                  = array( 'form-table' );
+				$custom_attributes      = array();
+				$custom_attributes_html = '';
+				/*if ( isset( $section['parent_field'] ) && isset( $section['parent_value'] ) ) {
+					$class[] = 'section-has-parent-field';
+					if ( is_array( $section['parent_field'] ) ) {
+						foreach ( $section['parent_field'] as $field ) {
+							$custom_attributes[$field] = $section['parent_value'];
+						}
+					} elseif ( is_string( $section['parent_field'] ) ) {
+						$custom_attributes[$section['parent_field']] = $section['parent_value'];
+					}
+				}
+				if ( count( $custom_attributes ) > 0 ) {
+					foreach ( $custom_attributes as $key => $value ) {
+						$custom_attributes_html.='data-'.$key.'-value="'.trim( esc_attr( $value ) ).'"';
+					}
+				}*/
+				?>
+				<table class="<?php echo esc_attr( implode( ' ', $class ) ); ?>" <?php echo $custom_attributes_html; ?>>
+					<?php do_settings_fields( 'invoicexpress_woocommerce', $section_key ); ?>
+				</table>
+			</div>
 			<?php
 		}
 	}
@@ -274,6 +294,9 @@ class BaseSettings {
 		$suffix = isset( $field['suffix'] ) ? trim( $field['suffix'] ) : '';
 		$style  = isset( $field['style'] ) ? trim( $field['style'] ) : '';
 		$class  = array( 'ix_form_field' );
+		if ( isset( $field['class'] ) && is_array( $field['class'] ) ) {
+			$class = array_merge( $class, $field['class'] );
+		}
 
 		$placeholder = isset( $field['placeholder'] ) ? trim( $field['placeholder'] ) : '';
 
@@ -301,6 +324,7 @@ class BaseSettings {
 				__( 'probably "%s"', 'woo-billing-with-invoicexpress' ),
 				$this->ix_zero_tax_name
 			) . ')</p>', $description );
+			$field['default'] = $this->ix_zero_tax_name;
 		}
 
 		// Custom attribute handling.
@@ -403,19 +427,28 @@ class BaseSettings {
 						$ex->getMessage()
 					);
 				}
-
+				if ( $args['field'] != 'hd_wc_ie_plus_automatic_invoice_type' ) {
+					$class = array_merge( $class, array( 'wc-enhanced-select' ) );
+				}
 				$this->output_select_field( [
 					'type'              => $field['type'],
 					'field'             => $args['field'],
 					'value'             => $value,
 					'options'           => $options,
 					'style'             => $style,
-					'class'             => array_merge( $class, array( 'wc-enhanced-select' ) ),
+					'class'             => $class,
 					'custom_attributes' => $custom_attributes,
 					'suffix'            => $suffix,
 					'description'       => $description,
 					'wpml'				=> $wpml,
 				] );
+				break;
+
+			case 'pro_link':
+				echo sprintf(
+					'<a href="https://shop.webdados.com/product/invoicing-with-invoicexpress-for-woocommerce-pro/" target="_blank">%s</a>',
+					__( 'Available on the Pro version', 'woo-billing-with-invoicexpress' )
+				).'<br/>'.$description;
 				break;
 
 			default:

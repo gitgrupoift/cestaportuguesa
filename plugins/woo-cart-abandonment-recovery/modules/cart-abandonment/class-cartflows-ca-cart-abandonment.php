@@ -88,10 +88,80 @@ class Cartflows_Ca_Cart_Abandonment {
 			add_action( 'woocommerce_before_checkout_form', array( $this, 'test_email_checkout_page' ), 9 );
 
 			add_action( 'cartflows_ca_update_order_status_action', array( $this, 'update_order_status' ) );
+
 		}
 
 	}
 
+	/**
+	 * This function will send the email to the store admin when any abandoned cart email recovered.
+	 *
+	 * @param int | string $order_id Order id.
+	 * @param string       $wcar_old_status Old status of the order.
+	 * @param string       $wcar_new_status New status of the order.
+	 */
+	public function wcar_send_successful_recovery_email_to_admin( $order_id, $wcar_old_status, $wcar_new_status ) {
+		global $woocommerce;
+
+		if ( in_array( $wcar_old_status, array( 'pending', 'failed', 'on-hold' ), true ) &&
+				in_array( $wcar_new_status, array( 'processing', 'completed' ), true )
+			) {
+			$user_id = get_current_user_id();
+			$order   = wc_get_order( $order_id );
+			if ( version_compare( $woocommerce->version, '3.0.0', '>=' ) ) {
+					$user_id = $order->get_user_id();
+			} else {
+				$user_id = $order->user_id;
+			}
+
+			$is_recoverd = $this->wcar_check_order_is_recovered( $order_id );
+
+			if ( $is_recoverd ) {
+				$order         = wc_get_order( $order_id );
+				$email_heading = __( 'New Customer Order - Recovered Order ID: ' . $order_id . '', 'woo-cart-abandonment-recovery' ); //phpcs:ignore
+				$blogname      = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
+				$email_subject = __( 'New Customer Order - Recovered Order ID: ' . $order_id . '', 'woo-cart-abandonment-recovery' );  //phpcs:ignore
+				$user_email    = get_option( 'admin_email' );
+				$headers[]     = 'From: Admin <' . $user_email . '>';
+				$headers[]     = 'Content-Type: text/html';
+
+				ob_start();
+				wc_get_template(
+					'emails/admin-new-order.php',
+					array(
+						'order'         => $order,
+						'email_heading' => $email_heading,
+						'sent_to_admin' => false,
+						'plain_text'    => false,
+						'email'         => true,
+					)
+				);
+
+				$email_body = ob_get_clean();
+				wc_mail( $user_email, $email_subject, $email_body, $headers );
+			}
+		}
+	}
+
+	/**
+	 * This function will check if cart is recoverd from woocommerce and WCAR.
+	 *
+	 * @param int $order_id order id.
+	 */
+	public function wcar_check_order_is_recovered( $order_id ) {
+
+		global $wpdb;
+		$order                       = wc_get_order( $order_id );
+		$email                       = $order->get_billing_email();
+		$cart_abandonment_table_name = $wpdb->prefix . CARTFLOWS_CA_CART_ABANDONMENT_TABLE;
+        $wcar_status = $wpdb->get_var($wpdb->prepare( "SELECT `order_status` FROM {$cart_abandonment_table_name}  WHERE `email` = %s", $email )); // phpcs:ignore
+		$woo_status                  = $order->get_status();
+
+		if ( 'completed' === $wcar_status && in_array( $woo_status, array( 'completed', 'processing' ), true ) ) {
+			return true;
+		}
+		return false;
+	}
 
 	/**
 	 * Update the Order status.
@@ -140,6 +210,10 @@ class Cartflows_Ca_Cart_Abandonment {
 					}
 				}
 			}
+			$wcar_email_admin_recovery = get_option( 'wcar_email_admin_on_recovery' );
+			if ( 'on' === $wcar_email_admin_recovery ) {
+				$this->wcar_send_successful_recovery_email_to_admin( $order_id, $old_order_status, $new_order_status );
+			}
 		}
 
 	}
@@ -176,7 +250,6 @@ class Cartflows_Ca_Cart_Abandonment {
 
 		setcookie( 'wcf_ca_skip_track_data', 'true', 0, '/' );
 		wp_send_json_success();
-
 	}
 
 
@@ -359,6 +432,7 @@ class Cartflows_Ca_Cart_Abandonment {
 					foreach ( $cart_content as $cart_item ) {
 
 						$cart_item_data = array();
+						$variation_data = array();
 						$id             = $cart_item['product_id'];
 						$qty            = $cart_item['quantity'];
 
@@ -367,19 +441,15 @@ class Cartflows_Ca_Cart_Abandonment {
 							continue;
 						}
 
-						if ( isset( $cart_item['ppom'] ) ) {
-							$cart_item_data['ppom'] = $cart_item ['ppom'];
+						if ( isset( $cart_item['variation'] ) ) {
+							foreach ( $cart_item['variation']  as $key => $value ) {
+								$variation_data[ $key ] = $value;
+							}
 						}
 
-						if ( isset( $cart_item['cartflows_bump'] ) ) {
-							$cart_item_data['cartflows_bump'] = $cart_item['cartflows_bump'];
-						}
+						$cart_item_data = $cart_item;
 
-						if ( isset( $cart_item['custom_price'] ) ) {
-							$cart_item_data['custom_price'] = $cart_item['custom_price'];
-						}
-
-						$woocommerce->cart->add_to_cart( $id, $qty, $cart_item['variation_id'], array(), $cart_item_data );
+						$woocommerce->cart->add_to_cart( $id, $qty, $cart_item['variation_id'], $variation_data, $cart_item_data );
 					}
 
 					if ( isset( $token_data['wcf_coupon_code'] ) && ! $woocommerce->cart->applied_coupons ) {
@@ -1820,10 +1890,11 @@ class Cartflows_Ca_Cart_Abandonment {
 		foreach ( $cart_items as $cart_item ) {
 
 			if ( isset( $cart_item['product_id'] ) && isset( $cart_item['quantity'] ) && isset( $cart_item['line_total'] ) ) {
-				$id = 0 !== $cart_item['variation_id'] ? $cart_item['variation_id'] : $cart_item['product_id'];
-				$tr = $tr . '<tr style=' . $style . ' align="center">
+				$id             = 0 !== $cart_item['variation_id'] ? $cart_item['variation_id'] : $cart_item['product_id'];
+				$variation_data = isset( $cart_item['variation'] ) ? implode( ',', array_values( $cart_item['variation'] ) ) : '';
+				$tr             = $tr . '<tr style=' . $style . ' align="center">
                            <td style="' . $style . '"><img  class="demo_img" style="' . $product_image_style . '" src="' . esc_url( get_the_post_thumbnail_url( $cart_item['product_id'] ) ) . '"></td>
-                           <td style="' . $style . '">' . get_the_title( $id ) . '</td>
+                           <td style="' . $style . '">' . get_the_title( $cart_item['product_id'] ) . '  ' . $variation_data . '</td>
                            <td style="' . $style . '"> ' . $cart_item['quantity'] . ' </td>
                            <td style="' . $style . '">' . $currency_symbol . number_format_i18n( $cart_item['line_total'], 2 ) . '</td>
                            <td style="' . $style . '" >' . $currency_symbol . number_format_i18n( $cart_item['line_total'], 2 ) . '</td>
@@ -1877,13 +1948,14 @@ class Cartflows_Ca_Cart_Abandonment {
 		foreach ( $cart_items as $cart_item ) {
 
 			if ( isset( $cart_item['product_id'] ) && isset( $cart_item['quantity'] ) && isset( $cart_item['line_total'] ) && isset( $cart_item['line_subtotal'] ) ) {
-				$id       = 0 !== $cart_item['variation_id'] ? $cart_item['variation_id'] : $cart_item['product_id'];
-				$discount = number_format_i18n( $discount + ( $cart_item['line_subtotal'] - $cart_item['line_total'] ), 2 );
-				$total    = number_format_i18n( $total + $cart_item['line_subtotal'], 2 );
-				$tax      = number_format_i18n( $tax + $cart_item['line_tax'], 2 );
-				$tr       = $tr . '<tr  align="center">
+				$id             = 0 !== $cart_item['variation_id'] ? $cart_item['variation_id'] : $cart_item['product_id'];
+				$discount       = number_format_i18n( $discount + ( $cart_item['line_subtotal'] - $cart_item['line_total'] ), 2 );
+				$total          = number_format_i18n( $total + $cart_item['line_subtotal'], 2 );
+				$tax            = number_format_i18n( $tax + $cart_item['line_tax'], 2 );
+				$variation_data = isset( $cart_item['variation'] ) ? implode( ',', array_values( $cart_item['variation'] ) ) : '';
+				$tr             = $tr . '<tr  align="center">
                            <td ><img class="demo_img" width="42" height="42" src=" ' . esc_url( get_the_post_thumbnail_url( $cart_item['product_id'] ) ) . ' "/></td>
-						   <td >' . get_the_title( $id ) . '</td>
+						   <td >' . get_the_title( $cart_item['product_id'] ) . '  ' . $variation_data . '</td>
                            <td > ' . $cart_item['quantity'] . ' </td>
                            <td >' . $currency_symbol . number_format_i18n( $cart_item['line_total'], 2 ) . '</td>
                            <td  >' . $currency_symbol . number_format_i18n( $cart_item['line_total'], 2 ) . '</td>
@@ -1937,10 +2009,14 @@ class Cartflows_Ca_Cart_Abandonment {
 		if ( ( $checkout_details->unsubscribed ) || ( WCF_CART_COMPLETED_ORDER === $checkout_details->order_status ) ) {
 			return;
 		}
-		$scheduled_time_from = current_time( WCF_CA_DATETIME_FORMAT );
+
 		$scheduled_emails    = $this->fetch_scheduled_emails( $session_id );
 		$scheduled_templates = array_column( $scheduled_emails, 'template_id' ); //phpcs:ignore
 		$scheduled_time_from = $checkout_details->time;
+
+		if ( $force_reschedule ) {
+			$scheduled_time_from = current_time( WCF_CA_DATETIME_FORMAT );
+		}
 
 		$email_tmpl = Cartflows_Ca_Email_Templates::get_instance();
 		$templates  = $email_tmpl->fetch_all_active_templates();
@@ -1951,7 +2027,7 @@ class Cartflows_Ca_Cart_Abandonment {
 
 		foreach ( $templates as $template ) {
 
-			if ( false !== array_search( $template->id, $scheduled_templates, true ) ) {
+			if ( false !== array_search( $template->id, $scheduled_templates, true ) && false === $force_reschedule ) {
 				continue;
 			}
 
@@ -2051,8 +2127,8 @@ class Cartflows_Ca_Cart_Abandonment {
 
 			if ( $coupon_count ) {
 				$coupons_post_ids = implode( ',', wp_list_pluck( $coupons, 'ID' ) );
-				$wpdb->query( "DELETE FROM {$wpdb->postmeta} WHERE post_id IN(" . $coupons_post_ids . ')' );//phpcs:ignore
-				$wpdb->query( "DELETE FROM {$wpdb->posts} WHERE ID IN(" . $coupons_post_ids . ')' );//phpcs:ignore
+				$wpdb->query( "DELETE FROM {$wpdb->prefix}postmeta WHERE post_id IN(" . $coupons_post_ids . ')' );//phpcs:ignore
+				$wpdb->query( "DELETE FROM {$wpdb->prefix}posts WHERE ID IN(" . $coupons_post_ids . ')' );//phpcs:ignore
 			}
 
 			if ( ! $is_ajax_request ) {
@@ -2087,8 +2163,8 @@ class Cartflows_Ca_Cart_Abandonment {
 			    Max(CASE WHEN pm.meta_key = 'usage_count'     AND  p.`ID` = pm.`post_id` THEN pm.meta_value END) AS total_usaged,
 
 			    Max(CASE WHEN pm.meta_key = 'coupon_generated_by'     AND  p.`ID` = pm.`post_id` THEN pm.meta_value END) AS coupon_generated_by
-			    FROM   wp_posts AS p 
-			    INNER JOIN wp_postmeta AS pm ON  p.ID = pm.post_id 
+			    FROM   {$wpdb->prefix}posts AS p 
+			    INNER JOIN {$wpdb->prefix}postmeta AS pm ON  p.ID = pm.post_id 
 				WHERE  p.`post_type` = %s     
        
 		  		GROUP BY p.ID

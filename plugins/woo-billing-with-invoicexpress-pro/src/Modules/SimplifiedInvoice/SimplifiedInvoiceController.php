@@ -176,7 +176,7 @@ class SimplifiedInvoiceController extends BaseController {
 
 			$invoice_data = array(
 				'date'             => date_i18n( 'd/m/Y' ),
-				'due_date'         => $this->get_due_date( 'simplified_invoice' ),
+				'due_date'         => $this->get_due_date( 'simplified_invoice', $order_object ),
 				'reference'        => $this->get_order_number( $order_object ),
 				'client'           => $client_data,
 				'items'            => $items_data,
@@ -205,6 +205,7 @@ class SimplifiedInvoiceController extends BaseController {
 				'request' => 'simplified_invoices.json',
 				'args'    => array(
 					'simplified_invoice' => $invoice_data
+					//'invoice' => $invoice_data
 				),
 			);
 			$json_request = new JsonRequest( $params );

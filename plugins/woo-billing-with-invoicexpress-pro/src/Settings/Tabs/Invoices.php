@@ -41,22 +41,119 @@ class Invoices extends \Webdados\InvoiceXpressWooCommerce\Settings\Tabs {
 		$settings = array(
 			'title'    => __( 'Invoices and Credit notes', 'woo-billing-with-invoicexpress' ),
 			'sections' => array(
+				'ix_invoices_invoices_receipt'    => array(
+					'title'       => __( 'Invoice-receipts', 'woo-billing-with-invoicexpress' ),
+					'description' => '',
+					'fields'      => array(
+						'hd_wc_ie_plus_invoice_receipt' => array(
+							'title'       => sprintf(
+								/* translators: %s: document type */
+								__( 'Issue %s', 'woo-billing-with-invoicexpress' ),
+								__( 'Invoice-receipt', 'woo-billing-with-invoicexpress' )
+							),
+							'description' => __( 'Recommended if you’re getting paid before issuing the document, which is the most common scenario in online shops.', 'woo-billing-with-invoicexpress' ),
+							'suffix'      => sprintf(
+								/* translators: %s: document type */
+								__( 'Allow issuing %s', 'woo-billing-with-invoicexpress' ),
+								__( 'Invoice-receipts', 'woo-billing-with-invoicexpress' )
+							),
+							'type'        => 'checkbox',
+						),
+						'hd_wc_ie_plus_send_invoice_receipt' => array(
+							'title'        => sprintf(
+								/* translators: %s: document type */
+								__( 'Email %s', 'woo-billing-with-invoicexpress' ),
+								__( 'Invoice-receipt', 'woo-billing-with-invoicexpress' )
+							),
+							'suffix'       => sprintf(
+								/* translators: %s: document type */
+								__( 'Send %s to customer by email', 'woo-billing-with-invoicexpress' ),
+								__( 'Invoice-receipt', 'woo-billing-with-invoicexpress' )
+							),
+							'type'         => 'checkbox',
+							'parent_field' => 'hd_wc_ie_plus_invoice_receipt',
+							'parent_value' => '1',
+						),
+						'hd_wc_ie_plus_invoice_receipt_email_subject' => array(
+							'title'                  => sprintf(
+								/* translators: %s: document type */
+								__( '%s email subject', 'woo-billing-with-invoicexpress' ),
+								__( 'Invoice-receipt', 'woo-billing-with-invoicexpress' )
+							),
+							'description'            => $this->get_settings()->get_email_fields_info(),
+							'type'                   => 'text',
+							'placeholder'            => sprintf(
+								/* translators: %s: document type */
+								__( '%s for order #{order_number} on {site_title}', 'woo-billing-with-invoicexpress' ),
+								__( 'Invoice-receipt', 'woo-billing-with-invoicexpress' )
+							),
+							'placeholder_as_default' => true,
+							'parent_field'           => 'hd_wc_ie_plus_send_invoice_receipt',
+							'parent_value'           => '1',
+							'wpml'                   => true,
+						),
+						'hd_wc_ie_plus_invoice_receipt_email_heading' => array(
+							'title'                  => sprintf(
+								/* translators: %s: document type */
+								__( '%s email heading', 'woo-billing-with-invoicexpress' ),
+								__( 'Invoice-receipt', 'woo-billing-with-invoicexpress' )
+							),
+							'description'            => $this->get_settings()->get_email_fields_info(),
+							'type'                   => 'text',
+							'placeholder'            => sprintf(
+								/* translators: %s: document type */
+								__( '%s for order #{order_number}', 'woo-billing-with-invoicexpress' ),
+								__( 'Invoice-receipt', 'woo-billing-with-invoicexpress' )
+							),
+							'placeholder_as_default' => true,
+							'parent_field'           => 'hd_wc_ie_plus_send_invoice_receipt',
+							'parent_value'           => '1',
+							'wpml'                   => true,
+						),
+						'hd_wc_ie_plus_invoice_receipt_email_body' => array(
+							'title'                  => sprintf(
+								/* translators: %s: document type */
+								__( '%s email body', 'woo-billing-with-invoicexpress' ),
+								__( 'Invoice-receipt', 'woo-billing-with-invoicexpress' )
+							),
+							'description'            => $this->get_settings()->get_email_fields_info(),
+							'type'                   => 'textarea',
+							'placeholder'            => sprintf(
+								/* translators: %s: document type */
+								__( 'Hi {customer_name},
+
+Please find attached your %s for order #{order_number} from {order_date} on {site_title}.
+
+Thank you.', 'woo-billing-with-invoicexpress' ),
+								__( 'Invoice-receipt', 'woo-billing-with-invoicexpress' )
+							),
+							'placeholder_as_default' => true,
+							'custom_attributes'      => array(
+								'rows' => 8,
+							),
+							'parent_field'           => 'hd_wc_ie_plus_send_invoice_receipt',
+							'parent_value'           => '1',
+							'wpml'                   => true,
+						),
+					),
+				),
 				'ix_invoices_invoices'            => array(
 					'title'       => __( 'Invoices', 'woo-billing-with-invoicexpress' ),
 					'description' => '',
 					'fields'      => array(
 						'hd_wc_ie_plus_create_invoice'     => array(
-							'title'  => sprintf(
+							'title'       => sprintf(
 								/* translators: %s: document type */
 								__( 'Issue %s', 'woo-billing-with-invoicexpress' ),
 								__( 'Invoice', 'woo-billing-with-invoicexpress' )
 							),
-							'suffix' => sprintf(
+							'description' => __( 'Not recommended if you’re getting paid before issuing the document, because you’ll have to issue a receipt afterward.', 'woo-billing-with-invoicexpress' ),
+							'suffix'      => sprintf(
 								/* translators: %s: document type */
 								__( 'Allow issuing %s', 'woo-billing-with-invoicexpress' ),
 								__( 'Invoices', 'woo-billing-with-invoicexpress' )
 							),
-							'type'   => 'checkbox',
+							'type'        => 'checkbox',
 						),
 						'hd_wc_ie_plus_create_bulk_invoice' => array(
 							'title'  => sprintf(
@@ -165,17 +262,18 @@ Thank you.', 'woo-billing-with-invoicexpress' ),
 					'description' => __( 'Only available for Portuguese InvoiceXpress accounts.', 'woo-billing-with-invoicexpress' ),
 					'fields'      => array(
 						'hd_wc_ie_plus_create_simplified_invoice' => array(
-							'title'  => sprintf(
+							'title'       => sprintf(
 								/* translators: %s: document type */
 								__( 'Issue %s', 'woo-billing-with-invoicexpress' ),
 								__( 'Simplified invoice', 'woo-billing-with-invoicexpress' )
 							),
-							'suffix' => sprintf(
+							'description' => __( 'Not recommended if you’re getting paid before issuing the document, because you’ll have to issue a receipt afterward.', 'woo-billing-with-invoicexpress' ),
+							'suffix'      => sprintf(
 								/* translators: %s: document type */
 								__( 'Allow issuing %s', 'woo-billing-with-invoicexpress' ),
 								__( 'Simplified invoices', 'woo-billing-with-invoicexpress' )
 							),
-							'type'   => 'checkbox',
+							'type'        => 'checkbox',
 						),
 						'hd_wc_ie_plus_send_simplified_invoice' => array(
 							'title'        => sprintf(
@@ -258,6 +356,8 @@ Thank you.', 'woo-billing-with-invoicexpress' ),
 				'ix_invoices_receipts'    => array(
 					'title'       => __( 'Receipts', 'woo-billing-with-invoicexpress' ),
 					'description' => '',
+					'parent_field' => array( 'hd_wc_ie_plus_create_invoice', 'hd_wc_ie_plus_create_simplified_invoice' ),
+					'parent_value' => '1',
 					'fields'      => array(
 						'hd_wc_ie_plus_invoice_payment' => array(
 							'title'       => sprintf(
@@ -339,101 +439,6 @@ Thank you.', 'woo-billing-with-invoicexpress' ),
 								'rows' => 8,
 							),
 							'parent_field'           => 'hd_wc_ie_plus_send_receipt',
-							'parent_value'           => '1',
-							'wpml'                   => true,
-						),
-					),
-				),
-				'ix_invoices_invoices_receipt'    => array(
-					'title'       => __( 'Invoice-receipts', 'woo-billing-with-invoicexpress' ),
-					'description' => '',
-					'fields'      => array(
-						'hd_wc_ie_plus_invoice_receipt' => array(
-							'title'  => sprintf(
-								/* translators: %s: document type */
-								__( 'Issue %s', 'woo-billing-with-invoicexpress' ),
-								__( 'Invoice-receipt', 'woo-billing-with-invoicexpress' )
-							),
-							'suffix' => sprintf(
-								/* translators: %s: document type */
-								__( 'Allow issuing %s', 'woo-billing-with-invoicexpress' ),
-								__( 'Invoice-receipts', 'woo-billing-with-invoicexpress' )
-							),
-							'type'   => 'checkbox',
-						),
-						'hd_wc_ie_plus_send_invoice_receipt' => array(
-							'title'        => sprintf(
-								/* translators: %s: document type */
-								__( 'Email %s', 'woo-billing-with-invoicexpress' ),
-								__( 'Invoice-receipt', 'woo-billing-with-invoicexpress' )
-							),
-							'suffix'       => sprintf(
-								/* translators: %s: document type */
-								__( 'Send %s to customer by email', 'woo-billing-with-invoicexpress' ),
-								__( 'Invoice-receipt', 'woo-billing-with-invoicexpress' )
-							),
-							'type'         => 'checkbox',
-							'parent_field' => 'hd_wc_ie_plus_invoice_receipt',
-							'parent_value' => '1',
-						),
-						'hd_wc_ie_plus_invoice_receipt_email_subject' => array(
-							'title'                  => sprintf(
-								/* translators: %s: document type */
-								__( '%s email subject', 'woo-billing-with-invoicexpress' ),
-								__( 'Invoice-receipt', 'woo-billing-with-invoicexpress' )
-							),
-							'description'            => $this->get_settings()->get_email_fields_info(),
-							'type'                   => 'text',
-							'placeholder'            => sprintf(
-								/* translators: %s: document type */
-								__( '%s for order #{order_number} on {site_title}', 'woo-billing-with-invoicexpress' ),
-								__( 'Invoice-receipt', 'woo-billing-with-invoicexpress' )
-							),
-							'placeholder_as_default' => true,
-							'parent_field'           => 'hd_wc_ie_plus_send_invoice_receipt',
-							'parent_value'           => '1',
-							'wpml'                   => true,
-						),
-						'hd_wc_ie_plus_invoice_receipt_email_heading' => array(
-							'title'                  => sprintf(
-								/* translators: %s: document type */
-								__( '%s email heading', 'woo-billing-with-invoicexpress' ),
-								__( 'Invoice-receipt', 'woo-billing-with-invoicexpress' )
-							),
-							'description'            => $this->get_settings()->get_email_fields_info(),
-							'type'                   => 'text',
-							'placeholder'            => sprintf(
-								/* translators: %s: document type */
-								__( '%s for order #{order_number}', 'woo-billing-with-invoicexpress' ),
-								__( 'Invoice-receipt', 'woo-billing-with-invoicexpress' )
-							),
-							'placeholder_as_default' => true,
-							'parent_field'           => 'hd_wc_ie_plus_send_invoice_receipt',
-							'parent_value'           => '1',
-							'wpml'                   => true,
-						),
-						'hd_wc_ie_plus_invoice_receipt_email_body' => array(
-							'title'                  => sprintf(
-								/* translators: %s: document type */
-								__( '%s email body', 'woo-billing-with-invoicexpress' ),
-								__( 'Invoice-receipt', 'woo-billing-with-invoicexpress' )
-							),
-							'description'            => $this->get_settings()->get_email_fields_info(),
-							'type'                   => 'textarea',
-							'placeholder'            => sprintf(
-								/* translators: %s: document type */
-								__( 'Hi {customer_name},
-
-Please find attached your %s for order #{order_number} from {order_date} on {site_title}.
-
-Thank you.', 'woo-billing-with-invoicexpress' ),
-								__( 'Invoice-receipt', 'woo-billing-with-invoicexpress' )
-							),
-							'placeholder_as_default' => true,
-							'custom_attributes'      => array(
-								'rows' => 8,
-							),
-							'parent_field'           => 'hd_wc_ie_plus_send_invoice_receipt',
 							'parent_value'           => '1',
 							'wpml'                   => true,
 						),
@@ -564,6 +569,7 @@ Thank you.', 'woo-billing-with-invoicexpress' ),
 							),
 							'description'  => __( 'For both manual or automatic Invoices - Recommended if you are getting prepaid, before shipping and issuing the invoice', 'woo-billing-with-invoicexpress' ),
 							'type'         => 'checkbox',
+							'class'        => array( 'only-for-invoice-or-simplified' ),
 						),
 						'hd_wc_ie_plus_automatic_receipt_state' => array(
 							'title'        => __( 'Automatic receipt trigger', 'woo-billing-with-invoicexpress' ),

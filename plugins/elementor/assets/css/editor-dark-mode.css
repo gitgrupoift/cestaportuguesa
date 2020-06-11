@@ -1,4 +1,4 @@
-/*! elementor - v2.9.8 - 21-04-2020 */
+/*! elementor - v2.9.11 - 02-06-2020 */
 body {
   color: #E0E1E3; }
   body .pcr-app {
@@ -214,6 +214,9 @@ a.elementor-responsive-switcher {
 
 .elementor-control-media .elementor-control-media__tool {
   background-color: #7D7E82; }
+
+.elementor-control-media__file, .elementor-control-media__file__controls {
+  border-color: #64666A; }
 
 .elementor-control-media-area, .pcr-app[data-theme=monolith] .pcr-color-palette, .pcr-button {
   background-image: -webkit-linear-gradient(45deg, #34383C 25%, transparent 25%, transparent 75%, #34383C 75%, #34383C), -webkit-linear-gradient(45deg, #34383C 25%, transparent 25%, transparent 75%, #34383C 75%, #34383C);

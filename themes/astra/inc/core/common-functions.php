@@ -29,7 +29,6 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 		// bail early if color's not set.
 		if ( 'transparent' == $hex || 'false' == $hex || '#' == $hex || empty( $hex ) ) {
 			return 'transparent';
-
 		}
 
 		// Get clean hex code.
@@ -37,6 +36,19 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 
 		if ( 3 == strlen( $hex ) ) {
 			$hex = str_repeat( substr( $hex, 0, 1 ), 2 ) . str_repeat( substr( $hex, 1, 1 ), 2 ) . str_repeat( substr( $hex, 2, 1 ), 2 );
+		}
+
+		if ( strpos( $hex, 'rgba' ) !== false ) {
+
+			$rgba = preg_replace( '/[^0-9,]/', '', $hex );
+			$rgba = explode( ',', $rgba );
+
+			$hex = sprintf( '#%02x%02x%02x', $rgba[0], $rgba[1], $rgba[2] );
+		}
+
+		// Return if non hex.
+		if ( ! ctype_xdigit( $hex ) ) {
+			return $hex;
 		}
 
 		// Get r, g & b codes from hex code.
@@ -987,6 +999,11 @@ if ( ! function_exists( 'astra_adjust_brightness' ) ) {
 
 		// Get rgb vars.
 		$hex = str_replace( '#', '', $hex );
+
+		// Return if non hex.
+		if ( ! ctype_xdigit( $hex ) ) {
+			return $hex;
+		}
 
 		$shortcode_atts = array(
 			'r' => hexdec( substr( $hex, 0, 2 ) ),

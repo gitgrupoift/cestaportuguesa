@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="https://gmpg.org/xfn/11">
-                <meta name="msvalidate.01" content="30ED47E52EA97FC7498CBC131056FBDC" />
+
 <?php wp_head(); ?>
 <?php astra_head_bottom(); ?>
 </head>

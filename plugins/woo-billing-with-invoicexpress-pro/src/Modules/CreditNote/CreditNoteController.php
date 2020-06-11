@@ -115,8 +115,14 @@ class CreditNoteController extends BaseController {
 					do_action( 'invoicexpress_woocommerce_error', $error_notice, $order_object );
 					return;
 				}*/
-				if ( ! $refund->get_items() ) {
-					//Partial refund by value - We do NOT support this and should return now
+				if (
+					( ! $refund->get_items() )
+					&&
+					( ! $refund->get_shipping_method() )
+					&&
+					( ! $refund->get_fees() )
+				) {
+					//Partial refund by value - We do NOT support this and should return now - We do allow refund of shipping costs and fees alone
 					$error_notice = sprintf(
 						'<strong>%s:</strong> %s',
 						__( 'InvoiceXpress error', 'woo-billing-with-invoicexpress' ),
@@ -129,7 +135,7 @@ class CreditNoteController extends BaseController {
 					do_action( 'invoicexpress_woocommerce_error', $error_notice, $order_object );
 					return;
 				}
-				//Partial refund by items
+				//Partial refund by items (or shipping cost or fees)
 				$refund_object = 'refund';
 			} else {
 				//Total refund
@@ -240,9 +246,15 @@ class CreditNoteController extends BaseController {
 					if ( $order_object->get_total() > 0 && $order_object->get_total_tax() == 0 && $order_object->get_meta( '_billing_tax_exemption_reason' ) != '' ) {
 						$vat = get_option( 'hd_wc_ie_plus_exemption_name' );
 					}
+					if ( apply_filters( 'invoicexpress_woocommerce_shipping_and_fee_ref_unique', true ) ) {
+						$ref = 'SHIP';
+					} else {
+						//Old way
+						$ref = '#S-' . $key;
+					}
 
 					$item_data = array(
-						'name'        => $item['name'],
+						'name'        => $ref,
 						'description' => $item['name'],
 						'unit_price'  => abs( $item['cost'] ),
 						'quantity'    => 1,
@@ -259,8 +271,14 @@ class CreditNoteController extends BaseController {
 			}
 
 			foreach ( $$refund_object->get_fees() as $key => $item ) { // Total: $order_object | Parcial: $refund ?
+				if ( apply_filters( 'invoicexpress_woocommerce_shipping_and_fee_ref_unique', true ) ) {
+					$ref = 'FEE';
+				} else {
+					//Old way
+					$ref = '#F-' . $key;
+				}
 				$item_data = array(
-					'name'        => '#' . $key,
+					'name'        => $ref,
 					'description' => $item['name'],
 					'unit_price'  => abs( $item['line_total'] ),
 					'quantity'    => 1,
@@ -326,7 +344,7 @@ class CreditNoteController extends BaseController {
 			}
 			$invoice_data = array(
 				'date'             => date_i18n( 'd/m/Y' ),
-				'due_date'         => $this->get_due_date( 'credit_note' ),
+				'due_date'         => $this->get_due_date( 'credit_note', $$refund_object ),
 				'reference'        => $this->get_order_number( $order_object ),
 				'client'           => $client_data,
 				'items'            => $items,

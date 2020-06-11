@@ -452,4 +452,33 @@ class VatController {
 			$order_object->save();
 		}
 	}
+
+	/**
+	 * Register hooks.
+	 *
+	 * @since 2.6.2
+	 */
+	public static function get_exemption_reasons() {
+		return array(
+			'M01'   => 'M01 - Artigo 16.º n.º 6 alínea c) do CIVA',
+			'M02'   => 'M02 - Artigo 6.º do Decreto‐Lei n.º 198/90, de 19 de Junho',
+			'M03'   => 'M03 - Exigibilidade de caixa',
+			'M04'   => 'M04 - Isento - Artigo 13.º do CIVA',
+			'M05'   => 'M05 - Isento - Artigo 14.º do CIVA',
+			'M06'   => 'M06 - Isento - Artigo 15.º do CIVA',
+			'M07'   => 'M07 - Isento - Artigo 9.º do CIVA',
+			'M08'   => 'M08 - IVA - Autoliquidação',
+			'M09'   => 'M09 - IVA - não confere direito a dedução',
+			'M10'   => 'M10 - Regime de isenção de IVA - Artigo 53.º do CIVA',
+			'M11'   => 'M11 - Não tributado',
+			'M12'   => 'M12 - Regime da margem de lucro – Agências de Viagens',
+			'M13'   => 'M13 - Regime da margem de lucro – Bens em segunda mão',
+			'M14'   => 'M14 - Regime da margem de lucro – Objetos de arte',
+			'M15'   => 'M15 - Regime da margem de lucro – Objetos de coleção e antiguidades',
+			'M16'   => 'M16 - Isento - Artigo 14.º do RITI',
+			'M99'   => 'M99 - Não sujeito; não tributado (ou similar)',
+			'M99-2' => 'M99-2 - Lei n.º 13/2020 de 7 de Maio 2020 - Artigo 1.º alínea a)',
+		);
+	}
+
 }

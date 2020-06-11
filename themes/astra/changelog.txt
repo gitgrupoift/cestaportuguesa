@@ -1,3 +1,22 @@
+v2.4.5
+- Improvement: Transparent Header Logo notice in Site Identity section if the logo is set from Transparent Header in customizer.
+- Fix: Toggle Button contrast color not working properly.
+- Fix: Introducing new CSS class for Single Product having stock available in backorder. (props @pippyn)
+- Fix: Transparent Header Logo disappearing when Site Identity Logo is removed in the customizer.
+- Fix: Read Time meta option appearing in customizer even when Addon is deactivated.
+- Fix: Space appearing below Elementor Heading after updating Elementor plugin to v2.9.9 and above.
+
+v2.4.4
+- Improvement: Gutenberg editor improvements.
+- Improvement: Hardened the security of theme.
+- Fix: Added ID attribute for WP Header and WP Footer schema.
+- Fix: Different image size on elementor product pages in mobile view. 
+- Fix: Renamed .hidden CSS class to .ast-hidden to avoid conflict with other plugins.
+- Fix: UAE Nav Menu widget conflict with Mega Menu.
+- Fix: Submenu icon not appearing properly on AMP pages.
+- Fix: Transparent header bottom border is not working on mobile and tablet.
+- Fix: Prevent PHP notice for PHP 7.4.
+
 v2.4.3
 - New: Users can now share non-personal usage data to help us test and develop better products. ( https://store.brainstormforce.com/usage-tracking/?utm_source=wp_dashboard&utm_medium=general_settings&utm_campaign=usage_tracking )
 - Fix: Updated Breadcrumb schema.

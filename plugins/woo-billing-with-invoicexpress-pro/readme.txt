@@ -6,6 +6,6 @@ Plugin URI: https://invoicewoo.com
 Requires at least: 4.9
 Requires PHP: 5.6
 Tested up to: 5.5
-Stable tag: 2.6.1
+Stable tag: 2.7.0
 
 WooCommerce manual and automatic legal invoicing made easy with InvoiceXpress integration.

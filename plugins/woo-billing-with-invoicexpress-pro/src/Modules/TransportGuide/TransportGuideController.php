@@ -231,7 +231,7 @@ class TransportGuideController extends BaseController {
 
 			$invoice_data = array(
 				'date'             => date_i18n( 'd/m/Y' ),
-				'due_date'         => $this->get_due_date( 'transport_guide' ),
+				'due_date'         => $this->get_due_date( 'transport_guide', $order_object ),
 				'loaded_at'        => $loaded_at_time,
 				'license_plate'    => $license_plate,
 				'address_from'     => $address_from_data,
@@ -264,6 +264,7 @@ class TransportGuideController extends BaseController {
 				'request' => 'transports.json',
 				'args'    => array(
 					'transport' => $invoice_data
+					//'shipping' => $invoice_data
 				),
 			);
 			$json_request = new JsonRequest( $params );

@@ -128,7 +128,7 @@ class ProformaController extends BaseController {
 
 			$invoice_data = array(
 				'date'             => date_i18n( 'd/m/Y' ),
-				'due_date'         => $this->get_due_date( 'proforma' ),
+				'due_date'         => $this->get_due_date( 'proforma', $order_object ),
 				'reference'        => $this->get_order_number( $order_object ),
 				'client'           => $client_data,
 				'items'            => $items_data,

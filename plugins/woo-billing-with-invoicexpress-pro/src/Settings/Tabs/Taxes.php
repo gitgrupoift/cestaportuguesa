@@ -1,6 +1,7 @@
 <?php
 
 namespace Webdados\InvoiceXpressWooCommerce\Settings\Tabs;
+use Webdados\InvoiceXpressWooCommerce\Modules\Vat\VatController as VatController;
 
 /**
  * Register taxes settings.
@@ -21,6 +22,8 @@ class Taxes extends \Webdados\InvoiceXpressWooCommerce\Settings\Tabs {
 		if ( ! $this->settings->check_requirements() ) {
 			return;
 		}
+
+		$exemption_reasons = VatController::get_exemption_reasons();
 
 		$settings = array(
 			'title'    => __( 'Taxes', 'woo-billing-with-invoicexpress' ),
@@ -105,7 +108,7 @@ class Taxes extends \Webdados\InvoiceXpressWooCommerce\Settings\Tabs {
 					'title'       => __( 'Tax exemption', 'woo-billing-with-invoicexpress' ),
 					'description' => sprintf(
 						/* translators: %1$s: link tag opening, %2$s: plugin name, %3$s: link tag closing, %4$s: link tag opening, %5$s: plugin name, %6$s: link tag closing */
-						__( 'On B2B transactions inside the EU, the exemption (Artigo 14.º do RITI) will only be applied if you install and correctly configure the free %1$s%2$s%3$s plugin by Aelia or the %4$s%5$s%6$s plugin by WooCommerce (experimental support).<br/>This is currently only supported for sellers that are Portuguese companies.<br/>You only need one of the plugins and only if you do B2B transactions inside the EU.', 'woo-billing-with-invoicexpress' ),
+						__( 'On B2B transactions inside the EU, the exemption (M16 Artigo 14.º do RITI or M08 Artigo 6.º do CIVA) will only be applied if you install and correctly configure the free %1$s%2$s%3$s plugin by Aelia or the %4$s%5$s%6$s plugin by WooCommerce (experimental support).<br/>This is currently only supported for sellers that are Portuguese companies.<br/>You only need one of the plugins and only if you do B2B transactions inside the EU.', 'woo-billing-with-invoicexpress' ),
 						'<a href="https://wordpress.org/plugins/woocommerce-eu-vat-assistant/" target="_blank">',
 						__( 'WooCommerce EU VAT Assistant', 'woo-billing-with-invoicexpress' ),
 						'</a>',
@@ -114,6 +117,11 @@ class Taxes extends \Webdados\InvoiceXpressWooCommerce\Settings\Tabs {
 						'</a>'
 					),
 					'fields'      => array(
+						'hd_wc_ie_plus_exemption_name'   => array(
+							'title'       => __( 'Tax exemption name', 'woo-billing-with-invoicexpress' ),
+							'description' => __( 'This should be the 0% tax name defined on your InvoiceXpress account', 'woo-billing-with-invoicexpress' ),
+							'type'        => 'text',
+						),
 						'hd_wc_ie_plus_exemption_reason' => array(
 							'title'       => __( 'Tax exemption motive', 'woo-billing-with-invoicexpress' ),
 							'description' => __( 'You should set a Tax exemption motive if your business is exempt from taxes', 'woo-billing-with-invoicexpress' ).(
@@ -121,44 +129,40 @@ class Taxes extends \Webdados\InvoiceXpressWooCommerce\Settings\Tabs {
 								?
 								sprintf(
 									' (%s)',
-									__( 'not applicable for B2B within the EU, which will be "Artigo 14.º do RITI" automatically', 'woo-billing-with-invoicexpress' )
+									__( 'not applicable for B2B within the EU, which will be M16 or M08 automatically', 'woo-billing-with-invoicexpress' )
 								)
 								:
 								''
 							),
 							'type'        => 'select',
-							'options'     => array(
-								''    => __( 'No exemption applicable', 'woo-billing-with-invoicexpress' ),
-								'M01' => 'Artigo 16.º n.º 6 alínea c) do CIVA',
-								'M02' => 'Artigo 6.º do Decreto‐Lei n.º 198/90, de 19 de Junho',
-								'M03' => 'Exigibilidade de caixa',
-								'M04' => 'Isento - Artigo 13.º do CIVA',
-								'M05' => 'Isento - Artigo 14.º do CIVA',
-								'M06' => 'Isento - Artigo 15.º do CIVA	',
-								'M07' => 'Isento - Artigo 9.º do CIVA',
-								'M08' => 'IVA - Autoliquidação',
-								'M09' => 'IVA - não confere direito a dedução',
-								'M10' => 'Regime de isenção de IVA - Artigo 53.º do CIVA',
-								'M11' => 'Não tributado',
-								'M12' => 'Regime da margem de lucro – Agências de Viagens',
-								'M13' => 'Regime da margem de lucro – Bens em segunda mão',
-								'M14' => 'Regime da margem de lucro – Objetos de arte',
-								'M15' => 'Regime da margem de lucro – Objetos de coleção e antiguidades',
-								'M16' => 'Isento - Artigo 14.º do RITI',
-								'M99' => 'Não sujeito; não tributado (ou similar)',
+							'options'     => array_merge(
+								array(
+									'' => __( 'No exemption applicable', 'woo-billing-with-invoicexpress' )
+								),
+								$exemption_reasons
 							),
 							'parent_field' => 'hd_wc_ie_plus_tax_country',
 							'parent_value' => '1',
-						),
-						'hd_wc_ie_plus_exemption_name'   => array(
-							'title'       => __( 'Tax exemption name', 'woo-billing-with-invoicexpress' ),
-							'description' => __( 'This should be the 0% tax name defined on your InvoiceXpress account', 'woo-billing-with-invoicexpress' ),
-							'type'        => 'text',
 						),
 					),
 				),
 			),
 		);
+
+		if ( $this->plugin->aelia_eu_vat_assistant_active || $this->plugin->woocommerce_eu_vat_field_active ) {
+			//$exemption_reasons
+			$settings['sections']['ix_taxes_exemption']['fields']['hd_wc_ie_plus_exemption_reason_eu_b2b'] = array(
+				'title'       => __( 'Tax exemption for EU B2B', 'woo-billing-with-invoicexpress' ),
+				'description' => __( 'The exemption motive to use on B2B transactions inside the EU', 'woo-billing-with-invoicexpress' ),
+				'type'        => 'select',
+				'options'     => array(
+					'M16' => $exemption_reasons['M16'].' ('.__( 'normally for products', 'woo-billing-with-invoicexpress' ).')',
+					'M08' => $exemption_reasons['M08'].' ('.__( 'normally for services', 'woo-billing-with-invoicexpress' ).')',
+				),
+				'parent_field' => 'hd_wc_ie_plus_tax_country',
+				'parent_value' => '1',
+			);
+		}
 
 		return apply_filters( 'invoicexpress_woocommerce_registered_taxes_settings', $settings );
 	}
