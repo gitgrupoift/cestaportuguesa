@@ -5,7 +5,7 @@
 *.sqlite
 node_modules/
 
-plugins/woocommerce/
-plugins/woo-billing-with-invoicexpress-pro/
-plugins/elementor/
-uploads/
+/plugins/woocommerce/
+/plugins/woo-billing-with-invoicexpress-pro/
+/plugins/elementor/
+/uploads/
